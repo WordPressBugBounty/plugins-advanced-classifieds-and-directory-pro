@@ -425,6 +425,10 @@ class ACADP_Admin_Fields {
 	 */
 	public function remove_row_actions( $actions, $post ) {	
 		global $current_screen;
+
+		if ( ! isset( $current_screen ) ) {
+			return $actions;
+		}
 		
 		if ( 'acadp_fields' != $current_screen->post_type ) {
 			return $actions;

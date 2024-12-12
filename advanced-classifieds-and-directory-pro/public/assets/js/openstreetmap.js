@@ -75,6 +75,7 @@
 				}
 
 				markers.addLayer( marker );
+				markerEl.remove();
 			});
 
 			map.addLayer( markers );

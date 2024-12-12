@@ -357,7 +357,7 @@ function acadp_listing_expiry_date( $post_id, $start_date = NULL, $never_expires
 	$date->add( new DateInterval( "P{$days}D" ) );
 	
 	// return
-	return $date->format( 'Y-m-d H:i:s' );	
+	return apply_filters( 'acadp_listing_expiry_date', $date->format( 'Y-m-d H:i:s' ), $post_id, $start_date, $never_expires );	
 }
 
 /**

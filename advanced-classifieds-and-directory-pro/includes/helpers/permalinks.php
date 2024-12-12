@@ -352,7 +352,7 @@ function acadp_get_checkout_page_link( $listing_id ) {
 		}
 	}
   
-	return $link;
+	return apply_filters( 'acadp_checkout_page_link', $link, $listing_id );
 }
 
 /**
