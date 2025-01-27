@@ -1580,7 +1580,7 @@ function acadp_get_custom_fields_listings_archive() {
 	$args = array(
 		'post_type' => 'acadp_fields',
 		'post_status' => 'publish',
-		'posts_per_page' => 100,
+		'posts_per_page' => 500,
 		'meta_query' => array(
 			array(
 				'key' => 'listings_archive',

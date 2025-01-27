@@ -11,7 +11,7 @@
  * Plugin Name:     Advanced Classifieds and Directory Pro
  * Plugin URI:      https://pluginsware.com/
  * Description:     Provides an ability to build any kind of business directory site: classifieds, cars, bikes, boats and other vehicles dealers site, pets, real estate portal, wedding site, yellow pages, etc...
- * Version:         3.2.4
+ * Version:         3.2.5
  * Author:          PluginsWare
  * Author URI:      https://pluginsware.com/
  * License:         GPL-2.0+
@@ -71,7 +71,7 @@ if ( !defined( 'ACADP_PLUGIN_NAME' ) ) {
 }
 // The current version of the plugin
 if ( !defined( 'ACADP_VERSION_NUM' ) ) {
-    define( 'ACADP_VERSION_NUM', '3.2.4' );
+    define( 'ACADP_VERSION_NUM', '3.2.5' );
 }
 // Path to the plugin directory
 if ( !defined( 'ACADP_PLUGIN_DIR' ) ) {
