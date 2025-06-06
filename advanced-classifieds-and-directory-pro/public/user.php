@@ -376,8 +376,11 @@ class ACADP_Public_User {
 					if ( $has_featured ) {
 						$args['meta_key'] = 'featured';
 						$args['orderby']  = 'meta_value_num rand';
+
+						add_filter( 'posts_orderby', 'acadp_orderby_featured_and_rand', 10, 2 );
 					} else {
-						$args['orderby'] = 'rand';
+						$seed = acadp_get_orderby_rand_seed();
+						$args['orderby'] = "RAND({$seed})";
 					};
 					break;
 			}
@@ -1401,8 +1404,11 @@ class ACADP_Public_User {
 				if ( $has_featured ) {
 					$args['meta_key'] = 'featured';
 					$args['orderby']  = 'meta_value_num rand';
+
+					add_filter( 'posts_orderby', 'acadp_orderby_featured_and_rand', 10, 2 );
 				} else {
-					$args['orderby'] = 'rand';
+					$seed = acadp_get_orderby_rand_seed();
+					$args['orderby'] = "RAND({$seed})";
 				};
 				break;
 		}

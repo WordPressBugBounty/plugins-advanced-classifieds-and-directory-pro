@@ -208,6 +208,29 @@ class ACADP_Public {
 	}
 	
 	/**
+	 * Set MySQL's RAND function seed value in a cookie.
+	 *
+	 * @since 3.2.6
+	 */
+	public function set_mysql_rand_seed_value() {
+		if ( headers_sent() ) {
+			return false;
+		}
+		
+		$paged = acadp_get_page_number();
+		if ( ! isset( $_COOKIE['acadp_rand_seed'] ) || $paged == 1 ) {
+			$cookie_path   = defined( 'COOKIEPATH' ) ? COOKIEPATH : '/';
+			$cookie_domain = defined( 'COOKIE_DOMAIN' ) ? COOKIE_DOMAIN : $_SERVER['HTTP_HOST'];
+			$seed          = wp_rand();
+
+			setcookie( 'acadp_rand_seed', $seed, time() + DAY_IN_SECONDS, $cookie_path, $cookie_domain );
+
+			// Update $_COOKIE for immediate use in this request
+			$_COOKIE['acadp_rand_seed'] = $seed;
+		}
+	}	
+
+	/**
 	 * Flush rewrite rules when it's necessary.
 	 *
 	 * @since 1.0.0

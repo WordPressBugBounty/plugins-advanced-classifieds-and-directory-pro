@@ -237,7 +237,8 @@ class ACADP_Widget_Listings extends WP_Widget {
 				$query['order']    = $order;
 				break;
 			case 'rand' :
-				$query['orderby'] = $orderby;
+				$seed = acadp_get_orderby_rand_seed();
+				$query['orderby'] = "RAND({$seed})";
 				break;
 			default :
 				$query['orderby'] = $orderby;

@@ -146,7 +146,7 @@
         <?php if ( $instance['has_featured'] ) : ?>
             <div class="acadp-form-group">
                 <label for="<?php echo esc_attr( $this->get_field_id( 'featured' ) ); ?>" class="acadp-flex acadp-gap-1.5 acadp-items-center">
-                    <input type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'featured' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'featured' ) ); ?>" class="acadp-form-control acadp-form-checkbox" alue="1" <?php checked( $instance['featured'] ); ?> />
+                    <input type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'featured' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'featured' ) ); ?>" class="acadp-form-control acadp-form-checkbox" value="1" <?php checked( $instance['featured'] ); ?> />
                     <?php esc_html_e( 'Featured only', 'advanced-classifieds-and-directory-pro' ); ?>
                 </label>
             </div>

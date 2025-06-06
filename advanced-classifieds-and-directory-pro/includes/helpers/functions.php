@@ -2225,6 +2225,45 @@ function acadp_get_location_coordinates( $term_id ) {
 }
 
 /**
+ * Get MySQL's RAND function seed value.
+ * 
+ * @since  3.2.6
+ * @return int   Seed value.
+ */
+function acadp_get_orderby_rand_seed() {
+	return isset( $_COOKIE['acadp_rand_seed'] ) ? (int) $_COOKIE['acadp_rand_seed'] : wp_rand();
+}
+
+/**
+ * Filters the ORDER BY clause to sort posts by the 'featured' meta value (numerically)
+ * followed by a seeded random order.
+ *
+ * @since  3.2.6
+ * @param  string   $orderby The existing ORDER BY clause.
+ * @param  WP_Query $query   The current WP_Query instance.
+ * @return string            Modified ORDER BY clause with featured sorting and seeded randomization.
+ */
+function acadp_orderby_featured_and_rand( $orderby, $query ) {
+    global $wpdb;
+
+    // Apply only to main query or a specific use-case, if needed
+	if ( ! $query->get( 'meta_key' ) || 'featured' !== $query->get( 'meta_key' ) ) {
+        return $orderby;
+    }
+
+    if ( ! $query->get( 'orderby' ) || 'meta_value_num rand' !== $query->get( 'orderby' ) ) {
+        return $orderby;
+    }
+
+    // Remove the filter to avoid affecting other queries
+    remove_filter( 'posts_orderby', 'acadp_orderby_featured_and_rand', 10 );
+
+    // Seeded RAND with numeric sorting on 'featured'
+    $seed = acadp_get_orderby_rand_seed();
+    return "{$wpdb->postmeta}.meta_value+0 DESC, RAND({$seed})";
+}
+
+/**
  * Display plugin status messages.
  *
  * @since 1.8.0

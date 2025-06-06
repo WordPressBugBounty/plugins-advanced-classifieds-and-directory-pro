@@ -326,7 +326,7 @@ if ( isset( $general_settings['required_fields'] ) ) {
             			<div class="col-md-6">
                 			<div class="form-group">
                         		<label class="control-label" for="acadp-price"><?php esc_html_e( 'How much do you want it to be listed for?', 'advanced-classifieds-and-directory-pro' ); ?></label>
-                				<input type="text" name="price" id="acadp-price" class="form-control" value="<?php if ( isset( $post_meta['price'] ) ) echo esc_attr( $post_meta['price'][0] ); ?>" <?php if ( in_array( 'price', $required_fields ) ) echo 'required'; ?>/>
+                				<input type="text" name="price" id="acadp-price" class="form-control" pattern="^(?!0(\.0+)?$)\d+(\.\d{1,2})?$" value="<?php if ( isset( $post_meta['price'] ) ) echo esc_attr( $post_meta['price'][0] ); ?>" <?php if ( in_array( 'price', $required_fields ) ) echo 'required'; ?>/>
                     		</div>
                 		</div>
                 

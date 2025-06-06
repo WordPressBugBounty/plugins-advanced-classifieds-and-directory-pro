@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Advanced Classifieds and Directory Pro\n"
-"POT-Creation-Date: 2024-07-03 10:28+0530\n"
-"PO-Revision-Date: 2024-07-03 10:28+0530\n"
+"POT-Creation-Date: 2025-06-05 14:34+0530\n"
+"PO-Revision-Date: 2025-06-05 14:34+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -10,11 +10,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.6\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr_e;esc_html__;esc_html_e;"
-"_n:1,2\n"
+"X-Poedit-KeywordsList: "
+"__;_e;esc_attr__;esc_attr_e;esc_html__;esc_html_e;_n:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: admin/admin.php:108 includes/activator.php:139
@@ -43,7 +43,8 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: admin/admin.php:293 public/public.php:545
+#: admin/admin.php:293 admin/templates/listings/listing-images.php:52
+#: public/public.php:568
 #: public/templates/deprecated/user/acadp-public-edit-listing-display.php:273
 #: public/templates/deprecated/user/acadp-public-manage-listings-display.php:156
 #: public/templates/user/listing-form.php:283
@@ -433,11 +434,11 @@ msgstr ""
 
 #: admin/listings.php:46 premium/public/slider.php:78
 #: premium/public/slider.php:124 premium/widgets/banner-rotator.php:80
-#: premium/widgets/carousel-slider.php:80 public/categories.php:410
-#: public/listings.php:408 public/locations.php:401 public/search.php:528
+#: premium/widgets/carousel-slider.php:80 public/categories.php:417
+#: public/listings.php:411 public/locations.php:408 public/search.php:531
 #: public/templates/deprecated/user/acadp-public-manage-listings-display.php:41
-#: public/templates/user/manage-listings.php:55 public/user.php:403
-#: public/user.php:1427 widgets/listings.php:271
+#: public/templates/user/manage-listings.php:55 public/user.php:406
+#: public/user.php:1433 widgets/listings.php:272
 msgid "No listings found"
 msgstr ""
 
@@ -2790,10 +2791,6 @@ msgstr ""
 msgid "How much do you want it to be listed for?"
 msgstr ""
 
-#: admin/templates/listings/listing-images.php:52
-msgid "Delete Permanently"
-msgstr ""
-
 #: admin/templates/listings/listing-images.php:65
 #: public/templates/deprecated/user/acadp-public-edit-listing-display.php:287
 #: public/templates/user/listing-form.php:318
@@ -3511,7 +3508,7 @@ msgstr ""
 msgid "Price (high to low)"
 msgstr ""
 
-#: includes/helpers/functions.php:1321 includes/helpers/functions.php:2292
+#: includes/helpers/functions.php:1321 includes/helpers/functions.php:2331
 #: public/registration.php:1005 public/templates/status-messages.php:73
 msgid "Invalid Captcha: Please try again."
 msgstr ""
@@ -3556,33 +3553,33 @@ msgstr ""
 msgid "Search Form"
 msgstr ""
 
-#: includes/helpers/functions.php:2250 public/templates/status-messages.php:24
+#: includes/helpers/functions.php:2289 public/templates/status-messages.php:24
 msgid "Listing saved successfully."
 msgstr ""
 
-#: includes/helpers/functions.php:2256 public/templates/status-messages.php:31
+#: includes/helpers/functions.php:2295 public/templates/status-messages.php:31
 msgid "Sorry, you don't have permission to do this action."
 msgstr ""
 
-#: includes/helpers/functions.php:2262 public/templates/status-messages.php:38
+#: includes/helpers/functions.php:2301 public/templates/status-messages.php:38
 msgid "Listing published successfully."
 msgstr ""
 
-#: includes/helpers/functions.php:2268 public/templates/status-messages.php:45
+#: includes/helpers/functions.php:2307 public/templates/status-messages.php:45
 msgid "Listing updated successfully."
 msgstr ""
 
-#: includes/helpers/functions.php:2274 public/templates/status-messages.php:52
+#: includes/helpers/functions.php:2313 public/templates/status-messages.php:52
 msgid ""
 "Listing submitted successfully and it's pending review. This review process "
 "could take up to 48 hours. Please be patient."
 msgstr ""
 
-#: includes/helpers/functions.php:2280 public/templates/status-messages.php:59
+#: includes/helpers/functions.php:2319 public/templates/status-messages.php:59
 msgid "Listing renewed successfully."
 msgstr ""
 
-#: includes/helpers/functions.php:2286 public/templates/status-messages.php:66
+#: includes/helpers/functions.php:2325 public/templates/status-messages.php:66
 msgid "Listing deleted successfully."
 msgstr ""
 
@@ -3638,9 +3635,9 @@ msgid "Close"
 msgstr ""
 
 #: includes/helpers/permalinks.php:299
-#: public/templates/deprecated/listings/acadp-public-listings-grid-display.php:186
-#: public/templates/deprecated/listings/acadp-public-listings-list-display.php:179
-#: public/templates/deprecated/listings/acadp-public-listings-map-display.php:183
+#: public/templates/deprecated/listings/acadp-public-listings-grid-display.php:188
+#: public/templates/deprecated/listings/acadp-public-listings-list-display.php:181
+#: public/templates/deprecated/listings/acadp-public-listings-map-display.php:185
 msgid "Remove from favourites"
 msgstr ""
 
@@ -3706,7 +3703,16 @@ msgstr ""
 msgid ""
 "Minimum time needed to complete the form. Forms submitted in under 3 seconds "
 "of the page loading are typically spam. Use this field to have form "
-"timeouts, and prevent instant posting. "
+"timeouts, and prevent instant posting."
+msgstr ""
+
+#: premium/admin/antispam.php:90
+msgid "Email Blacklist"
+msgstr ""
+
+#: premium/admin/antispam.php:91
+msgid ""
+"Enter the email address(es) to be blocked in the contact form, one per line."
 msgstr ""
 
 #: premium/admin/fee-plans.php:54
@@ -3888,12 +3894,13 @@ msgstr ""
 msgid "Importing line %d..."
 msgstr ""
 
-#: premium/admin/import-export.php:371 premium/admin/import-export.php:522
-#: premium/admin/import-export.php:579 premium/admin/import-export.php:587
-#: premium/admin/import-export.php:653 premium/admin/import-export.php:661
-#: premium/admin/import-export.php:743 premium/admin/import-export.php:760
-#: premium/admin/import-export.php:823 premium/admin/import-export.php:839
-#: premium/admin/import-export.php:911 premium/admin/import-export.php:949
+#: premium/admin/import-export.php:371 premium/admin/import-export.php:383
+#: premium/admin/import-export.php:533 premium/admin/import-export.php:590
+#: premium/admin/import-export.php:598 premium/admin/import-export.php:664
+#: premium/admin/import-export.php:672 premium/admin/import-export.php:754
+#: premium/admin/import-export.php:771 premium/admin/import-export.php:834
+#: premium/admin/import-export.php:850 premium/admin/import-export.php:922
+#: premium/admin/import-export.php:960
 #, php-format
 msgid "Error on line %d: "
 msgstr ""
@@ -3903,47 +3910,52 @@ msgstr ""
 msgid "Listing with ID \"%d\" doesn't exist"
 msgstr ""
 
-#: premium/admin/import-export.php:388
+#: premium/admin/import-export.php:383
+#, php-format
+msgid "Listing with title \"%s\" already exists"
+msgstr ""
+
+#: premium/admin/import-export.php:399
 #, php-format
 msgid "Listing title: %s"
 msgstr ""
 
-#: premium/admin/import-export.php:522
+#: premium/admin/import-export.php:533
 #, php-format
 msgid "User \"%s\" doesn't exist, listing assigned to site admin"
 msgstr ""
 
-#: premium/admin/import-export.php:579
+#: premium/admin/import-export.php:590
 #, php-format
 msgid "Something went wrong with listing category \"%s\""
 msgstr ""
 
-#: premium/admin/import-export.php:587
+#: premium/admin/import-export.php:598
 #, php-format
 msgid "Listing category \"%s\" wasn't found, was skipped"
 msgstr ""
 
-#: premium/admin/import-export.php:653
+#: premium/admin/import-export.php:664
 #, php-format
 msgid "Something went wrong with listing location \"%s\""
 msgstr ""
 
-#: premium/admin/import-export.php:661
+#: premium/admin/import-export.php:672
 #, php-format
 msgid "Listing location \"%s\" wasn't found, was skipped"
 msgstr ""
 
-#: premium/admin/import-export.php:743 premium/admin/import-export.php:760
-#: premium/admin/import-export.php:823 premium/admin/import-export.php:839
+#: premium/admin/import-export.php:754 premium/admin/import-export.php:771
+#: premium/admin/import-export.php:834 premium/admin/import-export.php:850
 msgid "Unable to find location coordinates (lat, lng)"
 msgstr ""
 
-#: premium/admin/import-export.php:911
+#: premium/admin/import-export.php:922
 #, php-format
 msgid "Image file \"%s\" not found inside the ZIP."
 msgstr ""
 
-#: premium/admin/import-export.php:949
+#: premium/admin/import-export.php:960
 #, php-format
 msgid "Image file \"%s\" could not be inserted."
 msgstr ""
@@ -4346,13 +4358,13 @@ msgstr ""
 msgid "Listings Featured"
 msgstr ""
 
-#: premium/public/antispam.php:206
+#: premium/public/antispam.php:224
 msgid ""
 "Aborted due to spam detection. Sorry, if you are a real user and please try "
 "again. If the issue repeats, kindly write to the site administrator."
 msgstr ""
 
-#: premium/public/antispam.php:209
+#: premium/public/antispam.php:227
 msgid ""
 "The form submission is too fast than we expected. So, our system has aborted "
 "the action considering a spam. Sorry, if you are a real user and please try "
@@ -4419,9 +4431,9 @@ msgstr ""
 #: premium/public/templates/slider/banner-rotator.php:196
 #: premium/public/templates/slider/carousel-slider.php:194
 #: public/templates/deprecated/listing/acadp-public-listing-display.php:24
-#: public/templates/deprecated/listings/acadp-public-listings-grid-display.php:127
-#: public/templates/deprecated/listings/acadp-public-listings-list-display.php:120
-#: public/templates/deprecated/listings/acadp-public-listings-map-display.php:124
+#: public/templates/deprecated/listings/acadp-public-listings-grid-display.php:129
+#: public/templates/deprecated/listings/acadp-public-listings-list-display.php:122
+#: public/templates/deprecated/listings/acadp-public-listings-map-display.php:126
 #: public/templates/deprecated/user/acadp-public-manage-listings-display.php:63
 #: public/templates/listing/listing.php:158
 #: public/templates/listings/layout-grid.php:211
@@ -4443,9 +4455,9 @@ msgstr ""
 #: premium/public/templates/slider/banner-rotator.php:213
 #: premium/public/templates/slider/carousel-slider.php:211
 #: public/templates/deprecated/listing/acadp-public-listing-display.php:42
-#: public/templates/deprecated/listings/acadp-public-listings-grid-display.php:134
-#: public/templates/deprecated/listings/acadp-public-listings-list-display.php:127
-#: public/templates/deprecated/listings/acadp-public-listings-map-display.php:131
+#: public/templates/deprecated/listings/acadp-public-listings-grid-display.php:136
+#: public/templates/deprecated/listings/acadp-public-listings-list-display.php:129
+#: public/templates/deprecated/listings/acadp-public-listings-map-display.php:133
 #: public/templates/listing/listing.php:175
 #: public/templates/listings/layout-grid.php:228
 #: public/templates/listings/layout-list.php:224
@@ -4465,9 +4477,9 @@ msgstr ""
 #: premium/public/templates/slider/banner-rotator.php:137
 #: premium/public/templates/slider/carousel-slider.php:135
 #: public/templates/deprecated/listing/acadp-public-listing-display.php:46
-#: public/templates/deprecated/listings/acadp-public-listings-grid-display.php:190
-#: public/templates/deprecated/listings/acadp-public-listings-list-display.php:183
-#: public/templates/deprecated/listings/acadp-public-listings-map-display.php:187
+#: public/templates/deprecated/listings/acadp-public-listings-grid-display.php:192
+#: public/templates/deprecated/listings/acadp-public-listings-list-display.php:185
+#: public/templates/deprecated/listings/acadp-public-listings-map-display.php:189
 #: public/templates/deprecated/user/acadp-public-manage-listings-display.php:88
 #: public/templates/listing/listing.php:191
 #: public/templates/listings/layout-grid.php:152
@@ -4525,7 +4537,7 @@ msgstr ""
 #: premium/public/templates/deprecated/woocommerce-checkout-featured.php:49
 #: premium/public/templates/deprecated/woocommerce-checkout.php:71
 #: premium/public/templates/woocommerce/checkout-featured.php:56
-#: premium/public/templates/woocommerce/checkout.php:80 public/public.php:546
+#: premium/public/templates/woocommerce/checkout.php:80 public/public.php:569
 #: public/templates/deprecated/payments/acadp-public-checkout-display.php:76
 #: public/templates/payments/checkout.php:167
 msgid "Proceed to payment"
@@ -4550,14 +4562,14 @@ msgstr ""
 msgid "Listings submitted"
 msgstr ""
 
-#: premium/public/woocommerce-plans.php:781
+#: premium/public/woocommerce-plans.php:817
 #, php-format
 msgid ""
 "Congrats! <a href=\"%s\"><strong>CLICK HERE</strong></a> to view your "
 "listings."
 msgstr ""
 
-#: premium/public/woocommerce-plans.php:786
+#: premium/public/woocommerce-plans.php:822
 #, php-format
 msgid ""
 "Congrats! <a href=\"%s\"><strong>CLICK HERE</strong></a> to submit your "
@@ -4620,40 +4632,40 @@ msgstr ""
 msgid "[Order] Listing #%d"
 msgstr ""
 
-#: public/payments.php:251 public/user.php:457 public/user.php:1079
+#: public/payments.php:251 public/user.php:460 public/user.php:1082
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: public/public.php:540
+#: public/public.php:563
 msgid "Select at least one option."
 msgstr ""
 
-#: public/public.php:541
+#: public/public.php:564
 msgid "Passwords do not match."
 msgstr ""
 
-#: public/public.php:542
+#: public/public.php:565
 msgid "The CAPTCHA field is required."
 msgstr ""
 
-#: public/public.php:543
+#: public/public.php:566
 msgid "Sorry, you need to login first."
 msgstr ""
 
-#: public/public.php:544
+#: public/public.php:567
 #, php-format
 msgid "Sorry, you have only %d images pending."
 msgstr ""
 
-#: public/public.php:547
+#: public/public.php:570
 msgid "Finish submission"
 msgstr ""
 
-#: public/public.php:548 public/search.php:303
+#: public/public.php:571 public/search.php:303
 msgid "to"
 msgstr ""
 
-#: public/public.php:1122
+#: public/public.php:1149
 #, php-format
 msgid "You have searched for \"%s\"..."
 msgstr ""
@@ -4821,25 +4833,25 @@ msgstr ""
 msgid "Your Message"
 msgstr ""
 
-#: public/templates/deprecated/listings/acadp-public-listings-grid-display.php:31
-#: public/templates/deprecated/listings/acadp-public-listings-list-display.php:31
-#: public/templates/deprecated/listings/acadp-public-listings-map-display.php:31
-#: public/templates/listings/navbar.php:19
+#: public/templates/deprecated/listings/acadp-public-listings-grid-display.php:32
+#: public/templates/deprecated/listings/acadp-public-listings-list-display.php:32
+#: public/templates/deprecated/listings/acadp-public-listings-map-display.php:32
+#: public/templates/listings/navbar.php:23
 #, php-format
 msgid "%d item(s) found"
 msgstr ""
 
-#: public/templates/deprecated/listings/acadp-public-listings-grid-display.php:45
-#: public/templates/deprecated/listings/acadp-public-listings-list-display.php:45
-#: public/templates/deprecated/listings/acadp-public-listings-map-display.php:45
-#: public/templates/listings/navbar.php:36
+#: public/templates/deprecated/listings/acadp-public-listings-grid-display.php:46
+#: public/templates/deprecated/listings/acadp-public-listings-list-display.php:46
+#: public/templates/deprecated/listings/acadp-public-listings-map-display.php:46
+#: public/templates/listings/navbar.php:40
 msgid "Sort by"
 msgstr ""
 
-#: public/templates/deprecated/listings/acadp-public-listings-grid-display.php:72
-#: public/templates/deprecated/listings/acadp-public-listings-list-display.php:72
-#: public/templates/deprecated/listings/acadp-public-listings-map-display.php:72
-#: public/templates/listings/navbar.php:62
+#: public/templates/deprecated/listings/acadp-public-listings-grid-display.php:73
+#: public/templates/deprecated/listings/acadp-public-listings-list-display.php:73
+#: public/templates/deprecated/listings/acadp-public-listings-map-display.php:73
+#: public/templates/listings/navbar.php:66
 msgid "View as"
 msgstr ""
 
@@ -5131,8 +5143,8 @@ msgid "Complete listing"
 msgstr ""
 
 #: public/templates/deprecated/user/acadp-public-edit-listing-display.php:371
-#: public/templates/user/listing-form.php:417 public/user.php:750
-#: public/user.php:923
+#: public/templates/user/listing-form.php:417 public/user.php:753
+#: public/user.php:926
 msgid "Save Draft"
 msgstr ""
 
@@ -5230,15 +5242,15 @@ msgstr ""
 msgid "Enter your YouTube / Vimeo URL"
 msgstr ""
 
-#: public/user.php:640 public/user.php:649 public/user.php:658
+#: public/user.php:643 public/user.php:652 public/user.php:661
 msgid "Error"
 msgstr ""
 
-#: public/user.php:641
+#: public/user.php:644
 msgid "File is not an image"
 msgstr ""
 
-#: public/user.php:650
+#: public/user.php:653
 msgid "Invalid file format"
 msgstr ""
 
