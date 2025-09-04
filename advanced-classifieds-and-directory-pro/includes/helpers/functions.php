@@ -2209,7 +2209,7 @@ function acadp_get_location_coordinates( $term_id ) {
 		if ( ! is_wp_error( $response ) ) {
 			$response = json_decode( $response['body'] );
 
-			if ( count( $response ) > 0 ) {
+			if ( is_array( $response ) && count( $response ) > 0 ) {
 				$coordinates = array(
 					'latitude'  => $response[0]->lat,
 					'longitude' => $response[0]->lon

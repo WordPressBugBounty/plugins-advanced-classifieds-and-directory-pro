@@ -6,7 +6,7 @@ Tags: business directory, classifieds, directory, listings, real estate
 Requires at least: 6.3
 Tested up to: 6.8
 Requires PHP: 5.6.20
-Stable tag: 3.2.6
+Stable tag: 3.2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -169,6 +169,12 @@ See our [FAQ](https://pluginsware.com/faq/) page, which is updated more regularl
 5. Others
 
 == Changelog ==
+
+= 3.2.7 =
+
+* Tweak: Updated Freemius SDK (2.12.1).
+* Fix: PHP 8.4 compatibility issues.
+* Fix: [+] a few minor bug fixes.
 
 = 3.2.6 =
 
@@ -563,6 +569,6 @@ This is a major release and the plugin's front-end HTML layouts have been comple
 
 == Upgrade Notice ==
 
-= 3.2.6 =
+= 3.2.7 =
 
-Includes important bug fixes, improved random sorting with pagination, and upgraded Freemius SDK for better compatibility and stability. [See changelog](https://wordpress.org/plugins/advanced-classifieds-and-directory-pro/#developers)
+Includes important bug fixes, and upgraded Freemius SDK for better compatibility and stability. [See changelog](https://wordpress.org/plugins/advanced-classifieds-and-directory-pro/#developers)

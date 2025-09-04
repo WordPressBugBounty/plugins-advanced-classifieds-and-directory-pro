@@ -165,7 +165,10 @@ if ( ! window.ACADPValidateCheckboxGroup ) {
 	 */
 	const initVideo = () => {
 		document.querySelectorAll( '.acadp-video' ).forEach(( el ) => {
-			el.setAttribute( 'src', el.dataset.src );
+			const src = el.dataset.video || el.dataset.src;
+			if ( src ) {
+				el.setAttribute( 'src', src );
+			}
 		});
 	}
 
