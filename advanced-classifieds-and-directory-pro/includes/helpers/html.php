@@ -180,7 +180,9 @@ function the_acadp_social_sharing_buttons() {
 		if ( $post->ID == $page_settings['user_listings'] ) {			
 			if ( $slug = acadp_get_user_slug() ) {
 				$user = get_user_by( 'slug', $slug );
-				$title = $user->display_name;		
+				if ( ! empty( $user ) ) {
+					$title = $user->display_name;	
+				}	
 			}				
 		}
 			

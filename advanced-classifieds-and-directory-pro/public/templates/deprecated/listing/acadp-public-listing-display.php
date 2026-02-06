@@ -199,7 +199,7 @@
                 <?php if ( $can_show_video ) : ?>
                 	<div class="acadp-margin-bottom">
                         <div class="embed-responsive embed-responsive-16by9">
-                        <iframe width="560" height="315" class="acadp-video embed-responsive-item" data-video="<?php echo esc_url( $video_url ); ?>" frameborder="0" scrolling="no" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        <iframe width="560" height="315" class="acadp-video embed-responsive-item" data-video="<?php echo esc_url( $video_url ); ?>" frameborder="0" scrolling="no" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" webkitallowfullscreen mozallowfullscreen allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
                             <?php the_acadp_cookie_consent( 'video' ); ?>
                         </div>
                     </div>

@@ -4,9 +4,9 @@ Contributors: pluginsware, freemius
 Donate link: https://pluginsware.com/
 Tags: business directory, classifieds, directory, listings, real estate
 Requires at least: 6.3
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 5.6.20
-Stable tag: 3.2.7
+Stable tag: 3.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -169,6 +169,23 @@ See our [FAQ](https://pluginsware.com/faq/) page, which is updated more regularl
 5. Others
 
 == Changelog ==
+
+= 3.3.0 =
+
+* Security Fix: Cross Site Request Forgery (CSRF). Thanks to the security researcher "Nabil Irawan" from [Patchstack](https://patchstack.com/).
+
+= 3.2.9 =
+
+* Tweak: Updated Freemius SDK to version 2.13.0.
+* Fix: WordPress 6.9 compatibility issues.
+
+= 3.2.8 =
+
+* Tweak: Updated Freemius SDK to version 2.12.2.
+* Fix: Resolved an issue causing duplicate order creation on certain WordPress environments.
+* Fix: Fixed the YouTube "Error 153 – Video player configuration error" by adding a proper referrer policy for embeds.
+* Fix: Corrected an error that occurred when accessing listings associated with deleted user accounts.
+* Fix: Various minor bug fixes and improvements.
 
 = 3.2.7 =
 
@@ -569,6 +586,6 @@ This is a major release and the plugin's front-end HTML layouts have been comple
 
 == Upgrade Notice ==
 
-= 3.2.7 =
+= 3.3.0 =
 
-Includes important bug fixes, and upgraded Freemius SDK for better compatibility and stability. [See changelog](https://wordpress.org/plugins/advanced-classifieds-and-directory-pro/#developers)
+Security Fix. [See changelog](https://wordpress.org/plugins/advanced-classifieds-and-directory-pro/#developers)

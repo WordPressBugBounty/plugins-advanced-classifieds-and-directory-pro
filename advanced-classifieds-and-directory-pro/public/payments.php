@@ -50,6 +50,14 @@ class ACADP_Public_Payments {
 		
 		if ( ! empty( $post_id ) && 'acadp_listings' == get_post_type( $post_id ) ) {			
 			if ( 'POST' == $_SERVER['REQUEST_METHOD'] && isset( $_POST['acadp_checkout_nonce'] ) && wp_verify_nonce( $_POST['acadp_checkout_nonce'], 'acadp_process_payment' ) ) {									
+				static $acadp_place_order = false;
+
+				if ( $acadp_place_order ) { // Block duplicate submissions
+					return;
+				}
+
+				$acadp_place_order = true;	
+				
 				$this->place_order();				
 			} else {	
 				$options = apply_filters( 'acadp_checkout_form_data', array(), $post_id );

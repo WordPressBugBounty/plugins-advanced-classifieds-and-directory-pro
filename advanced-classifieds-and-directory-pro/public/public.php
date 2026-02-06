@@ -648,7 +648,9 @@ class ACADP_Public {
 		if ( $post->ID == $page_settings['user_listings'] ) {		
 			if ( $slug = acadp_get_user_slug() ) {
 				$user = get_user_by( 'slug', $slug );
-				$custom_title = $user->display_name;		
+				if ( ! empty( $user ) ) {
+					$custom_title = $user->display_name;
+				}		
 			}			
 		}
 		
@@ -698,7 +700,9 @@ class ACADP_Public {
 		if ( $post->ID == $page_settings['user_listings'] ) {		
 			if ( $slug = acadp_get_user_slug() ) {
 				$user = get_user_by( 'slug', $slug );
-				$title['title'] = $user->display_name;		
+				if ( ! empty( $user ) ) {
+					$title['title'] = $user->display_name;	
+				}	
 			}			
 		}
 		
@@ -801,7 +805,9 @@ class ACADP_Public {
 		if ( $post->ID == $page_settings['user_listings'] ) {		
 			if ( $slug = acadp_get_user_slug() ) {
 				$user = get_user_by( 'slug', $slug );
-				$replacements['%%title%%'] = $user->display_name;
+				if ( ! empty( $user ) ) {
+					$replacements['%%title%%'] = $user->display_name;
+				}
 				
 				// Get Archive SEO title
 				if ( array_key_exists( 'title-page', $wpseo_titles ) ) {
@@ -920,7 +926,9 @@ class ACADP_Public {
 		if ( $post->ID == $page_settings['user_listings'] ) {		
 			if ( $slug = acadp_get_user_slug() ) {
 				$user = get_user_by( 'slug', $slug );
-				$replacements['%%title%%'] = $user->display_name;
+				if ( ! empty( $user ) ) {
+					$replacements['%%title%%'] = $user->display_name;
+				}
 				
 				// Get Archive SEO desc				
 				if ( array_key_exists( 'metadesc-page', $wpseo_titles ) ) {
@@ -982,7 +990,9 @@ class ACADP_Public {
 		if ( $post->ID == $page_settings['user_listings'] ) {		
 			if ( $slug = acadp_get_user_slug() ) {
 				$user = get_user_by( 'slug', $slug );
-				$url = acadp_get_user_page_link( $user->ID );
+				if ( ! empty( $user ) ) {
+					$url = acadp_get_user_page_link( $user->ID );
+				}
 			}			
 		}
 
@@ -1046,7 +1056,9 @@ class ACADP_Public {
 			if ( $post->ID == $page_settings['user_listings'] ) {			
 				if ( $slug = acadp_get_user_slug() ) {
 					$user = get_user_by( 'slug', $slug );
-					$title = $user->display_name;		
+					if ( ! empty( $user ) ) {
+						$title = $user->display_name;
+					}		
 				}				
 			}
 			
@@ -1139,7 +1151,9 @@ class ACADP_Public {
 		if ( $post->ID == $page_settings['user_listings'] ) {		
 			if ( $slug = acadp_get_user_slug() ) {
 				$user = get_user_by( 'slug', $slug );
-				$title = $user->display_name;		
+				if ( ! empty( $user ) ) {
+					$title = $user->display_name;	
+				}	
 			}			
 		}	
 		

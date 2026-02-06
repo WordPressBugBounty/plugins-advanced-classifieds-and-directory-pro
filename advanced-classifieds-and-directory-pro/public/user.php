@@ -93,7 +93,9 @@ class ACADP_Public_User {
 			}
 			
 			if ( 'remove-favourites' == $wp->query_vars['acadp_action'] ) {
-				$this->remove_favourites( $id );
+				if ( isset( $_REQUEST['acadp_nonce'] ) && wp_verify_nonce( $_REQUEST['acadp_nonce'], 'acadp_favourites_nonce' ) ) {
+					$this->remove_favourites( $id );
+				}
 			}			
     	}		
 	}

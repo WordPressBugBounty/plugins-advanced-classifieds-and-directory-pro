@@ -325,6 +325,8 @@ function acadp_get_remove_favourites_page_link( $listing_id ) {
   		} else {
     		$link = add_query_arg( array( 'acadp_action' => 'remove-favourites', 'acadp_listing' => $listing_id ), $link );
   		}
+
+		$link = add_query_arg( 'acadp_nonce', wp_create_nonce( 'acadp_favourites_nonce' ), $link );
 	}
   
 	return $link;

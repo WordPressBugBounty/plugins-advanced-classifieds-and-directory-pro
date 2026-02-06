@@ -18,7 +18,7 @@ if ( ! isset( $_COOKIE['acadp_gdpr_consent'] ) && ! empty( $cookie_consent_setti
 ?>
 
 <div class="acadp-video acadp-relative">
-    <iframe class="acadp-iframe-video acadp-w-full acadp-aspect-video acadp-m-0" data-video="<?php echo esc_url( $video_url ); ?>" data-src="<?php echo esc_url( $video_url ); ?>" frameborder="0" scrolling="no" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <iframe class="acadp-iframe-video acadp-w-full acadp-aspect-video acadp-m-0" data-video="<?php echo esc_url( $video_url ); ?>" data-src="<?php echo esc_url( $video_url ); ?>" frameborder="0" scrolling="no" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" webkitallowfullscreen mozallowfullscreen allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
     
     <?php if ( $show_cookie_consent ) :
         $consent_message = apply_filters( 'acadp_translate_strings', $cookie_consent_settings['consent_message'], 'consent_message' );
