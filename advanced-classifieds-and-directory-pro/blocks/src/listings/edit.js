@@ -17,8 +17,9 @@ import {
 	ToggleControl
 } from '@wordpress/components';
 
-import { 
+import {
 	useEffect,
+	useMemo,
 	useRef
 } from '@wordpress/element';
 
@@ -61,45 +62,49 @@ export default function Edit( { attributes, setAttributes } ) {
 		pagination,
 	} = attributes;
 
-	const locationsList = useSelect( ( select ) => {
-		const terms = select( 'core' ).getEntityRecords( 'taxonomy', 'acadp_locations', {
-			'per_page': -1
-		});		
-
-		let options = [{ 
-			label: '— ' + acadp_blocks.listings.i18n.location_none + ' —', 
-			value: 0
-		}];
-
-		if ( terms && terms.length > 0 ) {		
-			let grouped = GroupByParent( terms, parseInt( acadp_blocks.base_location ) );
-			let tree = BuildTree( grouped );
-			
-			options = [ ...options, ...tree ];
-		}
-
-		return options;
-	});
-
-	const categoriesList = useSelect( ( select ) => {
-		const terms = select( 'core' ).getEntityRecords( 'taxonomy', 'acadp_categories', {
+	const locationTerms = useSelect( ( select ) => {
+		return select( 'core' ).getEntityRecords( 'taxonomy', 'acadp_locations', {
 			'per_page': -1
 		});
+	});
 
-		let options = [{ 
-			label: '— ' + acadp_blocks.listings.i18n.category_none + ' —', 
+	const categoryTerms = useSelect( ( select ) => {
+		return select( 'core' ).getEntityRecords( 'taxonomy', 'acadp_categories', {
+			'per_page': -1
+		});
+	});
+
+	const locationsList = useMemo( () => {
+		let options = [{
+			label: '— ' + acadp_blocks.listings.i18n.location_none + ' —',
 			value: 0
 		}];
 
-		if ( terms && terms.length > 0 ) {		
-			let grouped = GroupByParent( terms, 0 );
+		if ( locationTerms && locationTerms.length > 0 ) {
+			let grouped = GroupByParent( locationTerms, parseInt( acadp_blocks.base_location ) );
 			let tree = BuildTree( grouped );
-			
+
 			options = [ ...options, ...tree ];
 		}
 
 		return options;
-	});	
+	}, [ locationTerms ] );
+
+	const categoriesList = useMemo( () => {
+		let options = [{
+			label: '— ' + acadp_blocks.listings.i18n.category_none + ' —',
+			value: 0
+		}];
+
+		if ( categoryTerms && categoryTerms.length > 0 ) {
+			let grouped = GroupByParent( categoryTerms, 0 );
+			let tree = BuildTree( grouped );
+
+			options = [ ...options, ...tree ];
+		}
+
+		return options;
+	}, [ categoryTerms ] );	
 
 	const mounted = useRef();	
 	useEffect(() => {
@@ -118,6 +123,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				<PanelBody title={ acadp_blocks.listings.i18n.panel_settings }>
 					<PanelRow>
 						<SelectControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.listings.i18n.view_label }
 							value={ view }
 							options={ [
@@ -131,6 +137,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<SelectControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.listings.i18n.location_label }
 							value={ location }
 							options={ locationsList }
@@ -140,6 +147,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<SelectControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.listings.i18n.category_label }
 							value={ category }
 							options={ categoriesList }
@@ -149,6 +157,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<RangeControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.listings.i18n.columns_label }
 							value={ columns }							
 							min={ 1 }
@@ -159,6 +168,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<RangeControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.listings.i18n.listings_per_page_label }
 							help={ acadp_blocks.listings.i18n.listings_per_page_help }
 							value={ listings_per_page }							
@@ -170,6 +180,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<SelectControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.listings.i18n.filterby_label }
 							value={ filterby }
 							options={ [
@@ -182,6 +193,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<SelectControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.listings.i18n.orderby_label }
 							value={ orderby }
 							options={ [
@@ -197,6 +209,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<SelectControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.listings.i18n.order_label }
 							value={ order }
 							options={ [
@@ -209,6 +222,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.listings.i18n.featured_label }
 							help={ acadp_blocks.listings.i18n.featured_help }
 							checked={ featured }
@@ -218,6 +232,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.listings.i18n.header_label }
 							help={ acadp_blocks.listings.i18n.header_help }
 							checked={ header }
@@ -227,6 +242,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.listings.i18n.show_excerpt_label }
 							checked={ show_excerpt }
 							onChange={ () => setAttributes( { show_excerpt: ! show_excerpt } ) }
@@ -235,6 +251,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.listings.i18n.show_category_label }
 							checked={ show_category }
 							onChange={ () => setAttributes( { show_category: ! show_category } ) }
@@ -243,6 +260,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.listings.i18n.show_location_label }
 							checked={ show_location }
 							onChange={ () => setAttributes( { show_location: ! show_location } ) }
@@ -251,6 +269,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.listings.i18n.show_price_label }
 							checked={ show_price }
 							onChange={ () => setAttributes( { show_price: ! show_price } ) }
@@ -259,6 +278,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.listings.i18n.show_date_label}
 							checked={ show_date }
 							onChange={ () => setAttributes( { show_date: ! show_date } ) }
@@ -267,6 +287,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.listings.i18n.show_user_label }
 							checked={ show_user }
 							onChange={ () => setAttributes( { show_user: ! show_user } ) }
@@ -275,6 +296,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.listings.i18n.show_views_label }
 							checked={ show_views }
 							onChange={ () => setAttributes( { show_views: ! show_views } ) }
@@ -283,6 +305,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.listings.i18n.show_custom_fields_label }
 							checked={ show_custom_fields }
 							onChange={ () => setAttributes( { show_custom_fields: ! show_custom_fields } ) }
@@ -291,6 +314,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.listings.i18n.pagination_label }
 							checked={ pagination }
 							onChange={ () => setAttributes( { pagination: ! pagination } ) }

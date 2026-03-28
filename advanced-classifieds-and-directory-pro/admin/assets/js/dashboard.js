@@ -14,7 +14,7 @@
 	}
 
 	const copyShortcode = () => {
-		$( '#acadp-shortcode' ).select();
+		$( '#acadp-shortcode' ).trigger( 'select' );
 		document.execCommand( 'copy' );	
 
 		$( '#acadp-shortcode-copied-status' ).prop( 'hidden', false );	

@@ -17,8 +17,9 @@ import {
 	ToggleControl
 } from '@wordpress/components';
 
-import { 
+import {
 	useEffect,
+	useMemo,
 	useRef
 } from '@wordpress/element';
 
@@ -50,25 +51,27 @@ export default function Edit( { attributes, setAttributes } ) {
 		hide_empty,			
 	} = attributes;
 
-	const categoriesList = useSelect( ( select ) => {
-		const terms = select( 'core' ).getEntityRecords( 'taxonomy', 'acadp_categories', {
+	const terms = useSelect( ( select ) => {
+		return select( 'core' ).getEntityRecords( 'taxonomy', 'acadp_categories', {
 			'per_page': -1
 		});
+	});
 
-		let options = [{ 
-			label: '— ' + acadp_blocks.categories.i18n.parent_label + ' —', 
+	const categoriesList = useMemo( () => {
+		let options = [{
+			label: '— ' + acadp_blocks.categories.i18n.parent_label + ' —',
 			value: 0
 		}];
 
-		if ( terms && terms.length > 0 ) {		
+		if ( terms && terms.length > 0 ) {
 			let grouped = GroupByParent( terms, 0 );
 			let tree = BuildTree( grouped );
-			
+
 			options = [ ...options, ...tree ];
 		}
 
 		return options;
-	});
+	}, [ terms ] );
 
 	const mounted = useRef();	
 	useEffect(() => {
@@ -87,6 +90,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				<PanelBody title={ acadp_blocks.categories.i18n.panel_settings }>
 					<PanelRow>
 						<SelectControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.categories.i18n.view_label }
 							value={ view }
 							options={ [
@@ -99,6 +103,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<SelectControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.categories.i18n.parent_label }
 							value={ parent }
 							options={ categoriesList }
@@ -108,6 +113,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<RangeControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.categories.i18n.columns_label }
 							value={ columns }							
 							min={ 1 }
@@ -118,6 +124,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<RangeControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.categories.i18n.depth_label }
 							value={ depth }							
 							min={ 1 }
@@ -128,6 +135,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<SelectControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.categories.i18n.orderby_label }
 							value={ orderby }
 							options={[
@@ -142,6 +150,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<SelectControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.categories.i18n.order_label }
 							value={ order }
 							options={ [
@@ -154,6 +163,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.categories.i18n.show_count_label }
 							help={ acadp_blocks.categories.i18n.show_count_help }
 							checked={ show_count }
@@ -163,6 +173,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.categories.i18n.hide_empty_label }
 							help={ acadp_blocks.categories.i18n.hide_empty_help }
 							checked={ hide_empty }

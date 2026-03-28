@@ -605,7 +605,11 @@
 }
 
 .acadp .wp-badge {
-  background: #278bb7 url( '../images/logo.png' ) no-repeat top;
+  border-radius: 3px;
+  background: #278bb7 url( '../images/logo.png' ) no-repeat;
+  background-position: center 0;
+  background-size: 100px 100px;
+  padding-top: 100px;
 }
 
 .wp-core-ui .acadp-dashboard select {

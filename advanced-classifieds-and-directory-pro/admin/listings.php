@@ -369,19 +369,19 @@ class ACADP_Admin_Listings {
 			// Verify that the nonce is valid
     		if ( wp_verify_nonce( $_POST['acadp_listing_submitbox_nonce'], 'acadp_save_listing_submitbox' ) ) {			
 				// OK to save meta data
-				if ( isset( $_POST['never_expires'] ) ) {
-					update_post_meta( $post_id, 'never_expires', 1 );
-				} else {
-					delete_post_meta( $post_id, 'never_expires' );
-				}
-
 				if ( isset( $_POST['expiry_date'] ) ) {									
 					$expiry_date = sanitize_text_field( $_POST['expiry_date'] );
 					update_post_meta( $post_id, 'expiry_date', $expiry_date );					
 				} elseif ( 'publish' == $post->post_status ) {				
 					$expiry_date = acadp_listing_expiry_date( $post_id );
 					update_post_meta( $post->ID, 'expiry_date', $expiry_date );			
-				}				    			
+				}	
+				
+				if ( isset( $_POST['never_expires'] ) ) {
+					update_post_meta( $post_id, 'never_expires', 1 );
+				} else {
+					delete_post_meta( $post_id, 'never_expires' );
+				}
 				
 				$featured = isset( $_POST['featured'] ) ? 1 : 0;
 				update_post_meta( $post_id, 'featured', $featured );

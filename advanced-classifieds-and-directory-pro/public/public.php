@@ -263,12 +263,19 @@ class ACADP_Public {
 	}
 	 
 	/**
-	 * Enqueue block assets for backend editor.
+	 * Enqueue block assets inside the block editor (iframe).
 	 *
-	 * @since 3.0.0
+	 * Hooked to enqueue_block_assets with an is_admin() guard so styles and scripts
+	 * are injected inside the iframed block editor (WP 6.3+ / WP 7.0 always) only,
+	 * and not duplicated on the front end where wp_enqueue_scripts already handles them.
+	 *
+	 * @since 3.4.0 Moved from enqueue_block_editor_assets to enqueue_block_assets for
+	 *              WordPress 7 iframe editor compatibility.
 	 */
-	public function enqueue_block_editor_assets() {
-		$misc_settings = get_option( 'acadp_misc_settings' );
+	public function enqueue_block_assets() {
+		if ( ! is_admin() ) {
+			return;
+		}
 
 		// Enqueue Styles
 		$this->register_styles();

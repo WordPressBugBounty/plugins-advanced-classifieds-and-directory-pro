@@ -42,7 +42,7 @@ $fields = acadp_get_shortcode_fields();
         <!-- Left Column -->  
         <div class="md:acadp-col-span-2">
             <?php foreach ( $fields as $shortcode => $params ) : ?>
-                <div id="acadp-shortcode-form-<?php echo esc_attr( $shortcode ); ?>" class="acadp-shortcode-form" data-shortcode="<?php echo esc_attr( $shortcode ); ?>" hidden>
+                <div id="acadp-shortcode-form-<?php echo esc_attr( $shortcode ); ?>" class="acadp-shortcode-form" data-shortcode="<?php echo esc_attr( $shortcode ); ?>"<?php if ( 'listings' !== $shortcode ) echo ' hidden'; ?>>
                     <div class="acadp-accordion">
                         <?php foreach ( $params['sections'] as $name => $section ) : ?>                         
                             <div class="acadp-accordion-panel acadp-accordion-panel-<?php echo esc_attr( $name ); ?><?php if ( 'general' === $name ) echo ' open'; ?>"> 

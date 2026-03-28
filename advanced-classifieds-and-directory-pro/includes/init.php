@@ -294,7 +294,7 @@ class ACADP {
 		$this->loader->add_action( 'init', $plugin_public, 'add_rewrites' );
 		$this->loader->add_action( 'wp', $plugin_public, 'set_mysql_rand_seed_value' );
 		$this->loader->add_action( 'wp_loaded', $plugin_public, 'maybe_flush_rules' );
-		$this->loader->add_action( 'acadp_enqueue_block_editor_assets', $plugin_public, 'enqueue_block_editor_assets', 99 );
+		$this->loader->add_action( 'enqueue_block_assets', $plugin_public, 'enqueue_block_assets', 99 );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'register_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'register_scripts' );
 		$this->loader->add_action( 'wp_print_scripts', $plugin_public, 'dequeue_scripts', 100 );		

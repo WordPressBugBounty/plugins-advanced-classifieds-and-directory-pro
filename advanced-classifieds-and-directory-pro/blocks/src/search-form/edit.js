@@ -33,6 +33,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				<PanelBody title={ acadp_blocks.search_form.i18n.panel_settings }>
 					<PanelRow>
 						<SelectControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.search_form.i18n.style_label }
 							value={ style }
 							options={ [
@@ -45,6 +46,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.search_form.i18n.keyword_label }
 							checked={ keyword }
 							onChange={ () => setAttributes( { keyword: ! keyword } ) }
@@ -53,6 +55,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.search_form.i18n.location_label }
 							checked={ location }
 							onChange={ () => setAttributes( { location: ! location } ) }
@@ -61,6 +64,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.search_form.i18n.category_label }
 							checked={ category }
 							onChange={ () => setAttributes( { category: ! category } ) }
@@ -69,6 +73,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.search_form.i18n.custom_fields_label }
 							checked={ custom_fields }
 							onChange={ () => setAttributes( { custom_fields: ! custom_fields } ) }
@@ -77,6 +82,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.search_form.i18n.price_label }
 							checked={ price }
 							onChange={ () => setAttributes( { price: ! price } ) }

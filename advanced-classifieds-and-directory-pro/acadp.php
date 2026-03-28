@@ -11,7 +11,7 @@
  * Plugin Name:     Advanced Classifieds and Directory Pro
  * Plugin URI:      https://pluginsware.com/
  * Description:     Provides an ability to build any kind of business directory site: classifieds, cars, bikes, boats and other vehicles dealers site, pets, real estate portal, wedding site, yellow pages, etc...
- * Version:         3.3.0
+ * Version:         3.4.1
  * Author:          PluginsWare
  * Author URI:      https://pluginsware.com/
  * License:         GPL-2.0+
@@ -40,21 +40,22 @@ if ( !function_exists( 'acadp_fs' ) ) {
             // Include Freemius SDK.
             require_once dirname( __FILE__ ) . '/freemius/start.php';
             $acadp_fs = fs_dynamic_init( array(
-                'id'             => '2877',
-                'slug'           => 'advanced-classifieds-and-directory-pro',
-                'type'           => 'plugin',
-                'public_key'     => 'pk_459968d11a1de798088f855a5e5d0',
-                'is_premium'     => false,
-                'premium_suffix' => 'Premium',
-                'has_addons'     => false,
-                'has_paid_plans' => true,
-                'menu'           => array(
+                'id'               => '2877',
+                'slug'             => 'advanced-classifieds-and-directory-pro',
+                'type'             => 'plugin',
+                'public_key'       => 'pk_459968d11a1de798088f855a5e5d0',
+                'is_premium'       => false,
+                'premium_suffix'   => 'Premium',
+                'has_addons'       => false,
+                'has_paid_plans'   => true,
+                'menu'             => array(
                     'slug'           => 'advanced-classifieds-and-directory-pro',
                     'override_exact' => true,
                     'first-path'     => 'admin.php?page=advanced-classifieds-and-directory-pro',
                     'support'        => false,
                 ),
-                'is_live'        => true,
+                'is_live'          => true,
+                'is_org_compliant' => true,
             ) );
         }
         return $acadp_fs;
@@ -71,7 +72,7 @@ if ( !defined( 'ACADP_PLUGIN_NAME' ) ) {
 }
 // The current version of the plugin
 if ( !defined( 'ACADP_VERSION_NUM' ) ) {
-    define( 'ACADP_VERSION_NUM', '3.3.0' );
+    define( 'ACADP_VERSION_NUM', '3.4.1' );
 }
 // Path to the plugin directory
 if ( !defined( 'ACADP_PLUGIN_DIR' ) ) {

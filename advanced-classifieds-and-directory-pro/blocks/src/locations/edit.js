@@ -17,8 +17,9 @@ import {
 	ToggleControl
 } from '@wordpress/components';
 
-import { 
+import {
 	useEffect,
+	useMemo,
 	useRef
 } from '@wordpress/element';
 
@@ -49,25 +50,27 @@ export default function Edit( { attributes, setAttributes } ) {
 		hide_empty,			
 	} = attributes;
 
-	const locationsList = useSelect( ( select ) => {
-		const terms = select( 'core' ).getEntityRecords( 'taxonomy', 'acadp_locations', {
+	const terms = useSelect( ( select ) => {
+		return select( 'core' ).getEntityRecords( 'taxonomy', 'acadp_locations', {
 			'per_page': -1
-		});		
+		});
+	});
 
-		let options = [{ 
-			label: '— ' + acadp_blocks.locations.i18n.parent_label + ' —', 
+	const locationsList = useMemo( () => {
+		let options = [{
+			label: '— ' + acadp_blocks.locations.i18n.parent_label + ' —',
 			value: 0
 		}];
 
-		if ( terms && terms.length > 0 ) {		
+		if ( terms && terms.length > 0 ) {
 			let grouped = GroupByParent( terms, parseInt( acadp_blocks.base_location ) );
 			let tree = BuildTree( grouped );
-			
+
 			options = [ ...options, ...tree ];
 		}
 
 		return options;
-	});
+	}, [ terms ] );
 
 	const mounted = useRef();	
 	useEffect(() => {
@@ -86,6 +89,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				<PanelBody title={ acadp_blocks.locations.i18n.panel_settings }>
 					<PanelRow>
 						<SelectControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.locations.i18n.parent_label }
 							value={ parent }
 							options={ locationsList }
@@ -95,6 +99,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<RangeControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.locations.i18n.columns_label }
 							value={ columns }							
 							min={ 1 }
@@ -105,6 +110,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<RangeControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.locations.i18n.depth_label }
 							value={ depth }							
 							min={ 1 }
@@ -115,6 +121,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<SelectControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.locations.i18n.orderby_label }
 							value={ orderby }
 							options={[
@@ -129,6 +136,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<SelectControl
+							__next40pxDefaultSize={ true }
 							label={ acadp_blocks.locations.i18n.order_label }
 							value={ order }
 							options={ [
@@ -141,6 +149,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.locations.i18n.show_count_label }
 							help={ acadp_blocks.locations.i18n.show_count_help }
 							checked={ show_count }
@@ -150,6 +159,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 					<PanelRow>
 						<ToggleControl
+							__nextHasNoMarginBottom={ true }
 							label={ acadp_blocks.locations.i18n.hide_empty_label }
 							help={ acadp_blocks.locations.i18n.hide_empty_help }
 							checked={ hide_empty }

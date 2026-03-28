@@ -1811,11 +1811,11 @@ class ACADP_Admin_Settings {
      */
     public function callback_text( $args ) {	
         $value       = esc_attr( $this->get_option( $args['id'], $args['section'], '' ) );
-        $size        = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
+        $size        = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular-text';
         $type        = isset( $args['type'] ) ? $args['type'] : 'text';
         $placeholder = empty( $args['placeholder'] ) ? '' : ' placeholder="' . $args['placeholder'] . '"';
 		
-        $html        = sprintf( '<input type="%1$s" class="%2$s-text" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s/>', $type, $size, $args['section'], $args['id'], $value, $placeholder );
+        $html        = sprintf( '<input type="%1$s" class="%2$s" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s/>', $type, $size, $args['section'], $args['id'], $value, $placeholder );
         $html       .= $this->get_field_description( $args );
 		
         echo $html;		
@@ -1839,14 +1839,14 @@ class ACADP_Admin_Settings {
      */
     public function callback_number( $args ) {	
         $value       = esc_attr( $this->get_option( $args['id'], $args['section'], 0 ) );
-        $size        = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
+        $size        = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular-text';
         $type        = isset( $args['type'] ) ? $args['type'] : 'number';
         $placeholder = empty( $args['placeholder'] ) ? '' : ' placeholder="' . $args['placeholder'] . '"';
         $min         = empty( $args['min'] ) ? '' : ' min="' . $args['min'] . '"';
         $max         = empty( $args['max'] ) ? '' : ' max="' . $args['max'] . '"';
         $step        = empty( $args['max'] ) ? '' : ' step="' . $args['step'] . '"';
 		
-        $html        = sprintf( '<input type="%1$s" class="%2$s-number" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s%7$s%8$s%9$s/>', $type, $size, $args['section'], $args['id'], $value, $placeholder, $min, $max, $step );
+        $html        = sprintf( '<input type="%1$s" class="%2$s" id="%3$s[%4$s]" name="%3$s[%4$s]" value="%5$s"%6$s%7$s%8$s%9$s/>', $type, $size, $args['section'], $args['id'], $value, $placeholder, $min, $max, $step );
         $html       .= $this->get_field_description( $args );
 		
         echo $html;		
@@ -1923,7 +1923,7 @@ class ACADP_Admin_Settings {
      */
     public function callback_select( $args ) {	
         $value = esc_attr( $this->get_option( $args['id'], $args['section'], '' ) );
-        $size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
+        $size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular-text';
 		
         $html  = sprintf( '<select class="%1$s" name="%2$s[%3$s]" id="%2$s[%3$s]">', $size, $args['section'], $args['id'] );
         foreach ( $args['options'] as $key => $label ) {
@@ -1943,10 +1943,10 @@ class ACADP_Admin_Settings {
      */
     public function callback_textarea( $args ) {	
         $value       = esc_textarea( $this->get_option( $args['id'], $args['section'], '' ) );
-        $size        = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
+        $size        = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular-text';
         $placeholder = empty( $args['placeholder'] ) ? '' : ' placeholder="'.$args['placeholder'].'"';
 		
-        $html        = sprintf( '<textarea rows="5" cols="55" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]"%4$s>%5$s</textarea>', $size, $args['section'], $args['id'], $placeholder, $value );
+        $html        = sprintf( '<textarea rows="5" cols="55" class="%1$s" id="%2$s[%3$s]" name="%2$s[%3$s]"%4$s>%5$s</textarea>', $size, $args['section'], $args['id'], $placeholder, $value );
         $html       .= $this->get_field_description( $args );
 		
         echo $html;		
@@ -1997,11 +1997,11 @@ class ACADP_Admin_Settings {
      */
     public function callback_file( $args ) {	
         $value = esc_attr( $this->get_option( $args['id'], $args['section'], '' ) );
-        $size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
+        $size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular-text';
         $id    = $args['section'] . '[' . $args['id'] . ']';
         $label = isset( $args['options']['button_label'] ) ? $args['options']['button_label'] : __( 'Choose File', 'advanced-classifieds-and-directory-pro' );
 		
-        $html  = sprintf( '<input type="text" class="%1$s-text acadp-url" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value );
+        $html  = sprintf( '<input type="text" class="%1$s acadp-url" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value );
         $html .= '<input type="button" class="button acadp-browse" value="' . $label . '" />';
         $html .= $this->get_field_description( $args );
 		
@@ -2016,9 +2016,9 @@ class ACADP_Admin_Settings {
      */
     public function callback_password( $args ) {	
         $value = esc_attr( $this->get_option( $args['id'], $args['section'], '' ) );
-        $size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
+        $size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular-text';
 		
-        $html  = sprintf( '<input type="password" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value );
+        $html  = sprintf( '<input type="password" class="%1$s" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s"/>', $size, $args['section'], $args['id'], $value );
         $html .= $this->get_field_description( $args );
 		
         echo $html;		
@@ -2032,9 +2032,9 @@ class ACADP_Admin_Settings {
      */
     public function callback_color( $args ) {	
         $value = esc_attr( $this->get_option( $args['id'], $args['section'], '#ffffff' ) );
-        $size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
+        $size  = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular-text';
 		
-        $html  = sprintf( '<input type="text" class="%1$s-text acadp-form-control-color-picker" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s" data-default-color="%5$s" />', $size, $args['section'], $args['id'], $value, '#ffffff' );
+        $html  = sprintf( '<input type="text" class="%1$s acadp-form-control-color-picker" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s" data-default-color="%5$s" />', $size, $args['section'], $args['id'], $value, '#ffffff' );
         $html .= $this->get_field_description( $args );
 		
         echo $html;		
@@ -2053,6 +2053,7 @@ class ACADP_Admin_Settings {
             'selected'          => esc_attr( $this->get_option( $args['id'], $args['section'], -1 ) ),
             'name'              => $args['section'] . '[' . $args['id'] . ']',
             'id'                => $args['section'] . '[' . $args['id'] . ']',
+			'class'             => 'regular-text',
             'echo'              => 0			
         );
 		
@@ -2073,7 +2074,8 @@ class ACADP_Admin_Settings {
 			'show_option_none' => '-- ' . __( 'Select location', 'advanced-classifieds-and-directory-pro' ) . ' --',
 			'taxonomy'         => 'acadp_locations',
 			'name'             => $args['section'] . '[' . $args['id'] . ']',
-			'id'               => $args['section'] . '[' . $args['id'] . ']',						
+			'id'               => $args['section'] . '[' . $args['id'] . ']',
+			'class'            => 'regular-text',						
 			'orderby'          => 'name',
 			'selected'         => esc_attr( $this->get_option( $args['id'], $args['section'], -1 ) ),
 			'hierarchical'     => true,

@@ -32,13 +32,13 @@ foreach ( $this->sections as $section ) {
 ?>
 
 <div id="acadp-settings" class="acadp acadp-settings wrap">
+	<h1>
+		<?php esc_html_e( 'Plugin Settings', 'advanced-classifieds-and-directory-pro' ); ?>
+	</h1>
+	
+	<?php settings_errors(); ?>
+
 	<div class="acadp-flex acadp-flex-col acadp-gap-4">
-		<h1>
-			<?php esc_html_e( 'Plugin Settings', 'advanced-classifieds-and-directory-pro' ); ?>
-		</h1>
-		
-		<?php settings_errors(); ?>
-		
 		<h2 class="nav-tab-wrapper wp-clearfix">
 			<?php
 			foreach ( $this->tabs as $slug => $title ) {

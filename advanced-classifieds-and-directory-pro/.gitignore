@@ -1,1 +1,5 @@
 node_modules/
+
+# Claude AI helper files
+.claude/
+CLAUDE.md
