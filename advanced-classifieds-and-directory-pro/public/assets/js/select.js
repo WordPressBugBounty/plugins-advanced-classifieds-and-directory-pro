@@ -194,7 +194,7 @@ export class ACADPDropdownTermsElement extends HTMLElement {
 		let names = [];
 
         this.querySelectorAll( '.acadp-term-input:checked' ).forEach(( el ) => {
-            let termName = el.closest( 'label' ).querySelector( '.acadp-term-name' ).innerHTML;
+            let termName = el.closest( 'label' ).querySelector( '.acadp-term-name' ).textContent;
             names.push( termName );
         });
 

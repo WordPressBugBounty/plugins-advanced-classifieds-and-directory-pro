@@ -108,6 +108,8 @@ class ACADP {
 		 * side of the site.
 		 */
 		require_once ACADP_PLUGIN_DIR . 'public/public.php';
+		require_once ACADP_PLUGIN_DIR . 'public/yoast-seo.php';
+		require_once ACADP_PLUGIN_DIR . 'public/rank-math.php';
 		require_once ACADP_PLUGIN_DIR . 'public/locations.php';	
 		require_once ACADP_PLUGIN_DIR . 'public/categories.php';		
 		require_once ACADP_PLUGIN_DIR . 'public/listings.php';
@@ -306,22 +308,33 @@ class ACADP {
 		$this->loader->add_action( 'wp_ajax_acadp_set_cookie', $plugin_public, 'set_gdpr_cookie' );
 		$this->loader->add_action( 'wp_ajax_nopriv_acadp_set_cookie', $plugin_public, 'set_gdpr_cookie' );
 		
-		if ( acadp_can_use_yoast() ) {
-			$this->loader->add_filter( 'wpseo_title', $plugin_public, 'wpseo_title' );
-			$this->loader->add_filter( 'wpseo_metadesc', $plugin_public, 'wpseo_metadesc' );
-			$this->loader->add_filter( 'wpseo_canonical', $plugin_public, 'wpseo_canonical' );
-			$this->loader->add_filter( 'wpseo_opengraph_url', $plugin_public, 'wpseo_canonical' );
-		} else {
+		if ( ! acadp_is_yoast_or_rank_math_active() ) {
 			$this->loader->add_filter( 'wp_title', $plugin_public, 'wp_title', 99, 3 );
 			$this->loader->add_filter( 'document_title_parts', $plugin_public, 'document_title_parts' );
 		}
-		$this->loader->add_filter( 'force_ssl', $plugin_public, 'force_ssl_https', 10, 2 );		
+
+		$this->loader->add_filter( 'force_ssl', $plugin_public, 'force_ssl_https', 10, 2 );
 		$this->loader->add_filter( 'the_title', $plugin_public, 'the_title', 99, 2 );
 		$this->loader->add_filter( 'single_post_title', $plugin_public, 'the_title', 99 );
 		$this->loader->add_filter( 'term_link', $plugin_public, 'term_link', 10, 3 );
 		$this->loader->add_filter( 'option_acadp_general_settings', $plugin_public, 'filter_general_settings' );
 		$this->loader->add_filter( 'option_acadp_page_settings', $plugin_public, 'filter_page_settings' );
 		$this->loader->add_filter( 'acadp_load_template', $plugin_public, 'load_template', 1, 2 );
+
+		// Hooks specific to the Yoast SEO plugin
+		$yoast_seo = new ACADP_Public_Yoast_Seo();
+
+		$this->loader->add_filter( 'wpseo_title', $yoast_seo, 'meta_title' );
+		$this->loader->add_filter( 'wpseo_metadesc', $yoast_seo, 'meta_description' );
+		$this->loader->add_filter( 'wpseo_canonical', $yoast_seo, 'canonical_url' );
+		$this->loader->add_filter( 'wpseo_opengraph_url', $yoast_seo, 'canonical_url' );
+
+		// Hooks specific to the Rank Math SEO plugin
+		$rank_math = new ACADP_Public_Rank_Math();
+
+		$this->loader->add_filter( 'rank_math/frontend/title', $rank_math, 'meta_title' );
+		$this->loader->add_filter( 'rank_math/frontend/description', $rank_math, 'meta_description' );
+		$this->loader->add_filter( 'rank_math/frontend/canonical', $rank_math, 'canonical_url' );
 
 		// Hooks specific to the locations page
 		$plugin_public_locations = new ACADP_Public_Locations();

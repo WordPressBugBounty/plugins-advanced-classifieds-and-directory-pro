@@ -459,6 +459,28 @@ function acadp_get_payment_bulk_actions() {
 }
 
 /**
+ * Check if Yoast or the Rank Math SEO plugin is active.
+ *
+ * @since  3.4.2
+ * @return bool  True if active, false if not.
+ */
+function acadp_is_yoast_or_rank_math_active() {
+	$active_plugins = apply_filters( 'active_plugins', get_option( 'active_plugins' ) );
+
+	// Check if Yoast SEO plugin is active
+	if ( in_array( 'wordpress-seo/wp-seo.php', $active_plugins ) || in_array( 'wordpress-seo-premium/wp-seo-premium.php', $active_plugins ) ) {
+		return true;
+	}
+
+	// Check if Rank Math SEO plugin is active
+	if ( in_array( 'seo-by-rank-math/rank-math.php', $active_plugins ) ) {
+		return true;
+	}
+
+	return false;
+}
+
+/**
  * Sanitize Amount
  *
  * Returns a sanitized amount by stripping out thousands separators.
@@ -1616,23 +1638,6 @@ function acadp_get_user_slug() {
 		
 	// Return
 	return $user_slug;
-}
-
-/**
- * Check if Yoast SEO plugin is active and ACADP can use that.
- *
- * @since  1.6.1
- * @return bool  $can_use_yoast "true" if can use Yoast, "false" if not.
- */
-function acadp_can_use_yoast() {
-	$can_use_yoast = false;
-
-	$active_plugins = apply_filters( 'active_plugins', get_option( 'active_plugins' ) );
-	if ( in_array( 'wordpress-seo/wp-seo.php', $active_plugins ) || in_array( 'wordpress-seo-premium/wp-seo-premium.php', $active_plugins ) ) {
-		$can_use_yoast = true;
-	}
-
-	return $can_use_yoast;
 }
 
 /**
