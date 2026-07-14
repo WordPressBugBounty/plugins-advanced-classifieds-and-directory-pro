@@ -529,7 +529,7 @@ class ACADP_Public_User {
 			}
 			
 			$category = wp_get_object_terms( $post_id, 'acadp_categories', array( 'fields' => 'ids' ) );
-			$category = $category[0];
+			$category = ! empty( $category ) ? $category[0] : -1;
 			
 			if ( $can_add_location ) {
 				$location = wp_get_object_terms( $post_id, 'acadp_locations', array( 'fields' => 'ids' ) );
@@ -559,6 +559,13 @@ class ACADP_Public_User {
 
 			$ajax = true;
 			$post_id = (int) $_POST['post_id'];
+
+			// Verify the current user can edit the requested listing before
+			// exposing its custom field values. Skipped when adding a new
+			// listing ( post_id 0 ), where no listing exists yet.
+			if ( $post_id > 0 && ! acadp_current_user_can( 'edit_acadp_listing', $post_id ) ) {
+				wp_die( -1, 403 );
+			}
 
 			if ( isset( $_POST['terms'] ) ) {
 				$terms = is_array( $_POST['terms'] ) ? array_map( 'intval', $_POST['terms'] ) : (int) $_POST['terms'];

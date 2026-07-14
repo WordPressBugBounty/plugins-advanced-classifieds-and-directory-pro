@@ -6,7 +6,7 @@ Tags: business directory, classifieds, directory, listings, real estate
 Requires at least: 6.3
 Tested up to: 7.0
 Requires PHP: 5.6.20
-Stable tag: 3.4.2
+Stable tag: 3.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -169,6 +169,12 @@ See our [FAQ](https://pluginsware.com/faq/) page, which is updated more regularl
 5. Others
 
 == Changelog ==
+
+= 3.4.3 =
+
+* Security Fix: Missing Authorization / Sensitive Information Exposure via the custom fields AJAX action. Thanks to the security researcher "Shikhali Jamalzade" from [WPScan](https://wpscan.com/).
+* Fix: PHP warning ("Undefined array key 0") on the listing edit form when editing a listing that has no category assigned.
+* Tweak: Updated Freemius SDK to version 2.13.4.
 
 = 3.4.2 =
 
@@ -598,6 +604,6 @@ This is a major release and the plugin's front-end HTML layouts have been comple
 
 == Upgrade Notice ==
 
-= 3.4.2 =
+= 3.4.3 =
 
-Added support for the Rank Math SEO plugin, plus minor bug fixes. [See changelog](https://wordpress.org/plugins/advanced-classifieds-and-directory-pro/#developers)
+Security release: fixes a missing authorization issue in the custom fields AJAX action. All users are strongly encouraged to update. [See changelog](https://wordpress.org/plugins/advanced-classifieds-and-directory-pro/#developers)
