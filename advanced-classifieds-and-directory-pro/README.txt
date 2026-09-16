@@ -4,9 +4,9 @@ Contributors: pluginsware, freemius
 Donate link: https://pluginsware.com/
 Tags: business directory, classifieds, directory, listings, real estate
 Requires at least: 6.3
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 5.6.20
-Stable tag: 3.4.3
+Stable tag: 3.4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -169,6 +169,10 @@ See our [FAQ](https://pluginsware.com/faq/) page, which is updated more regularl
 5. Others
 
 == Changelog ==
+
+= 3.4.4 =
+
+* Fix: WordPress 7.1 compatibility issues.
 
 = 3.4.3 =
 
@@ -604,6 +608,6 @@ This is a major release and the plugin's front-end HTML layouts have been comple
 
 == Upgrade Notice ==
 
-= 3.4.3 =
+= 3.4.4 =
 
-Security release: fixes a missing authorization issue in the custom fields AJAX action. All users are strongly encouraged to update. [See changelog](https://wordpress.org/plugins/advanced-classifieds-and-directory-pro/#developers)
+Fix: WordPress 7.1 compatibility issues. [See changelog](https://wordpress.org/plugins/advanced-classifieds-and-directory-pro/#developers)
