@@ -58,8 +58,12 @@
 				draggable: false
 			}
 
-			// Creating markers.	
-			let markers = L.markerClusterGroup();
+			// Creating markers.
+			// Keep markers outside the visible bounds on the map. On mobile, the popup's auto-pan can push
+			// the clicked marker off a short map, and removing it would close its popup immediately.
+			let markers = L.markerClusterGroup({
+				removeOutsideVisibleBounds: false
+			});
 
 			markersEl.forEach(( markerEl ) => {	
 				const latitude = markerEl.dataset.latitude;

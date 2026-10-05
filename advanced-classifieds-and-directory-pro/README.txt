@@ -6,7 +6,7 @@ Tags: business directory, classifieds, directory, listings, real estate
 Requires at least: 6.3
 Tested up to: 7.1
 Requires PHP: 5.6.20
-Stable tag: 3.4.4
+Stable tag: 3.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -169,6 +169,12 @@ See our [FAQ](https://pluginsware.com/faq/) page, which is updated more regularl
 5. Others
 
 == Changelog ==
+
+= 3.5.0 =
+
+* Security Fix: Stored Cross-Site Scripting via the listing contact fields (phone, email, website, address, zip code) when the "Force bootstrap CSS" setting is enabled. Thanks to the security researcher "[Ivaylo](https://www.wordfence.com/threat-intel/vulnerabilities/researchers/ivaylo-atanassov)" from [Wordfence](https://www.wordfence.com/).
+* Tweak: Hardened output escaping of location names and the website link in the listing contact details.
+* Fix: On mobile, listing popups on the OpenStreetMap map view closed immediately after opening.
 
 = 3.4.4 =
 
@@ -608,6 +614,6 @@ This is a major release and the plugin's front-end HTML layouts have been comple
 
 == Upgrade Notice ==
 
-= 3.4.4 =
+= 3.5.0 =
 
-Fix: WordPress 7.1 compatibility issues. [See changelog](https://wordpress.org/plugins/advanced-classifieds-and-directory-pro/#developers)
+Security release: fixes a stored cross-site scripting issue in the listing contact details. All users are strongly encouraged to update. [See changelog](https://wordpress.org/plugins/advanced-classifieds-and-directory-pro/#developers)

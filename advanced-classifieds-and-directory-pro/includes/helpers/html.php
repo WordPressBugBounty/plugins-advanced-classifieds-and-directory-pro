@@ -368,7 +368,7 @@ function the_acadp_address( $post_meta, $term_id ) {
 	echo '<p class="acadp-address">';
 	
 	if ( ! empty( $post_meta['address'][0] ) ) {
-		echo '<span class="acadp-street-address">' . $post_meta['address'][0] . '</span>';
+		echo '<span class="acadp-street-address">' . esc_html( $post_meta['address'][0] ) . '</span>';
 	}
 	
 	$pieces = array();
@@ -381,18 +381,18 @@ function the_acadp_address( $post_meta, $term_id ) {
 		foreach ( $locations as $region ) {
 			$term = get_term( $region, 'acadp_locations' );
 			if ( ! empty( $term ) && ! is_wp_error( $term ) ) {
-				$pieces[] = '<span class="acadp-locality"><a href="' . esc_url( acadp_get_location_page_link( $term ) ) . '">' . $term->name . '</a></span>';
+				$pieces[] = '<span class="acadp-locality"><a href="' . esc_url( acadp_get_location_page_link( $term ) ) . '">' . esc_html( $term->name ) . '</a></span>';
 			}
 		}
 	}	
 
 	$term = get_term( $country, 'acadp_locations' );
 	if ( ! empty( $term ) && ! is_wp_error( $term ) ) {
-		$pieces[] = '<span class="acadp-country-name"><a href="' . esc_url( acadp_get_location_page_link( $term ) ) . '">' . $term->name . '</a></span>';
+		$pieces[] = '<span class="acadp-country-name"><a href="' . esc_url( acadp_get_location_page_link( $term ) ) . '">' . esc_html( $term->name ) . '</a></span>';
 	}
 	
 	if ( ! empty( $post_meta['zipcode'][0] ) ) {
-		$pieces[] = $post_meta['zipcode'][0];
+		$pieces[] = esc_html( $post_meta['zipcode'][0] );
 	}
 	
 	echo implode( '<span class="acadp-delimiter">,</span>', $pieces );
@@ -401,24 +401,24 @@ function the_acadp_address( $post_meta, $term_id ) {
 		echo '<span class="acadp-phone">';
 		echo '<span class="glyphicon glyphicon-earphone"></span>&nbsp;';
 		if ( 'open' == $listing_settings['show_phone_number'] ) {
-			echo '<span class="acadp-phone-number"><a href="tel:' . $post_meta['phone'][0] . '">' . $post_meta['phone'][0] . '</a></span>';
+			echo '<span class="acadp-phone-number"><a href="tel:' . esc_attr( $post_meta['phone'][0] ) . '">' . esc_html( $post_meta['phone'][0] ) . '</a></span>';
 		} else {
-			echo '<span><a class="acadp-show-phone-number" href="javascript: void(0);">' . __( 'Show phone number', 'advanced-classifieds-and-directory-pro' ) . '</a></span>';
-			echo '<span class="acadp-phone-number" style="display: none;"><a href="tel:' . $post_meta['phone'][0] . '">' . $post_meta['phone'][0] . '</a></span>';
+			echo '<span><a class="acadp-show-phone-number" href="javascript: void(0);">' . esc_html__( 'Show phone number', 'advanced-classifieds-and-directory-pro' ) . '</a></span>';
+			echo '<span class="acadp-phone-number" style="display: none;"><a href="tel:' . esc_attr( $post_meta['phone'][0] ) . '">' . esc_html( $post_meta['phone'][0] ) . '</a></span>';
 		}
 		echo '</span>';
 	}
 		
 	if ( 'never' != $listing_settings['show_email_address'] && ! empty( $post_meta['email'][0] ) ) {		
 		if ( 'public' == $listing_settings['show_email_address'] || is_user_logged_in() ) {
-			echo '<span class="acadp-email"><span class="glyphicon glyphicon-envelope"></span>&nbsp;<a href="mailto:' . $post_meta['email'][0] . '">' . $post_meta['email'][0] . '</a></span>';
+			echo '<span class="acadp-email"><span class="glyphicon glyphicon-envelope"></span>&nbsp;<a href="mailto:' . esc_attr( $post_meta['email'][0] ) . '">' . esc_html( $post_meta['email'][0] ) . '</a></span>';
 		} else {
 			echo '<span class="acadp-email"><span class="glyphicon glyphicon-envelope"></span>&nbsp;*****</span>';
 		}
 	}
 	
 	if ( ! empty( $post_meta['website'][0] ) ) {
-		echo '<span class="acadp-website"><span class="glyphicon glyphicon-globe"></span>&nbsp;<a href="' . $post_meta['website'][0] . '" target="_blank">' . $post_meta['website'][0] . '</a></span>';
+		echo '<span class="acadp-website"><span class="glyphicon glyphicon-globe"></span>&nbsp;<a href="' . esc_url( $post_meta['website'][0] ) . '" target="_blank">' . esc_html( $post_meta['website'][0] ) . '</a></span>';
 	}
 	
 	echo '</p>';	

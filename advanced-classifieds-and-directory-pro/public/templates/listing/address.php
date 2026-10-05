@@ -46,7 +46,7 @@ $listing_settings = get_option( 'acadp_listing_settings' );
                     $locations[] = sprintf(
                         '<span class="acadp-location"><a href="%s" class="acadp-underline">%s</a></span>',
                         esc_url( acadp_get_location_page_link( $term ) ),
-                        $term->name
+                        esc_html( $term->name )
                     );
                 }
             }
@@ -121,8 +121,9 @@ $listing_settings = get_option( 'acadp_listing_settings' );
             </svg>';
             
             echo sprintf( 
-                '<a href="%1$s" class="acadp-underline" target="_blank">%1$s</a>', 
-                esc_html( $post_meta['website'][0] ) 
+                '<a href="%s" class="acadp-underline" target="_blank">%s</a>',
+                esc_url( $post_meta['website'][0] ),
+                esc_html( $post_meta['website'][0] )
             );
 
             echo '</div>';
