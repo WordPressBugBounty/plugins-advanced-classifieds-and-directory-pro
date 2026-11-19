@@ -779,11 +779,87 @@ if ( ! window.ACADPValidateCheckboxGroup ) {
 			$( el ).find( 'input[type=password]' ).prop( 'disabled', ! isChecked );
 		});
 	}
-	
+
+	/**
+	 * reCAPTCHA v3: remember the submit button that is clicked, for browsers
+	 * without event.submitter. Returns a function that hands over the remembered
+	 * button and forgets it, so a click belongs to one submit only.
+	 */
+	const watchReCaptchaSubmitter = ( formEl ) => {
+		let clickedEl = null;
+
+		formEl.addEventListener( 'click', ( event ) => {
+			const el = event.target.closest( 'button, input' );
+			if ( el !== null && el.type === 'submit' ) {
+				clickedEl = el;
+			}
+		});
+
+		return () => {
+			const el = clickedEl;
+			clickedEl = null;
+			return el;
+		};
+	}
+
+	/**
+	 * reCAPTCHA v3: the submit button that submitted the form, from a jQuery submit event.
+	 *
+	 * event.submitter where the browser supports it. Otherwise the submit button
+	 * that was last clicked, and failing that the form's first submit button, which
+	 * is the one browsers use when Enter is pressed in a field.
+	 */
+	const getReCaptchaSubmitter = ( event, formEl, clickedEl ) => {
+		if ( event.originalEvent && event.originalEvent.submitter ) {
+			return event.originalEvent.submitter;
+		}
+
+		if ( clickedEl ) {
+			return clickedEl;
+		}
+
+		return formEl.querySelector( 'input[type="submit"], button[type="submit"], button:not([type])' );
+	}
+
+	/**
+	 * reCAPTCHA v3: get a token, then submit the form.
+	 *
+	 * The form is submitted from code, which does not post the clicked button. Its
+	 * name and value are copied into a hidden field, so "Save Draft" still saves a
+	 * draft. HTMLFormElement.prototype.submit is used because a field named "submit"
+	 * would hide the form's own submit() method.
+	 */
+	const submitWithReCaptchaV3 = ( formEl, submitterEl, form, onFailure ) => {
+		ACADPGetReCaptchaToken( form ).then(( token ) => {
+			// Fields from an earlier, failed attempt.
+			formEl.querySelectorAll( '.acadp-recaptcha-hidden-field' ).forEach(( el ) => {
+				el.remove();
+			});
+
+			const fields = [ [ 'g-recaptcha-response', token ] ];
+			if ( submitterEl && submitterEl.name ) {
+				fields.push( [ submitterEl.name, submitterEl.value ] );
+			}
+
+			fields.forEach(( field ) => {
+				const inputEl = document.createElement( 'input' );
+
+				inputEl.type = 'hidden';
+				inputEl.className = 'acadp-recaptcha-hidden-field';
+				inputEl.name = field[0];
+				inputEl.value = field[1];
+
+				formEl.appendChild( inputEl );
+			});
+
+			HTMLFormElement.prototype.submit.call( formEl );
+		}).catch( onFailure );
+	}
+
 	/**
 	 * Called when the page has loaded.
 	 */
-	$(function() {	
+	$(function() {
 
 		// Load the required script files.
 		if ( document.querySelector( 'acadp-dropdown-terms' ) !== null ) {
@@ -1183,6 +1259,7 @@ if ( ! window.ACADPValidateCheckboxGroup ) {
 			// Form Validation.
 			if ( $.fn.validator ) {	
 				let listingFormSubmitted = false;
+				const takeListingSubmitter = watchReCaptchaSubmitter( listingFormEl );
 				
 				$( listingFormEl ).validator({
 					'custom': {
@@ -1196,6 +1273,8 @@ if ( ! window.ACADPValidateCheckboxGroup ) {
 					},
 					disable: false
 				}).on( 'submit', function( event ) {				
+					const clickedEl = takeListingSubmitter();
+
 					if ( listingFormSubmitted ) return false;
 					listingFormSubmitted = true;
 
@@ -1219,7 +1298,7 @@ if ( ! window.ACADPValidateCheckboxGroup ) {
 					}
 
 					let recaptchaResponse = null;
-					if ( acadp.recaptcha_listing > 0 ) {	
+					if ( acadp.recaptcha_listing > 0 && acadp.recaptcha_type !== 'v3' ) {
 						recaptchaResponse = grecaptcha.getResponse( acadp.recaptchas['listing'] );
 			
 						if ( recaptchaResponse.length == 0 ) {
@@ -1239,11 +1318,31 @@ if ( ! window.ACADPValidateCheckboxGroup ) {
 							scrollTop: $( listingFormEl ).offset().top - 50
 						}, 500 );
 						
-						listingFormSubmitted = false; // Re-enable the submit event					
-						return false;					
-					} else {					
-						$( '#acadp-post-errors' ).hide();				
-					}		 
+						listingFormSubmitted = false; // Re-enable the submit event
+						return false;
+					} else {
+						$( '#acadp-post-errors' ).hide();
+					}
+
+					// reCAPTCHA v3: hold the submit until a token arrives. The reCAPTCHA
+					// container is printed on new listing forms only, which are also the
+					// only ones the server checks.
+					if ( acadp.recaptcha_listing > 0 && acadp.recaptcha_type === 'v3' && document.querySelector( '#acadp-listing-g-recaptcha' ) !== null ) {
+						const $messageEl = $( '#acadp-listing-g-recaptcha-message' );
+						$messageEl.html( '' );
+
+						submitWithReCaptchaV3( listingFormEl, getReCaptchaSubmitter( event, listingFormEl, clickedEl ), 'listing', () => {
+							$messageEl.addClass( 'text-danger' ).html( acadp.i18n.recaptcha_failed );
+
+							$( 'html, body' ).animate({
+								scrollTop: $messageEl.offset().top - 50
+							}, 500 );
+
+							listingFormSubmitted = false; // Re-enable the submit event
+						});
+
+						return false;
+					}
 				});
 
 				$( listingFormEl ).on( 'input', '.acadp-form-validate', ( event ) => {
@@ -1283,10 +1382,13 @@ if ( ! window.ACADPValidateCheckboxGroup ) {
 			// Form Validation.
 			if ( $.fn.validator ) {	
 				let registerFormElSubmitted = false;
+				const takeRegisterSubmitter = watchReCaptchaSubmitter( registerFormEl );
 
 				$( registerFormEl ).validator({
 					disable: false
 				}).on( 'submit', function( event ) {				
+					const clickedEl = takeRegisterSubmitter();
+
 					if ( registerFormElSubmitted ) return false;
 					registerFormElSubmitted = true;
 						
@@ -1297,7 +1399,7 @@ if ( ! window.ACADPValidateCheckboxGroup ) {
 					}
 					
 					let recaptchaResponse = null;
-					if ( acadp.recaptcha_registration > 0 ) {	
+					if ( acadp.recaptcha_registration > 0 && acadp.recaptcha_type !== 'v3' ) {
 						recaptchaResponse = grecaptcha.getResponse( acadp.recaptchas['registration'] );
 			
 						if ( recaptchaResponse.length == 0 ) {
@@ -1315,8 +1417,26 @@ if ( ! window.ACADPValidateCheckboxGroup ) {
 							scrollTop: $( registerFormEl ).offset().top - 50
 						}, 500 );
 						
-						registerFormElSubmitted = false; // Re-enable the submit event					
-						return false;					
+						registerFormElSubmitted = false; // Re-enable the submit event
+						return false;
+					}
+
+					// reCAPTCHA v3: hold the submit until a token arrives.
+					if ( acadp.recaptcha_registration > 0 && acadp.recaptcha_type === 'v3' ) {
+						const $messageEl = $( '#acadp-registration-g-recaptcha-message' );
+						$messageEl.removeClass( 'text-danger' ).html( '' );
+
+						submitWithReCaptchaV3( registerFormEl, getReCaptchaSubmitter( event, registerFormEl, clickedEl ), 'registration', () => {
+							$messageEl.addClass( 'text-danger' ).html( '<p>' + acadp.i18n.recaptcha_failed + '</p>' );
+
+							$( 'html, body' ).animate({
+								scrollTop: $( registerFormEl ).offset().top - 50
+							}, 500 );
+
+							registerFormElSubmitted = false; // Re-enable the submit event
+						});
+
+						return false;
 					}
 				});
 			}
@@ -1439,7 +1559,7 @@ if ( ! window.ACADPValidateCheckboxGroup ) {
 					event.preventDefault();
 					
 					let recaptchaResponse = null;
-					if ( acadp.recaptcha_contact > 0 ) {	
+					if ( acadp.recaptcha_contact > 0 && acadp.recaptcha_type !== 'v3' ) {
 						recaptchaResponse = grecaptcha.getResponse( acadp.recaptchas['contact'] );
 			
 						if ( recaptchaResponse.length == 0 ) {
@@ -1489,20 +1609,35 @@ if ( ! window.ACADPValidateCheckboxGroup ) {
 						data[ fieldName ] = $contactFormEl.find( '.acadp-magic-field input' ).val();
 					}
 		
-					$.post( acadp.ajax_url, data, function( response ) {
-						if ( 1 == response.error ) {
-							$statusEl.addClass( 'text-danger' ).html( response.message );
-						} else {
-							$statusEl.addClass( 'text-success' ).html( response.message );
-							$( '#acadp-contact-message' ).val( '' );
-						}
-				
-						if ( acadp.recaptcha_contact > 0 ) {
-							grecaptcha.reset( acadp.recaptchas['contact'] );
-						}
-						
-						contactFormElSubmitted = false; // Re-enable the submit event
-					}, 'json' );					
+					const sendRequest = () => {
+						$.post( acadp.ajax_url, data, function( response ) {
+							if ( 1 == response.error ) {
+								$statusEl.addClass( 'text-danger' ).html( response.message );
+							} else {
+								$statusEl.addClass( 'text-success' ).html( response.message );
+								$( '#acadp-contact-message' ).val( '' );
+							}
+
+							if ( acadp.recaptcha_contact > 0 && acadp.recaptcha_type !== 'v3' ) {
+								grecaptcha.reset( acadp.recaptchas['contact'] );
+							}
+
+							contactFormElSubmitted = false; // Re-enable the submit event
+						}, 'json' );
+					}
+
+					if ( acadp.recaptcha_contact > 0 && acadp.recaptcha_type === 'v3' ) {
+						// reCAPTCHA v3: a fresh token for every send. The form stays locked meanwhile.
+						ACADPGetReCaptchaToken( 'contact' ).then(( token ) => {
+							data['g-recaptcha-response'] = token;
+							sendRequest();
+						}).catch(() => {
+							$statusEl.addClass( 'text-danger' ).html( acadp.i18n.recaptcha_failed );
+							contactFormElSubmitted = false; // Re-enable the submit event
+						});
+					} else {
+						sendRequest();
+					}
 				});
 			}			
 		}
@@ -1534,7 +1669,7 @@ if ( ! window.ACADPValidateCheckboxGroup ) {
 					event.preventDefault();	
 					
 					let recaptchaResponse = null;
-					if ( acadp.recaptcha_report_abuse > 0 ) {	
+					if ( acadp.recaptcha_report_abuse > 0 && acadp.recaptcha_type !== 'v3' ) {
 						recaptchaResponse = grecaptcha.getResponse( acadp.recaptchas['report_abuse'] );
 			
 						if ( recaptchaResponse.length == 0 ) {
@@ -1572,20 +1707,35 @@ if ( ! window.ACADPValidateCheckboxGroup ) {
 						data[ fieldName ] = $reportAbuseFormEl.find( '.acadp-magic-field input' ).val();
 					}
 
-					$.post( acadp.ajax_url, data, function( response ) {
-						if ( 1 == response.error ) {
-							$statusEl.addClass( 'text-danger' ).html( response.message );
-						} else {
-							$statusEl.addClass( 'text-success' ).html( response.message );
-							$( '#acadp-report-abuse-message' ).val( '' );
-						}
-				
-						if ( acadp.recaptcha_report_abuse > 0 ) {
-							grecaptcha.reset( acadp.recaptchas['report_abuse'] );
-						}
-						
-						reportAbuseFormElSubmitted = false; // Re-enable the submit event
-					}, 'json' );
+					const sendRequest = () => {
+						$.post( acadp.ajax_url, data, function( response ) {
+							if ( 1 == response.error ) {
+								$statusEl.addClass( 'text-danger' ).html( response.message );
+							} else {
+								$statusEl.addClass( 'text-success' ).html( response.message );
+								$( '#acadp-report-abuse-message' ).val( '' );
+							}
+
+							if ( acadp.recaptcha_report_abuse > 0 && acadp.recaptcha_type !== 'v3' ) {
+								grecaptcha.reset( acadp.recaptchas['report_abuse'] );
+							}
+
+							reportAbuseFormElSubmitted = false; // Re-enable the submit event
+						}, 'json' );
+					}
+
+					if ( acadp.recaptcha_report_abuse > 0 && acadp.recaptcha_type === 'v3' ) {
+						// reCAPTCHA v3: a fresh token for every send. The form stays locked meanwhile.
+						ACADPGetReCaptchaToken( 'report_abuse' ).then(( token ) => {
+							data['g-recaptcha-response'] = token;
+							sendRequest();
+						}).catch(() => {
+							$statusEl.addClass( 'text-danger' ).html( acadp.i18n.recaptcha_failed );
+							reportAbuseFormElSubmitted = false; // Re-enable the submit event
+						});
+					} else {
+						sendRequest();
+					}
 				});
 			}
 
@@ -1809,13 +1959,16 @@ if ( ! window.ACADPValidateCheckboxGroup ) {
 
 // Load reCAPTCHA explicitly.
 var acadp_on_recaptcha_load = function() {
-	if ( ! acadp.recaptcha_site_key ) {	
+	if ( ! acadp.recaptcha_site_key ) {
 		return false;
 	}
 
+	// reCAPTCHA v3 has no widgets to render. Tokens are fetched on submit.
+	const canRender = ( acadp.recaptcha_type !== 'v3' );
+
 	// Registration form
 	if ( document.querySelector( '#acadp-registration-g-recaptcha' ) !== null ) {
-		if ( acadp.recaptcha_registration > 0 ) {
+		if ( acadp.recaptcha_registration > 0 && canRender ) {
 			acadp.recaptchas['registration'] = grecaptcha.render( 'acadp-registration-g-recaptcha', {
 				'sitekey': acadp.recaptcha_site_key
 			});		
@@ -1827,8 +1980,8 @@ var acadp_on_recaptcha_load = function() {
 	}
 	
 	// Listing form
-	if ( document.querySelector( '#acadp-listing-g-recaptcha' ) !== null ) {			
-		if ( acadp.recaptcha_listing > 0 ) {
+	if ( document.querySelector( '#acadp-listing-g-recaptcha' ) !== null ) {
+		if ( acadp.recaptcha_listing > 0 && canRender ) {
 			acadp.recaptchas['listing'] = grecaptcha.render( 'acadp-listing-g-recaptcha', {
 				'sitekey': acadp.recaptcha_site_key
 			});	
@@ -1840,8 +1993,8 @@ var acadp_on_recaptcha_load = function() {
 	}
 	
 	// Contact form
-	if ( document.querySelector( '#acadp-contact-g-recaptcha' ) !== null ) {		
-		if ( acadp.recaptcha_contact > 0 ) {
+	if ( document.querySelector( '#acadp-contact-g-recaptcha' ) !== null ) {
+		if ( acadp.recaptcha_contact > 0 && canRender ) {
 			acadp.recaptchas['contact'] = grecaptcha.render( 'acadp-contact-g-recaptcha', {
 				'sitekey': acadp.recaptcha_site_key
 			});
@@ -1853,8 +2006,8 @@ var acadp_on_recaptcha_load = function() {
 	}
 	
 	// Report Abuse form
-	if ( document.querySelector( '#acadp-report-abuse-g-recaptcha' ) !== null ) {		
-		if ( acadp.recaptcha_report_abuse > 0 ) {
+	if ( document.querySelector( '#acadp-report-abuse-g-recaptcha' ) !== null ) {
+		if ( acadp.recaptcha_report_abuse > 0 && canRender ) {
 			acadp.recaptchas['report_abuse'] = grecaptcha.render( 'acadp-report-abuse-g-recaptcha', {
 				'sitekey': acadp.recaptcha_site_key
 			});
@@ -1867,4 +2020,49 @@ var acadp_on_recaptcha_load = function() {
 
 	// Custom Event for developers.
 	document.dispatchEvent( new CustomEvent( 'acadp_on_recaptcha_load' ) );
+}
+
+/**
+ * Get a reCAPTCHA v3 token for a form, at the moment it is submitted.
+ *
+ * Tokens expire after two minutes and can be verified only once, so request a
+ * new one for every submission. The action is "acadp_" + the form name, which
+ * is what the server expects.
+ *
+ * Resolves with the token. Rejects when the reCAPTCHA script is not loaded,
+ * when Google cannot issue a token (for example, a v2 key used as a v3 key),
+ * or when no answer arrives within 15 seconds.
+ */
+function ACADPGetReCaptchaToken( form ) {
+	return new Promise(( resolve, reject ) => {
+		if ( ! acadp.recaptcha_site_key || typeof grecaptcha === 'undefined' || typeof grecaptcha.execute !== 'function' ) {
+			reject( new Error( 'reCAPTCHA is not loaded.' ) );
+			return;
+		}
+
+		const timer = setTimeout(() => {
+			reject( new Error( 'reCAPTCHA did not respond.' ) );
+		}, 15000 );
+
+		const done = ( callback, value ) => {
+			clearTimeout( timer );
+			callback( value );
+		};
+
+		grecaptcha.ready(() => {
+			try {
+				grecaptcha.execute( acadp.recaptcha_site_key, { action: 'acadp_' + form } ).then(( token ) => {
+					if ( token ) {
+						done( resolve, token );
+					} else {
+						done( reject, new Error( 'reCAPTCHA returned an empty token.' ) );
+					}
+				}, ( error ) => {
+					done( reject, error );
+				});
+			} catch ( error ) {
+				done( reject, error );
+			}
+		});
+	});
 }

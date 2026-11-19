@@ -119,5 +119,50 @@ function acadp_on_recaptcha_load() {
 	}
 	
 	window.isACADPReCaptchaLoaded = true;
-	document.dispatchEvent( new CustomEvent( 'acadp.recaptcha.loaded' ) );	
+	document.dispatchEvent( new CustomEvent( 'acadp.recaptcha.loaded' ) );
+}
+
+/**
+ * Get a reCAPTCHA v3 token for a form, at the moment it is submitted.
+ *
+ * Tokens expire after two minutes and can be verified only once, so request a
+ * new one for every submission. The action is "acadp_" + the form name, which
+ * is what the server expects.
+ *
+ * Resolves with the token. Rejects when the reCAPTCHA script is not loaded,
+ * when Google cannot issue a token (for example, a v2 key used as a v3 key),
+ * or when no answer arrives within 15 seconds.
+ */
+function ACADPGetReCaptchaToken( form ) {
+	return new Promise(( resolve, reject ) => {
+		if ( ! acadp.recaptcha_site_key || typeof grecaptcha === 'undefined' || typeof grecaptcha.execute !== 'function' ) {
+			reject( new Error( 'reCAPTCHA is not loaded.' ) );
+			return;
+		}
+
+		const timer = setTimeout(() => {
+			reject( new Error( 'reCAPTCHA did not respond.' ) );
+		}, 15000 );
+
+		const done = ( callback, value ) => {
+			clearTimeout( timer );
+			callback( value );
+		};
+
+		grecaptcha.ready(() => {
+			try {
+				grecaptcha.execute( acadp.recaptcha_site_key, { action: 'acadp_' + form } ).then(( token ) => {
+					if ( token ) {
+						done( resolve, token );
+					} else {
+						done( reject, new Error( 'reCAPTCHA returned an empty token.' ) );
+					}
+				}, ( error ) => {
+					done( reject, error );
+				});
+			} catch ( error ) {
+				done( reject, error );
+			}
+		});
+	});
 }

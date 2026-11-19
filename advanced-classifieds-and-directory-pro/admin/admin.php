@@ -143,7 +143,30 @@ class ACADP_Admin {
 
 			if ( ! array_key_exists( 'service', $map_settings ) ) {	
 				$map_settings['service'] = 'google';	
-				update_option( 'acadp_map_settings', $map_settings );				
+				update_option( 'acadp_map_settings', $map_settings );
+			}
+
+			// Update the reCAPTCHA settings. Sites that predate reCAPTCHA v3 stay on v2.
+			$recaptcha_settings = get_option( 'acadp_recaptcha_settings' );
+
+			if ( is_array( $recaptcha_settings ) && ! isset( $recaptcha_settings['type'] ) ) {
+				$recaptcha_settings_updated = array(
+					'type' => 'v2'
+				);
+
+				if ( ! isset( $recaptcha_settings['site_key_v3'] ) ) {
+					$recaptcha_settings_updated['site_key_v3'] = '';
+				}
+
+				if ( ! isset( $recaptcha_settings['secret_key_v3'] ) ) {
+					$recaptcha_settings_updated['secret_key_v3'] = '';
+				}
+
+				if ( ! isset( $recaptcha_settings['score_threshold'] ) ) {
+					$recaptcha_settings_updated['score_threshold'] = 0.5;
+				}
+
+				update_option( 'acadp_recaptcha_settings', array_merge( $recaptcha_settings, $recaptcha_settings_updated ) );
 			}
 
 			// Insert the GDPR Compliance settings

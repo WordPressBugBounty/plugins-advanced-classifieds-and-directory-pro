@@ -1281,46 +1281,142 @@ function acadp_remove_query_arg( $key, $query = false ) {
 		return $query;
 	}
 		
-	return add_query_arg( $key, false, $query );	
+	return add_query_arg( $key, false, $query );
+}
+
+/**
+ * Get the reCAPTCHA settings, normalised for the active reCAPTCHA type.
+ *
+ * Installs that predate reCAPTCHA v3 have no "type" key and are treated as v2.
+ *
+ * @since  3.5.2
+ * @return array  $config {
+ *     @type string $type       Active reCAPTCHA type, "v2" or "v3".
+ *     @type string $site_key   Site key of the active type.
+ *     @type string $secret_key Secret key of the active type.
+ *     @type float  $threshold  Minimum score a v3 request must reach, 0.0 to 1.0.
+ *     @type array  $forms      Forms protected by reCAPTCHA.
+ * }
+ */
+function acadp_get_recaptcha_config() {
+	$recaptcha_settings = get_option( 'acadp_recaptcha_settings' );
+
+	if ( ! is_array( $recaptcha_settings ) ) {
+		$recaptcha_settings = array();
+	}
+
+	$forms = array();
+	if ( isset( $recaptcha_settings['forms'] ) && is_array( $recaptcha_settings['forms'] ) ) {
+		$forms = $recaptcha_settings['forms'];
+	}
+
+	$type = ( isset( $recaptcha_settings['type'] ) && 'v3' === $recaptcha_settings['type'] ) ? 'v3' : 'v2';
+
+	if ( 'v3' === $type ) {
+		$site_key   = isset( $recaptcha_settings['site_key_v3'] ) ? $recaptcha_settings['site_key_v3'] : '';
+		$secret_key = isset( $recaptcha_settings['secret_key_v3'] ) ? $recaptcha_settings['secret_key_v3'] : '';
+	} else {
+		$site_key   = isset( $recaptcha_settings['site_key'] ) ? $recaptcha_settings['site_key'] : '';
+		$secret_key = isset( $recaptcha_settings['secret_key'] ) ? $recaptcha_settings['secret_key'] : '';
+	}
+
+	$threshold = 0.5;
+	if ( isset( $recaptcha_settings['score_threshold'] ) ) {
+		$threshold = acadp_sanitize_recaptcha_threshold( $recaptcha_settings['score_threshold'] );
+	}
+
+	return array(
+		'forms'      => $forms,
+		'type'       => $type,
+		'site_key'   => (string) $site_key,
+		'secret_key' => (string) $secret_key,
+		'threshold'  => $threshold		
+	);
+}
+
+/**
+ * Send a reCAPTCHA token to Google's siteverify endpoint.
+ *
+ * Used by both reCAPTCHA v2 and v3. The secret key travels in the POST body,
+ * never in the URL.
+ *
+ * @since  3.5.2
+ * @param  string     $secret_key The secret key of the active reCAPTCHA type.
+ * @param  string     $token      The token posted by the form.
+ * @return array|bool             Decoded siteverify response, or false if the request failed.
+ */
+function acadp_verify_recaptcha_token( $secret_key, $token ) {
+	$body = array(
+		'secret'   => $secret_key,
+		'response' => $token
+	);
+
+	if ( isset( $_SERVER['REMOTE_ADDR'] ) ) {
+		$body['remoteip'] = sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) );
+	}
+
+	$request = wp_remote_post( 'https://www.google.com/recaptcha/api/siteverify', array(
+		'body' => $body
+	));
+
+	if ( is_wp_error( $request ) || 200 !== (int) wp_remote_retrieve_response_code( $request ) ) {
+		return false;
+	}
+
+	$result = json_decode( wp_remote_retrieve_body( $request ), true );
+
+	return is_array( $result ) ? $result : false;
 }
 
 /**
  * Verify the captcha answer.
  *
  * @since  1.0.0
+ * @since  3.5.2  Supports reCAPTCHA v3, and verifies through a POST request.
  * @param  string $form ACADP Form Name.
  * @return bool         True if not a bot, false if bot.
  */
 function acadp_is_human( $form ) {
-	$recaptcha_settings = get_option( 'acadp_recaptcha_settings' );
-	
+	$recaptcha_config = acadp_get_recaptcha_config();
+
 	$has_captcha = false;
-	if ( isset( $recaptcha_settings['forms'] ) && '' !== $recaptcha_settings['site_key'] && '' !== $recaptcha_settings['secret_key'] ) {
-		if ( in_array( $form, $recaptcha_settings['forms'] ) ) {
+	if ( '' !== $recaptcha_config['site_key'] && '' !== $recaptcha_config['secret_key'] ) {
+		if ( in_array( $form, $recaptcha_config['forms'] ) ) {
 			$has_captcha = true;
 		}
 	}
-	
-	if ( $has_captcha ) {	
+
+	if ( $has_captcha ) {
 		$response = isset( $_POST['g-recaptcha-response'] ) ? sanitize_text_field( $_POST['g-recaptcha-response'] ) : '';
-		
-		if ( '' !== $response ) {			
-			// make a GET request to the Google reCAPTCHA Server
-			$request = wp_remote_get( 'https://www.google.com/recaptcha/api/siteverify?secret=' . $recaptcha_settings['secret_key'] . '&response=' . $response . '&remoteip=' . $_SERVER["REMOTE_ADDR"] );
-			
-			// get the request response body
-			$response_body = wp_remote_retrieve_body( $request );
-			
-			$result = json_decode( $response_body, true );
-			
-			// return true or false, based on users input
-			return ( true == $result['success'] ) ? true : false;	
-		} else {		
-			return false;			
-		}	
+
+		if ( '' === $response ) {
+			return false;
+		}
+
+		$result = acadp_verify_recaptcha_token( $recaptcha_config['secret_key'], $response );
+
+		if ( false === $result || empty( $result['success'] ) ) {
+			return false;
+		}
+
+		// reCAPTCHA v2: a solved challenge is enough
+		if ( 'v3' !== $recaptcha_config['type'] ) {
+			return true;
+		}
+
+		// reCAPTCHA v3: the token must belong to this form, and score high enough
+		if ( ! isset( $result['action'] ) || 'acadp_' . $form !== $result['action'] ) {
+			return false;
+		}
+
+		if ( ! isset( $result['score'] ) || ! is_numeric( $result['score'] ) ) {
+			return false;
+		}
+
+		return ( (float) $result['score'] >= $recaptcha_config['threshold'] );
 	}
-	
-	return true;	
+
+	return true;
 }
 
 /**
@@ -2168,7 +2264,35 @@ function acadp_sanitize_array( $value ) {
  */
 function acadp_sanitize_int( $value ) {
 	$value = intval( $value );
-	return ( 0 == $value ) ? '' : $value;	
+	return ( 0 == $value ) ? '' : $value;
+}
+
+/**
+ * Sanitize the reCAPTCHA v3 score threshold.
+ *
+ * Clamps the value to the 0.0 to 1.0 range that reCAPTCHA v3 scores use. Empty or
+ * non-numeric input falls back to 0.5, Google's recommended default threshold.
+ *
+ * @since  3.5.2
+ * @param  mixed $value Input value.
+ * @return float        Sanitized threshold.
+ */
+function acadp_sanitize_recaptcha_threshold( $value ) {
+	if ( ! is_numeric( $value ) ) {
+		return 0.5;
+	}
+
+	$value = (float) $value;
+
+	if ( $value < 0 ) {
+		return 0.0;
+	}
+
+	if ( $value > 1 ) {
+		return 1.0;
+	}
+
+	return $value;
 }
 
 /**

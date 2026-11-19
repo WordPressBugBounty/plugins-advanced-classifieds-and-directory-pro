@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Advanced Classifieds and Directory Pro\n"
-"POT-Creation-Date: 2025-06-05 14:34+0530\n"
-"PO-Revision-Date: 2025-06-05 14:34+0530\n"
+"POT-Creation-Date: 2026-11-18 17:17+0530\n"
+"PO-Revision-Date: 2026-11-18 17:17+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -10,41 +10,41 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.10\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: "
 "__;_e;esc_attr__;esc_attr_e;esc_html__;esc_html_e;_n:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/admin.php:108 includes/activator.php:139
+#: admin/admin.php:108 includes/activator.php:143
 #: premium/admin/import-export.php:226
 msgid "Sold"
 msgstr ""
 
-#: admin/admin.php:153 includes/activator.php:82 includes/helpers/html.php:87
+#: admin/admin.php:176 includes/activator.php:86 includes/helpers/html.php:87
 msgid "I have read and agree to the Privacy Policy"
 msgstr ""
 
-#: admin/admin.php:163 includes/activator.php:87
+#: admin/admin.php:186 includes/activator.php:91
 msgid ""
 "<strong>Please accept cookies to show this content</strong>. By accepting "
 "you will be accessing content from a service provided by an external third "
 "party."
 msgstr ""
 
-#: admin/admin.php:164 includes/activator.php:88
+#: admin/admin.php:187 includes/activator.php:92
 msgid "Accept"
 msgstr ""
 
-#: admin/admin.php:292 admin/templates/listings/listing-images.php:48
+#: admin/admin.php:315 admin/templates/listings/listing-images.php:48
 #: public/templates/deprecated/user/acadp-public-manage-listings-display.php:151
 #: public/templates/user/manage-listings.php:281
 msgid "Edit"
 msgstr ""
 
-#: admin/admin.php:293 admin/templates/listings/listing-images.php:52
-#: public/public.php:568
+#: admin/admin.php:316 admin/templates/listings/listing-images.php:52
+#: public/public.php:590
 #: public/templates/deprecated/user/acadp-public-edit-listing-display.php:273
 #: public/templates/deprecated/user/acadp-public-manage-listings-display.php:156
 #: public/templates/user/listing-form.php:283
@@ -52,67 +52,67 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: admin/admin.php:294
+#: admin/admin.php:317
 msgid "Please select at least one issue."
 msgstr ""
 
-#: admin/admin.php:312 admin/templates/dashboard/issues.php:81
+#: admin/admin.php:335 admin/templates/dashboard/issues.php:81
 msgid "Apply Fix"
 msgstr ""
 
-#: admin/admin.php:325 admin/templates/dashboard/issues.php:78
+#: admin/admin.php:348 admin/templates/dashboard/issues.php:78
 msgid "Ignore"
 msgstr ""
 
-#: admin/admin.php:351 admin/templates/dashboard/dashboard.php:15
+#: admin/admin.php:374 admin/templates/dashboard/dashboard.php:15
 #: blocks/blocks.php:37
 msgid "Advanced Classifieds and Directory Pro"
 msgstr ""
 
-#: admin/admin.php:352 admin/listings.php:36
+#: admin/admin.php:375 admin/listings.php:36
 msgid "Classifieds & Directory"
 msgstr ""
 
-#: admin/admin.php:362
+#: admin/admin.php:385
 msgid "Advanced Classifieds and Directory Pro - Dashboard"
 msgstr ""
 
-#: admin/admin.php:363
+#: admin/admin.php:386
 msgid "Dashboard"
 msgstr ""
 
-#: admin/admin.php:380
+#: admin/admin.php:403
 msgid "Getting Started"
 msgstr ""
 
-#: admin/admin.php:381
+#: admin/admin.php:404
 msgid "Shortcode Builder"
 msgstr ""
 
-#: admin/admin.php:382
+#: admin/admin.php:405
 msgid "FAQ"
 msgstr ""
 
-#: admin/admin.php:391
+#: admin/admin.php:414
 msgid "Issues Detected"
 msgstr ""
 
-#: admin/admin.php:623
+#: admin/admin.php:646
 msgid "User Account Registration Disabled"
 msgstr ""
 
-#: admin/admin.php:624
+#: admin/admin.php:647
 msgid ""
 "User account registration is disabled on your website. You must enable this "
 "option to allow new users to register on your website and submit their "
 "listings through your site front-end."
 msgstr ""
 
-#: admin/admin.php:627
+#: admin/admin.php:650
 msgid "Pages Misconfigured"
 msgstr ""
 
-#: admin/admin.php:629
+#: admin/admin.php:652
 #, php-format
 msgid ""
 "During activation, our plugin adds few <a href=\"%s\" "
@@ -121,87 +121,87 @@ msgid ""
 "missing, misconfigured or having a wrong shortcode."
 msgstr ""
 
-#: admin/admin.php:649 admin/settings.php:1583
+#: admin/admin.php:672 admin/settings.php:1627
 msgid "All listings page"
 msgstr ""
 
-#: admin/admin.php:653 admin/settings.php:1073 admin/settings.php:1590
+#: admin/admin.php:676 admin/settings.php:1117 admin/settings.php:1634
 msgid "All locations page"
 msgstr ""
 
-#: admin/admin.php:657 admin/settings.php:1597
+#: admin/admin.php:680 admin/settings.php:1641
 msgid "Single location page"
 msgstr ""
 
-#: admin/admin.php:661 admin/settings.php:1074 admin/settings.php:1604
+#: admin/admin.php:684 admin/settings.php:1118 admin/settings.php:1648
 msgid "All categories page"
 msgstr ""
 
-#: admin/admin.php:665 admin/settings.php:1611
+#: admin/admin.php:688 admin/settings.php:1655
 msgid "Single category page"
 msgstr ""
 
-#: admin/admin.php:669 admin/settings.php:1618
+#: admin/admin.php:692 admin/settings.php:1662
 msgid "Search results page"
 msgstr ""
 
-#: admin/admin.php:673 admin/settings.php:1625
+#: admin/admin.php:696 admin/settings.php:1669
 msgid "User listings page"
 msgstr ""
 
-#: admin/admin.php:677 admin/settings.php:1632
+#: admin/admin.php:700 admin/settings.php:1676
 msgid "User dashboard page"
 msgstr ""
 
-#: admin/admin.php:681 admin/settings.php:1639
+#: admin/admin.php:704 admin/settings.php:1683
 msgid "Listing form page"
 msgstr ""
 
-#: admin/admin.php:685 admin/settings.php:1646
+#: admin/admin.php:708 admin/settings.php:1690
 msgid "Manage listings page"
 msgstr ""
 
-#: admin/admin.php:689 admin/settings.php:1653
+#: admin/admin.php:712 admin/settings.php:1697
 msgid "Favourite listings page"
 msgstr ""
 
-#: admin/admin.php:693 admin/settings.php:1660
+#: admin/admin.php:716 admin/settings.php:1704
 msgid "Checkout page"
 msgstr ""
 
-#: admin/admin.php:697 admin/settings.php:1667
+#: admin/admin.php:720 admin/settings.php:1711
 msgid "Payment receipt page"
 msgstr ""
 
-#: admin/admin.php:701 admin/settings.php:1674
+#: admin/admin.php:724 admin/settings.php:1718
 msgid "Payment failure page"
 msgstr ""
 
-#: admin/admin.php:705 admin/settings.php:1681
+#: admin/admin.php:728 admin/settings.php:1725
 msgid "Payment history page"
 msgstr ""
 
-#: admin/admin.php:709 admin/settings.php:1688
+#: admin/admin.php:732 admin/settings.php:1732
 msgid "Login form page"
 msgstr ""
 
-#: admin/admin.php:713 admin/settings.php:1695
+#: admin/admin.php:736 admin/settings.php:1739
 msgid "Register form page"
 msgstr ""
 
-#: admin/admin.php:717 admin/settings.php:1702
+#: admin/admin.php:740 admin/settings.php:1746
 msgid "Account page"
 msgstr ""
 
-#: admin/admin.php:721 admin/settings.php:1709
+#: admin/admin.php:744 admin/settings.php:1753
 msgid "Forgot password page"
 msgstr ""
 
-#: admin/admin.php:725 admin/settings.php:1716
+#: admin/admin.php:748 admin/settings.php:1760
 msgid "Password reset page"
 msgstr ""
 
-#: admin/admin.php:742 admin/settings.php:2188
+#: admin/admin.php:765 admin/settings.php:2234
 msgid "Settings"
 msgstr ""
 
@@ -219,7 +219,7 @@ msgstr ""
 #: admin/categories.php:33 admin/categories.php:81 admin/fields.php:285
 #: admin/fields.php:362 admin/fields.php:388
 #: admin/templates/fields/field-options.php:35
-#: includes/helpers/functions.php:1976 premium/admin/import-export.php:211
+#: includes/helpers/functions.php:2077 premium/admin/import-export.php:211
 #: widgets/categories.php:160
 msgid "Categories"
 msgstr ""
@@ -285,15 +285,15 @@ msgid "Advanced Classifieds and Directory Pro - Categories"
 msgstr ""
 
 #: admin/categories.php:164 admin/fields.php:368 admin/locations.php:122
-#: admin/settings.php:894 admin/settings.php:959 blocks/blocks.php:130
-#: blocks/blocks.php:161 includes/helpers/functions.php:1939
-#: includes/helpers/functions.php:2026 widgets/forms/categories.php:80
+#: admin/settings.php:938 admin/settings.php:1003 blocks/blocks.php:130
+#: blocks/blocks.php:161 includes/helpers/functions.php:2040
+#: includes/helpers/functions.php:2127 widgets/forms/categories.php:80
 #: widgets/forms/locations.php:80
 msgid "ID"
 msgstr ""
 
 #: admin/fields.php:33 admin/fields.php:35 admin/fields.php:48
-#: admin/fields.php:80 admin/settings.php:773
+#: admin/fields.php:80 admin/settings.php:817
 msgid "Custom Fields"
 msgstr ""
 
@@ -385,10 +385,10 @@ msgstr ""
 msgid "Listings Archive?"
 msgstr ""
 
-#: admin/fields.php:367 admin/settings.php:728 admin/settings.php:903
-#: admin/settings.php:968 blocks/blocks.php:98 blocks/blocks.php:134
-#: blocks/blocks.php:165 includes/helpers/functions.php:1809
-#: includes/helpers/functions.php:1948 includes/helpers/functions.php:2035
+#: admin/fields.php:367 admin/settings.php:772 admin/settings.php:947
+#: admin/settings.php:1012 blocks/blocks.php:98 blocks/blocks.php:134
+#: blocks/blocks.php:165 includes/helpers/functions.php:1910
+#: includes/helpers/functions.php:2049 includes/helpers/functions.php:2136
 #: premium/admin/slider.php:108 premium/admin/slider.php:371
 #: premium/widgets/forms/banner-rotator.php:106
 #: premium/widgets/forms/carousel-slider.php:106
@@ -437,8 +437,8 @@ msgstr ""
 #: premium/widgets/carousel-slider.php:80 public/categories.php:417
 #: public/listings.php:411 public/locations.php:408 public/search.php:531
 #: public/templates/deprecated/user/acadp-public-manage-listings-display.php:41
-#: public/templates/user/manage-listings.php:55 public/user.php:406
-#: public/user.php:1433 widgets/listings.php:272
+#: public/templates/user/manage-listings.php:55 public/user.php:408
+#: public/user.php:1442 widgets/listings.php:272
 msgid "No listings found"
 msgstr ""
 
@@ -447,7 +447,7 @@ msgid "No listings found in Trash"
 msgstr ""
 
 #: admin/listings.php:57 includes/helpers/functions.php:92
-#: includes/helpers/functions.php:1729 widgets/listings.php:81
+#: includes/helpers/functions.php:1830 widgets/listings.php:81
 msgid "Listings"
 msgstr ""
 
@@ -496,8 +496,8 @@ msgstr ""
 msgid "Views"
 msgstr ""
 
-#: admin/listings.php:667 blocks/blocks.php:91 includes/activator.php:161
-#: includes/helpers/functions.php:1789 premium/admin/import-export.php:225
+#: admin/listings.php:667 blocks/blocks.php:91 includes/activator.php:165
+#: includes/helpers/functions.php:1890 premium/admin/import-export.php:225
 #: premium/admin/slider.php:88 premium/admin/slider.php:351
 #: premium/admin/templates/woocommerce/custom-fields.php:84
 msgid "Featured"
@@ -549,7 +549,7 @@ msgid "Listing copy created"
 msgstr ""
 
 #: admin/locations.php:36 admin/locations.php:89
-#: includes/helpers/functions.php:1900 premium/admin/import-export.php:212
+#: includes/helpers/functions.php:2001 premium/admin/import-export.php:212
 #: widgets/locations.php:167
 msgid "Locations"
 msgstr ""
@@ -692,7 +692,7 @@ msgstr ""
 msgid "Customer"
 msgstr ""
 
-#: admin/payments.php:187 includes/helpers/functions.php:1498
+#: admin/payments.php:187 includes/helpers/functions.php:1616
 #: public/templates/deprecated/payments/acadp-public-payment-history-display.php:23
 #: public/templates/deprecated/payments/acadp-public-payment-receipt-display.php:45
 #: public/templates/payments/payment-history.php:33
@@ -713,8 +713,8 @@ msgid "Error updating post."
 msgstr ""
 
 #: admin/settings.php:73 admin/settings.php:197 admin/settings.php:223
-#: includes/helpers/functions.php:1732 includes/helpers/functions.php:1903
-#: includes/helpers/functions.php:1979 includes/helpers/functions.php:2066
+#: includes/helpers/functions.php:1833 includes/helpers/functions.php:2004
+#: includes/helpers/functions.php:2080 includes/helpers/functions.php:2167
 #: premium/admin/slider.php:39 premium/admin/slider.php:302
 msgid "General"
 msgstr ""
@@ -767,7 +767,7 @@ msgid ""
 "filter."
 msgstr ""
 
-#: admin/settings.php:115 admin/settings.php:539 admin/settings.php:1104
+#: admin/settings.php:115 admin/settings.php:583 admin/settings.php:1148
 msgid "Currency"
 msgstr ""
 
@@ -782,9 +782,9 @@ msgstr ""
 msgid "Configure payment currency"
 msgstr ""
 
-#: admin/settings.php:127 admin/settings.php:682 admin/settings.php:694
-#: blocks/blocks.php:81 includes/helpers/functions.php:810
-#: includes/helpers/functions.php:1742 widgets/forms/listings.php:30
+#: admin/settings.php:127 admin/settings.php:726 admin/settings.php:738
+#: blocks/blocks.php:81 includes/helpers/functions.php:832
+#: includes/helpers/functions.php:1843 widgets/forms/listings.php:30
 msgid "Map"
 msgstr ""
 
@@ -977,7 +977,7 @@ msgstr ""
 msgid "WP Editor"
 msgstr ""
 
-#: admin/settings.php:376 includes/helpers/functions.php:1492
+#: admin/settings.php:376 includes/helpers/functions.php:1610
 msgid "Textarea"
 msgstr ""
 
@@ -1126,9 +1126,9 @@ msgstr ""
 msgid "Image"
 msgstr ""
 
-#: admin/settings.php:468 admin/settings.php:720
+#: admin/settings.php:468 admin/settings.php:764
 #: admin/templates/listings/listing-details.php:47 blocks/blocks.php:95
-#: includes/helpers/functions.php:1801 premium/admin/import-export.php:223
+#: includes/helpers/functions.php:1902 premium/admin/import-export.php:223
 #: premium/admin/slider.php:100 premium/admin/slider.php:363
 #: premium/widgets/forms/banner-rotator.php:88
 #: premium/widgets/forms/carousel-slider.php:88
@@ -1137,8 +1137,8 @@ msgstr ""
 msgid "Price"
 msgstr ""
 
-#: admin/settings.php:476 admin/settings.php:630 admin/settings.php:653
-#: admin/settings.php:1082 admin/settings.php:1161
+#: admin/settings.php:476 admin/settings.php:674 admin/settings.php:697
+#: admin/settings.php:1126 admin/settings.php:1205
 #: premium/admin/fee-plans.php:53 premium/admin/multi-categories.php:53
 #: premium/admin/woocommerce-plans.php:53
 msgid "Enable / Disable"
@@ -1200,7 +1200,7 @@ msgstr ""
 msgid "New listing form"
 msgstr ""
 
-#: admin/settings.php:516 admin/settings.php:819
+#: admin/settings.php:516 admin/settings.php:863
 msgid "Contact form"
 msgstr ""
 
@@ -1209,173 +1209,226 @@ msgid "Report abuse form"
 msgstr ""
 
 #: admin/settings.php:523
+msgid "reCAPTCHA type"
+msgstr ""
+
+#: admin/settings.php:524
+msgid ""
+"Each reCAPTCHA type needs its own keys, created for that type in the Google "
+"reCAPTCHA admin console. If your site uses a page cache, clear it after "
+"switching."
+msgstr ""
+
+#: admin/settings.php:527
+msgid "reCAPTCHA v2 (\"I'm not a robot\" checkbox)"
+msgstr ""
+
+#: admin/settings.php:528
+msgid "reCAPTCHA v3 (invisible, score-based)"
+msgstr ""
+
+#: admin/settings.php:534 admin/settings.php:552
 msgid "Site key"
 msgstr ""
 
-#: admin/settings.php:530
+#: admin/settings.php:537
+#, php-format
+msgid ""
+"Site key for reCAPTCHA v2 (\"I'm not a robot\" checkbox). <a href=\"%s\" "
+"target=\"_blank\" rel=\"noopener noreferrer\">Get your keys</a>."
+msgstr ""
+
+#: admin/settings.php:545 admin/settings.php:563
 msgid "Secret key"
 msgstr ""
 
-#: admin/settings.php:540
-msgid "Enter your currency."
+#: admin/settings.php:546
+msgid "Secret key for reCAPTCHA v2 (\"I'm not a robot\" checkbox)."
 msgstr ""
 
-#: admin/settings.php:546 admin/settings.php:1111
-msgid "Currency position"
+#: admin/settings.php:555
+#, php-format
+msgid ""
+"Site key for reCAPTCHA v3. <a href=\"%s\" target=\"_blank\" rel=\"noopener "
+"noreferrer\">Get your keys</a>."
 msgstr ""
 
-#: admin/settings.php:547 admin/settings.php:1112
-msgid "Choose the location of the currency sign."
+#: admin/settings.php:564
+msgid "Secret key for reCAPTCHA v3."
 msgstr ""
 
-#: admin/settings.php:550 admin/settings.php:1115
-msgid "Before - $10"
+#: admin/settings.php:570
+msgid "Score threshold"
 msgstr ""
 
-#: admin/settings.php:551 admin/settings.php:1116
-msgid "After - 10$"
-msgstr ""
-
-#: admin/settings.php:557 admin/settings.php:1122
-msgid "Thousands separator"
-msgstr ""
-
-#: admin/settings.php:558 admin/settings.php:1123
-msgid "The symbol (usually , or .) to separate thousands."
-msgstr ""
-
-#: admin/settings.php:564 admin/settings.php:1129
-msgid "Decimal separator"
-msgstr ""
-
-#: admin/settings.php:565 admin/settings.php:1130
-msgid "The symbol (usually , or .) to separate decimal points."
-msgstr ""
-
-#: admin/settings.php:573
-msgid "Map service"
-msgstr ""
-
-#: admin/settings.php:577
-msgid "OpenStreetMap (OSM)"
-msgstr ""
-
-#: admin/settings.php:578
-msgid "Google Maps"
+#: admin/settings.php:571
+msgid ""
+"reCAPTCHA v3 scores every submission from 0.0 (very likely a bot) to 1.0 "
+"(very likely a human), and rejects submissions that score below this value. "
+"Google recommends starting at 0.5. Lower it if genuine users are being "
+"blocked, or raise it if spam still gets through."
 msgstr ""
 
 #: admin/settings.php:584
+msgid "Enter your currency."
+msgstr ""
+
+#: admin/settings.php:590 admin/settings.php:1155
+msgid "Currency position"
+msgstr ""
+
+#: admin/settings.php:591 admin/settings.php:1156
+msgid "Choose the location of the currency sign."
+msgstr ""
+
+#: admin/settings.php:594 admin/settings.php:1159
+msgid "Before - $10"
+msgstr ""
+
+#: admin/settings.php:595 admin/settings.php:1160
+msgid "After - 10$"
+msgstr ""
+
+#: admin/settings.php:601 admin/settings.php:1166
+msgid "Thousands separator"
+msgstr ""
+
+#: admin/settings.php:602 admin/settings.php:1167
+msgid "The symbol (usually , or .) to separate thousands."
+msgstr ""
+
+#: admin/settings.php:608 admin/settings.php:1173
+msgid "Decimal separator"
+msgstr ""
+
+#: admin/settings.php:609 admin/settings.php:1174
+msgid "The symbol (usually , or .) to separate decimal points."
+msgstr ""
+
+#: admin/settings.php:617
+msgid "Map service"
+msgstr ""
+
+#: admin/settings.php:621
+msgid "OpenStreetMap (OSM)"
+msgstr ""
+
+#: admin/settings.php:622
+msgid "Google Maps"
+msgstr ""
+
+#: admin/settings.php:628
 msgid "API key"
 msgstr ""
 
-#: admin/settings.php:585
+#: admin/settings.php:629
 msgid "Your Google Maps API Key."
 msgstr ""
 
-#: admin/settings.php:591
+#: admin/settings.php:635
 msgid "Snap to user location"
 msgstr ""
 
-#: admin/settings.php:592
+#: admin/settings.php:636
 msgid ""
 "Check this option to pan the map to the current user location on the "
 "listings map view"
 msgstr ""
 
-#: admin/settings.php:598
+#: admin/settings.php:642
 msgid "Zoom level"
 msgstr ""
 
-#: admin/settings.php:599
+#: admin/settings.php:643
 msgid "0 = zoomed out; 21 = zoomed in"
 msgstr ""
 
-#: admin/settings.php:607 public/templates/terms-and-conditions.php:53
+#: admin/settings.php:651 public/templates/terms-and-conditions.php:53
 msgid "Terms and Conditions"
 msgstr ""
 
-#: admin/settings.php:608
+#: admin/settings.php:652
 msgid "Adds terms and conditions field to the registration/listing forms"
 msgstr ""
 
-#: admin/settings.php:614 admin/settings.php:637
+#: admin/settings.php:658 admin/settings.php:681
 msgid "Field label"
 msgstr ""
 
-#: admin/settings.php:621 admin/settings.php:644
+#: admin/settings.php:665 admin/settings.php:688
 msgid "Agreement text"
 msgstr ""
 
-#: admin/settings.php:622
+#: admin/settings.php:666
 msgid ""
 "If the \"Terms and Conditions\" option is checked, enter the agreement terms "
 "or an URL starting with http(s). If you add an URL, the \"Field label\" will "
 "be linked to this given URL."
 msgstr ""
 
-#: admin/settings.php:631
+#: admin/settings.php:675
 msgid "Adds privacy policy field to the registration/listing forms"
 msgstr ""
 
-#: admin/settings.php:645
+#: admin/settings.php:689
 msgid ""
 "If the \"Privacy Policy\" option is checked, enter the agreement terms or an "
 "URL starting with http(s). If you add an URL, the \"Field label\" will be "
 "linked to this given URL."
 msgstr ""
 
-#: admin/settings.php:654
+#: admin/settings.php:698
 msgid "Ask for user consent before embedding map/video content"
 msgstr ""
 
-#: admin/settings.php:660
+#: admin/settings.php:704
 msgid "Consent message"
 msgstr ""
 
-#: admin/settings.php:667
+#: admin/settings.php:711
 msgid "Button label"
 msgstr ""
 
-#: admin/settings.php:676
+#: admin/settings.php:720
 msgid "Select templates"
 msgstr ""
 
-#: admin/settings.php:677
+#: admin/settings.php:721
 msgid "You must select at least one option."
 msgstr ""
 
-#: admin/settings.php:680 admin/settings.php:692 admin/settings.php:934
+#: admin/settings.php:724 admin/settings.php:736 admin/settings.php:978
 #: blocks/blocks.php:79 blocks/blocks.php:155
-#: includes/helpers/functions.php:804 includes/helpers/functions.php:1740
-#: includes/helpers/functions.php:1987 widgets/forms/categories.php:29
+#: includes/helpers/functions.php:826 includes/helpers/functions.php:1841
+#: includes/helpers/functions.php:2088 widgets/forms/categories.php:29
 #: widgets/forms/locations.php:29
 msgid "List"
 msgstr ""
 
-#: admin/settings.php:681 admin/settings.php:693 admin/settings.php:935
+#: admin/settings.php:725 admin/settings.php:737 admin/settings.php:979
 #: blocks/blocks.php:80 blocks/blocks.php:156
-#: includes/helpers/functions.php:807 includes/helpers/functions.php:1741
-#: includes/helpers/functions.php:1988
+#: includes/helpers/functions.php:829 includes/helpers/functions.php:1842
+#: includes/helpers/functions.php:2089
 msgid "Grid"
 msgstr ""
 
-#: admin/settings.php:688
+#: admin/settings.php:732
 msgid "Default template"
 msgstr ""
 
-#: admin/settings.php:700 admin/settings.php:876 admin/settings.php:941
+#: admin/settings.php:744 admin/settings.php:920 admin/settings.php:985
 #: blocks/blocks.php:86 blocks/blocks.php:127 blocks/blocks.php:158
-#: includes/helpers/functions.php:1764 includes/helpers/functions.php:1915
-#: includes/helpers/functions.php:2002 widgets/forms/listings.php:85
+#: includes/helpers/functions.php:1865 includes/helpers/functions.php:2016
+#: includes/helpers/functions.php:2103 widgets/forms/listings.php:85
 msgid "Number of columns"
 msgstr ""
 
-#: admin/settings.php:701
+#: admin/settings.php:745
 msgid "Enter the number of columns you like to have in the \"Grid\" view."
 msgstr ""
 
-#: admin/settings.php:707 blocks/blocks.php:87
-#: includes/helpers/functions.php:1774 premium/admin/slider.php:73
+#: admin/settings.php:751 blocks/blocks.php:87
+#: includes/helpers/functions.php:1875 premium/admin/slider.php:73
 #: premium/admin/slider.php:336
 #: premium/admin/templates/woocommerce/custom-fields.php:33
 #: premium/public/woocommerce-plans.php:408
@@ -1387,25 +1440,25 @@ msgstr ""
 msgid "Number of listings"
 msgstr ""
 
-#: admin/settings.php:708 blocks/blocks.php:88
-#: includes/helpers/functions.php:1775
+#: admin/settings.php:752 blocks/blocks.php:88
+#: includes/helpers/functions.php:1876
 msgid ""
 "Enter the number of listings to show per page. Add \"0\" to show all "
 "listings."
 msgstr ""
 
-#: admin/settings.php:714 admin/settings.php:890 admin/settings.php:955
+#: admin/settings.php:758 admin/settings.php:934 admin/settings.php:999
 #: blocks/blocks.php:92 blocks/blocks.php:129 blocks/blocks.php:160
-#: includes/helpers/functions.php:1795 includes/helpers/functions.php:1935
-#: includes/helpers/functions.php:2022 premium/admin/slider.php:94
+#: includes/helpers/functions.php:1896 includes/helpers/functions.php:2036
+#: includes/helpers/functions.php:2123 premium/admin/slider.php:94
 #: premium/admin/slider.php:357 premium/widgets/forms/banner-rotator.php:81
 #: premium/widgets/forms/carousel-slider.php:81 widgets/forms/categories.php:75
 #: widgets/forms/listings.php:99 widgets/forms/locations.php:75
 msgid "Order by"
 msgstr ""
 
-#: admin/settings.php:718 admin/settings.php:1138 admin/settings.php:1168
-#: blocks/blocks.php:93 includes/helpers/functions.php:1799
+#: admin/settings.php:762 admin/settings.php:1182 admin/settings.php:1212
+#: blocks/blocks.php:93 includes/helpers/functions.php:1900
 #: premium/admin/fee-plans.php:60 premium/admin/paypal.php:63
 #: premium/admin/slider.php:98 premium/admin/slider.php:361
 #: premium/admin/stripe.php:63 premium/widgets/forms/banner-rotator.php:17
@@ -1421,31 +1474,31 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: admin/settings.php:719 blocks/blocks.php:94
-#: includes/helpers/functions.php:1800 premium/admin/slider.php:99
+#: admin/settings.php:763 blocks/blocks.php:94
+#: includes/helpers/functions.php:1901 premium/admin/slider.php:99
 #: premium/admin/slider.php:362 premium/widgets/forms/banner-rotator.php:87
 #: premium/widgets/forms/carousel-slider.php:87 widgets/forms/listings.php:105
 msgid "Date posted"
 msgstr ""
 
-#: admin/settings.php:721 admin/settings.php:772 admin/settings.php:868
+#: admin/settings.php:765 admin/settings.php:816 admin/settings.php:912
 #: admin/templates/listings/listing-details.php:70 blocks/blocks.php:96
-#: includes/helpers/functions.php:1802 premium/admin/slider.php:101
+#: includes/helpers/functions.php:1903 premium/admin/slider.php:101
 #: premium/admin/slider.php:364 premium/widgets/forms/banner-rotator.php:89
 #: premium/widgets/forms/carousel-slider.php:89 widgets/forms/listings.php:107
 msgid "Views count"
 msgstr ""
 
-#: admin/settings.php:722 blocks/blocks.php:97
-#: includes/helpers/functions.php:1803 premium/admin/slider.php:102
+#: admin/settings.php:766 blocks/blocks.php:97
+#: includes/helpers/functions.php:1904 premium/admin/slider.php:102
 #: premium/admin/slider.php:365 widgets/forms/listings.php:108
 msgid "Random"
 msgstr ""
 
-#: admin/settings.php:732 admin/settings.php:907 admin/settings.php:972
+#: admin/settings.php:776 admin/settings.php:951 admin/settings.php:1016
 #: blocks/blocks.php:99 blocks/blocks.php:135 blocks/blocks.php:166
-#: includes/helpers/functions.php:1813 includes/helpers/functions.php:1952
-#: includes/helpers/functions.php:2039 premium/admin/slider.php:112
+#: includes/helpers/functions.php:1914 includes/helpers/functions.php:2053
+#: includes/helpers/functions.php:2140 premium/admin/slider.php:112
 #: premium/admin/slider.php:375 premium/widgets/forms/banner-rotator.php:111
 #: premium/widgets/forms/carousel-slider.php:111
 #: widgets/forms/categories.php:105 widgets/forms/listings.php:130
@@ -1453,10 +1506,10 @@ msgstr ""
 msgid "Ascending"
 msgstr ""
 
-#: admin/settings.php:733 admin/settings.php:908 admin/settings.php:973
+#: admin/settings.php:777 admin/settings.php:952 admin/settings.php:1017
 #: blocks/blocks.php:100 blocks/blocks.php:136 blocks/blocks.php:167
-#: includes/helpers/functions.php:1814 includes/helpers/functions.php:1953
-#: includes/helpers/functions.php:2040 premium/admin/slider.php:113
+#: includes/helpers/functions.php:1915 includes/helpers/functions.php:2054
+#: includes/helpers/functions.php:2141 premium/admin/slider.php:113
 #: premium/admin/slider.php:376 premium/widgets/forms/banner-rotator.php:112
 #: premium/widgets/forms/carousel-slider.php:112
 #: widgets/forms/categories.php:106 widgets/forms/listings.php:131
@@ -1464,156 +1517,156 @@ msgstr ""
 msgid "Descending"
 msgstr ""
 
-#: admin/settings.php:739
+#: admin/settings.php:783
 msgid "Include results from"
 msgstr ""
 
-#: admin/settings.php:743
+#: admin/settings.php:787
 msgid "Child categories"
 msgstr ""
 
-#: admin/settings.php:744
+#: admin/settings.php:788
 msgid "Child locations"
 msgstr ""
 
-#: admin/settings.php:750
+#: admin/settings.php:794
 msgid "Show / Hide (in header)"
 msgstr ""
 
-#: admin/settings.php:754
+#: admin/settings.php:798
 msgid "Listings count"
 msgstr ""
 
-#: admin/settings.php:755
+#: admin/settings.php:799
 msgid "Template switcher"
 msgstr ""
 
-#: admin/settings.php:756
+#: admin/settings.php:800
 msgid "\"Sort by\" dropdown"
 msgstr ""
 
-#: admin/settings.php:762
+#: admin/settings.php:806
 msgid "Show / Hide (in each listing)"
 msgstr ""
 
-#: admin/settings.php:766
+#: admin/settings.php:810
 msgid "Excerpt (short description)"
 msgstr ""
 
-#: admin/settings.php:767 admin/settings.php:865
+#: admin/settings.php:811 admin/settings.php:909
 msgid "Category name"
 msgstr ""
 
-#: admin/settings.php:768
+#: admin/settings.php:812
 msgid "Location name"
 msgstr ""
 
-#: admin/settings.php:769
+#: admin/settings.php:813
 msgid "Item price (only if applicable)"
 msgstr ""
 
-#: admin/settings.php:770 admin/settings.php:866
+#: admin/settings.php:814 admin/settings.php:910
 msgid "Date added"
 msgstr ""
 
-#: admin/settings.php:771 admin/settings.php:867
+#: admin/settings.php:815 admin/settings.php:911
 msgid "Listing owner name"
 msgstr ""
 
-#: admin/settings.php:779
+#: admin/settings.php:823
 msgid "Description length"
 msgstr ""
 
-#: admin/settings.php:780
+#: admin/settings.php:824
 msgid "Number of words."
 msgstr ""
 
-#: admin/settings.php:788
+#: admin/settings.php:832
 msgid "Allow scripts"
 msgstr ""
 
-#: admin/settings.php:789
+#: admin/settings.php:833
 msgid ""
 "Check this option to allow third-party plugins/themes to add script tags to "
 "the listing description."
 msgstr ""
 
-#: admin/settings.php:795 includes/helpers/html.php:404
+#: admin/settings.php:839 includes/helpers/html.php:406
 #: public/templates/listing/address.php:84
 msgid "Show phone number"
 msgstr ""
 
-#: admin/settings.php:796
+#: admin/settings.php:840
 msgid ""
 "When you select the \"Closed\" option, the phone number will be masked with "
 "a text like \"Show phone number\" and shown to the users only when he/she "
 "clicks on the text."
 msgstr ""
 
-#: admin/settings.php:799 admin/settings.php:811
+#: admin/settings.php:843 admin/settings.php:855
 msgid "Never"
 msgstr ""
 
-#: admin/settings.php:800
+#: admin/settings.php:844
 msgid "Open"
 msgstr ""
 
-#: admin/settings.php:801
+#: admin/settings.php:845
 msgid "Closed"
 msgstr ""
 
-#: admin/settings.php:807
+#: admin/settings.php:851
 msgid "Show email address"
 msgstr ""
 
-#: admin/settings.php:808
+#: admin/settings.php:852
 msgid ""
 "When you select the \"Registered\" option, the email address will be shown "
 "only to the logged in users."
 msgstr ""
 
-#: admin/settings.php:812
+#: admin/settings.php:856
 msgid "Public"
 msgstr ""
 
-#: admin/settings.php:813
+#: admin/settings.php:857
 msgid "Registered"
 msgstr ""
 
-#: admin/settings.php:820
+#: admin/settings.php:864
 msgid ""
 "Allows visitors to contact listing authors privately. Authors will receive "
 "the messages via email."
 msgstr ""
 
-#: admin/settings.php:826
+#: admin/settings.php:870
 msgid "Require login for using the contact form?"
 msgstr ""
 
-#: admin/settings.php:833
+#: admin/settings.php:877
 #: public/templates/deprecated/listing/acadp-public-listing-display.php:274
 #: public/templates/listing/contact-form.php:80
 #: widgets/templates/deprecated/acadp-widget-public-listing-contact-display.php:52
 msgid "Send a copy to myself?"
 msgstr ""
 
-#: admin/settings.php:834
+#: admin/settings.php:878
 msgid ""
 "Add a check box option in the contact form to send a copy of the submitted "
 "message to the sender"
 msgstr ""
 
-#: admin/settings.php:840
+#: admin/settings.php:884
 msgid "Comment form"
 msgstr ""
 
-#: admin/settings.php:841
+#: admin/settings.php:885
 msgid ""
 "Allow visitors to discuss listings using the standard WordPress comment "
 "form. Comments are public."
 msgstr ""
 
-#: admin/settings.php:847
+#: admin/settings.php:891
 #: public/templates/deprecated/listing/acadp-public-listing-display.php:155
 #: public/templates/deprecated/listing/acadp-public-listing-display.php:164
 #: public/templates/deprecated/listing/acadp-public-listing-display.php:187
@@ -1621,43 +1674,43 @@ msgstr ""
 msgid "Report abuse"
 msgstr ""
 
-#: admin/settings.php:848
+#: admin/settings.php:892
 msgid "Check this to enable Report abuse"
 msgstr ""
 
-#: admin/settings.php:854 includes/helpers/permalinks.php:301
+#: admin/settings.php:898 includes/helpers/permalinks.php:301
 #: includes/helpers/permalinks.php:304
 msgid "Add to favourites"
 msgstr ""
 
-#: admin/settings.php:855
+#: admin/settings.php:899
 msgid "Check this to enable favourite Listings"
 msgstr ""
 
-#: admin/settings.php:861
+#: admin/settings.php:905
 msgid "Show / Hide"
 msgstr ""
 
-#: admin/settings.php:883 admin/settings.php:948 blocks/blocks.php:128
-#: blocks/blocks.php:159 includes/helpers/functions.php:1925
-#: includes/helpers/functions.php:2012
+#: admin/settings.php:927 admin/settings.php:992 blocks/blocks.php:128
+#: blocks/blocks.php:159 includes/helpers/functions.php:2026
+#: includes/helpers/functions.php:2113
 msgid "Depth"
 msgstr ""
 
-#: admin/settings.php:884 includes/helpers/functions.php:1926
+#: admin/settings.php:928 includes/helpers/functions.php:2027
 msgid "Enter the maximum number of location sub-levels to show."
 msgstr ""
 
-#: admin/settings.php:895 admin/settings.php:960 blocks/blocks.php:131
-#: blocks/blocks.php:162 includes/helpers/functions.php:1940
-#: includes/helpers/functions.php:2027 widgets/forms/categories.php:81
+#: admin/settings.php:939 admin/settings.php:1004 blocks/blocks.php:131
+#: blocks/blocks.php:162 includes/helpers/functions.php:2041
+#: includes/helpers/functions.php:2128 widgets/forms/categories.php:81
 #: widgets/forms/locations.php:81
 msgid "Count"
 msgstr ""
 
-#: admin/settings.php:896 admin/settings.php:961 blocks/blocks.php:132
-#: blocks/blocks.php:163 includes/helpers/functions.php:1941
-#: includes/helpers/functions.php:2028
+#: admin/settings.php:940 admin/settings.php:1005 blocks/blocks.php:132
+#: blocks/blocks.php:163 includes/helpers/functions.php:2042
+#: includes/helpers/functions.php:2129
 #: public/templates/deprecated/listing/acadp-public-listing-display.php:249
 #: public/templates/listing/contact-form.php:37 widgets/forms/categories.php:82
 #: widgets/forms/locations.php:82
@@ -1665,195 +1718,195 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: admin/settings.php:897 admin/settings.php:962 blocks/blocks.php:133
-#: blocks/blocks.php:164 includes/helpers/functions.php:1942
-#: includes/helpers/functions.php:2029 widgets/forms/categories.php:83
+#: admin/settings.php:941 admin/settings.php:1006 blocks/blocks.php:133
+#: blocks/blocks.php:164 includes/helpers/functions.php:2043
+#: includes/helpers/functions.php:2130 widgets/forms/categories.php:83
 #: widgets/forms/locations.php:83
 msgid "Slug"
 msgstr ""
 
-#: admin/settings.php:914 admin/settings.php:979 blocks/blocks.php:137
-#: blocks/blocks.php:168 includes/helpers/functions.php:1959
-#: includes/helpers/functions.php:2046 widgets/forms/categories.php:124
+#: admin/settings.php:958 admin/settings.php:1023 blocks/blocks.php:137
+#: blocks/blocks.php:168 includes/helpers/functions.php:2060
+#: includes/helpers/functions.php:2147 widgets/forms/categories.php:124
 #: widgets/forms/locations.php:124
 msgid "Show listings count"
 msgstr ""
 
-#: admin/settings.php:915 blocks/blocks.php:138
+#: admin/settings.php:959 blocks/blocks.php:138
 msgid "Check this to show the listings count next to the location name"
 msgstr ""
 
-#: admin/settings.php:921 blocks/blocks.php:139
-#: includes/helpers/functions.php:1966 widgets/forms/locations.php:131
+#: admin/settings.php:965 blocks/blocks.php:139
+#: includes/helpers/functions.php:2067 widgets/forms/locations.php:131
 msgid "Hide empty locations"
 msgstr ""
 
-#: admin/settings.php:922 blocks/blocks.php:140
+#: admin/settings.php:966 blocks/blocks.php:140
 msgid "Check this to hide locations with no listings"
 msgstr ""
 
-#: admin/settings.php:930 blocks/blocks.php:78 blocks/blocks.php:154
-#: blocks/blocks.php:183 includes/helpers/functions.php:1736
-#: includes/helpers/functions.php:1983 includes/helpers/functions.php:2070
+#: admin/settings.php:974 blocks/blocks.php:78 blocks/blocks.php:154
+#: blocks/blocks.php:183 includes/helpers/functions.php:1837
+#: includes/helpers/functions.php:2084 includes/helpers/functions.php:2171
 #: widgets/forms/categories.php:24 widgets/forms/listings.php:24
 #: widgets/forms/locations.php:24 widgets/forms/search.php:24
 msgid "Select template"
 msgstr ""
 
-#: admin/settings.php:942
+#: admin/settings.php:986
 msgid "Enter the number of columns you like to have in your categories page."
 msgstr ""
 
-#: admin/settings.php:949 includes/helpers/functions.php:2013
+#: admin/settings.php:993 includes/helpers/functions.php:2114
 msgid ""
 "Enter the maximum number of category sub-levels to show in the \"List\" view."
 msgstr ""
 
-#: admin/settings.php:980 blocks/blocks.php:169
+#: admin/settings.php:1024 blocks/blocks.php:169
 msgid "Check this to show the listings count next to the category name"
 msgstr ""
 
-#: admin/settings.php:986 blocks/blocks.php:170
-#: includes/helpers/functions.php:2053 widgets/forms/categories.php:131
+#: admin/settings.php:1030 blocks/blocks.php:170
+#: includes/helpers/functions.php:2154 widgets/forms/categories.php:131
 msgid "Hide empty categories"
 msgstr ""
 
-#: admin/settings.php:987 blocks/blocks.php:171
+#: admin/settings.php:1031 blocks/blocks.php:171
 msgid "Check this to hide categories with no listings"
 msgstr ""
 
-#: admin/settings.php:995
+#: admin/settings.php:1039
 msgid "Show \"New\" badge"
 msgstr ""
 
-#: admin/settings.php:996
+#: admin/settings.php:1040
 msgid "Check this option to show \"New\" badge on the listings"
 msgstr ""
 
-#: admin/settings.php:1002
+#: admin/settings.php:1046
 msgid "Custom text for \"New\" badge"
 msgstr ""
 
-#: admin/settings.php:1003
+#: admin/settings.php:1047
 msgid "Enter the text you want to use inside the \"New\" badge."
 msgstr ""
 
-#: admin/settings.php:1009
+#: admin/settings.php:1053
 msgid "New listing threshold (in days)"
 msgstr ""
 
-#: admin/settings.php:1010
+#: admin/settings.php:1054
 msgid ""
 "Enter the number of days the listing will be tagged as \"New\" from the day "
 "it is published."
 msgstr ""
 
-#: admin/settings.php:1016
+#: admin/settings.php:1060
 msgid "Show \"Popular\" badge"
 msgstr ""
 
-#: admin/settings.php:1017
+#: admin/settings.php:1061
 msgid "Check this option to show \"Popular\" badge on the listings"
 msgstr ""
 
-#: admin/settings.php:1023
+#: admin/settings.php:1067
 msgid "Custom text for \"Popular\" badge"
 msgstr ""
 
-#: admin/settings.php:1024
+#: admin/settings.php:1068
 msgid "Enter the text you want to use inside the \"Popular\" badge."
 msgstr ""
 
-#: admin/settings.php:1030
+#: admin/settings.php:1074
 msgid "Popular listing threshold (in views count)"
 msgstr ""
 
-#: admin/settings.php:1031
+#: admin/settings.php:1075
 msgid ""
 "Enter the minimum number of views required for a listing to be tagged as "
 "\"Popular\"."
 msgstr ""
 
-#: admin/settings.php:1037
+#: admin/settings.php:1081
 msgid "Mark as \"Sold\""
 msgstr ""
 
-#: admin/settings.php:1038
+#: admin/settings.php:1082
 msgid "Check this option to allow users to mark their listings as \"Sold\""
 msgstr ""
 
-#: admin/settings.php:1044
+#: admin/settings.php:1088
 msgid "Custom text for \"Sold\" badge"
 msgstr ""
 
-#: admin/settings.php:1045
+#: admin/settings.php:1089
 msgid "Enter the text you want to use inside the \"Sold\" badge."
 msgstr ""
 
-#: admin/settings.php:1053
+#: admin/settings.php:1097
 msgid "Share buttons"
 msgstr ""
 
-#: admin/settings.php:1057 includes/helpers/html.php:210
+#: admin/settings.php:1101 includes/helpers/html.php:212
 msgid "Facebook"
 msgstr ""
 
-#: admin/settings.php:1058 includes/helpers/html.php:215
+#: admin/settings.php:1102 includes/helpers/html.php:217
 msgid "Twitter"
 msgstr ""
 
-#: admin/settings.php:1059 includes/helpers/html.php:220
+#: admin/settings.php:1103 includes/helpers/html.php:222
 msgid "Linkedin"
 msgstr ""
 
-#: admin/settings.php:1060
+#: admin/settings.php:1104
 msgid "Pinterest"
 msgstr ""
 
-#: admin/settings.php:1061 includes/helpers/html.php:235
+#: admin/settings.php:1105 includes/helpers/html.php:237
 msgid "WhatsApp"
 msgstr ""
 
-#: admin/settings.php:1067
+#: admin/settings.php:1111
 msgid "Show buttons in"
 msgstr ""
 
-#: admin/settings.php:1071
+#: admin/settings.php:1115
 msgid "Single listing page"
 msgstr ""
 
-#: admin/settings.php:1072
+#: admin/settings.php:1116
 msgid "Listings archive pages"
 msgstr ""
 
-#: admin/settings.php:1090
+#: admin/settings.php:1134
 msgid "Test mode"
 msgstr ""
 
-#: admin/settings.php:1091
+#: admin/settings.php:1135
 msgid ""
 "While in test mode no live transactions are processed. To fully use test "
 "mode, you must have a sandbox (test) account for the payment gateway you are "
 "testing."
 msgstr ""
 
-#: admin/settings.php:1097
+#: admin/settings.php:1141
 msgid "Enforce SSL on checkout"
 msgstr ""
 
-#: admin/settings.php:1098
+#: admin/settings.php:1142
 msgid ""
 "Check this to force users to be redirected to the secure checkout page. You "
 "must have an SSL certificate installed to use this option."
 msgstr ""
 
-#: admin/settings.php:1105
+#: admin/settings.php:1149
 msgid ""
 "Enter your currency. Note that some payment gateways have currency "
 "restrictions."
 msgstr ""
 
-#: admin/settings.php:1145 admin/settings.php:1175
+#: admin/settings.php:1189 admin/settings.php:1219
 #: admin/templates/dashboard/issues.php:59 premium/admin/fee-plans.php:67
 #: premium/admin/paypal.php:70 premium/admin/stripe.php:70
 #: public/templates/deprecated/user/acadp-public-edit-listing-display.php:85
@@ -1861,259 +1914,259 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: admin/settings.php:1152
+#: admin/settings.php:1196
 msgid "Instructions"
 msgstr ""
 
-#: admin/settings.php:1162
+#: admin/settings.php:1206
 msgid "Check this to enable featured listings"
 msgstr ""
 
-#: admin/settings.php:1169 premium/admin/fee-plans.php:61
+#: admin/settings.php:1213 premium/admin/fee-plans.php:61
 msgid "You can give your own name for this feature using this field."
 msgstr ""
 
-#: admin/settings.php:1182
+#: admin/settings.php:1226
 #, php-format
 msgid "Price [%s]"
 msgstr ""
 
-#: admin/settings.php:1189
+#: admin/settings.php:1233
 msgid "Show \"Featured\" badge"
 msgstr ""
 
-#: admin/settings.php:1190
+#: admin/settings.php:1234
 msgid "Check this option to show \"Featured\" badge on the featured listings"
 msgstr ""
 
-#: admin/settings.php:1198
+#: admin/settings.php:1242
 msgid "From name"
 msgstr ""
 
-#: admin/settings.php:1199
+#: admin/settings.php:1243
 msgid ""
 "The name system generated emails are sent from. This should probably be your "
 "site or directory name."
 msgstr ""
 
-#: admin/settings.php:1205
+#: admin/settings.php:1249
 msgid "From email"
 msgstr ""
 
-#: admin/settings.php:1206
+#: admin/settings.php:1250
 msgid ""
 "The email id system generated emails are sent from. This will act as the "
 "\"from\" and \"reply-to\" address."
 msgstr ""
 
-#: admin/settings.php:1212
+#: admin/settings.php:1256
 msgid "Admin notification emails"
 msgstr ""
 
-#: admin/settings.php:1213
+#: admin/settings.php:1257
 msgid ""
 "Enter the email address(es) that should receive admin notification emails, "
 "one per line."
 msgstr ""
 
-#: admin/settings.php:1219
+#: admin/settings.php:1263
 msgid "Notify admin via email when"
 msgstr ""
 
-#: admin/settings.php:1223
+#: admin/settings.php:1267
 msgid "A new listing is submitted"
 msgstr ""
 
-#: admin/settings.php:1224
+#: admin/settings.php:1268
 msgid "A listing is edited"
 msgstr ""
 
-#: admin/settings.php:1225
+#: admin/settings.php:1269
 msgid "A listing expired"
 msgstr ""
 
-#: admin/settings.php:1226 admin/settings.php:1243
+#: admin/settings.php:1270 admin/settings.php:1287
 msgid "Order created"
 msgstr ""
 
-#: admin/settings.php:1227
+#: admin/settings.php:1271
 msgid "Payment received"
 msgstr ""
 
-#: admin/settings.php:1228
+#: admin/settings.php:1272
 msgid "A contact message is sent to a listing owner"
 msgstr ""
 
-#: admin/settings.php:1234
+#: admin/settings.php:1278
 msgid "Notify users via email when their"
 msgstr ""
 
-#: admin/settings.php:1238
+#: admin/settings.php:1282
 msgid "Listing is submitted"
 msgstr ""
 
-#: admin/settings.php:1239
+#: admin/settings.php:1283
 msgid "Listing is approved/published"
 msgstr ""
 
-#: admin/settings.php:1240
+#: admin/settings.php:1284
 msgid "Listing is about to expire (reached renewal email threshold)"
 msgstr ""
 
-#: admin/settings.php:1241
+#: admin/settings.php:1285
 msgid "Listing expired"
 msgstr ""
 
-#: admin/settings.php:1242
+#: admin/settings.php:1286
 msgid "Listing expired and reached renewal reminder email threshold"
 msgstr ""
 
-#: admin/settings.php:1244
+#: admin/settings.php:1288
 msgid "Order completed"
 msgstr ""
 
-#: admin/settings.php:1252 admin/settings.php:1278 admin/settings.php:1311
-#: admin/settings.php:1340 admin/settings.php:1376 admin/settings.php:1405
-#: admin/settings.php:1434 admin/settings.php:1463 admin/settings.php:1492
+#: admin/settings.php:1296 admin/settings.php:1322 admin/settings.php:1355
+#: admin/settings.php:1384 admin/settings.php:1420 admin/settings.php:1449
+#: admin/settings.php:1478 admin/settings.php:1507 admin/settings.php:1536
 msgid "Subject"
 msgstr ""
 
-#: admin/settings.php:1259 admin/settings.php:1285 admin/settings.php:1318
-#: admin/settings.php:1347 admin/settings.php:1383 admin/settings.php:1412
-#: admin/settings.php:1441 admin/settings.php:1470 admin/settings.php:1499
+#: admin/settings.php:1303 admin/settings.php:1329 admin/settings.php:1362
+#: admin/settings.php:1391 admin/settings.php:1427 admin/settings.php:1456
+#: admin/settings.php:1485 admin/settings.php:1514 admin/settings.php:1543
 msgid "Body"
 msgstr ""
 
-#: admin/settings.php:1260 admin/settings.php:1286 admin/settings.php:1319
-#: admin/settings.php:1348 admin/settings.php:1384 admin/settings.php:1413
-#: admin/settings.php:1442 admin/settings.php:1471 admin/settings.php:1500
+#: admin/settings.php:1304 admin/settings.php:1330 admin/settings.php:1363
+#: admin/settings.php:1392 admin/settings.php:1428 admin/settings.php:1457
+#: admin/settings.php:1486 admin/settings.php:1515 admin/settings.php:1544
 msgid "HTML is accepted. You can use the following placeholders:"
 msgstr ""
 
-#: admin/settings.php:1261 admin/settings.php:1287 admin/settings.php:1320
-#: admin/settings.php:1349 admin/settings.php:1385 admin/settings.php:1414
-#: admin/settings.php:1443 admin/settings.php:1472 admin/settings.php:1501
+#: admin/settings.php:1305 admin/settings.php:1331 admin/settings.php:1364
+#: admin/settings.php:1393 admin/settings.php:1429 admin/settings.php:1458
+#: admin/settings.php:1487 admin/settings.php:1516 admin/settings.php:1545
 msgid "The listing owner's display name on the site"
 msgstr ""
 
-#: admin/settings.php:1262 admin/settings.php:1288 admin/settings.php:1321
-#: admin/settings.php:1350 admin/settings.php:1386 admin/settings.php:1415
-#: admin/settings.php:1444 admin/settings.php:1473 admin/settings.php:1502
+#: admin/settings.php:1306 admin/settings.php:1332 admin/settings.php:1365
+#: admin/settings.php:1394 admin/settings.php:1430 admin/settings.php:1459
+#: admin/settings.php:1488 admin/settings.php:1517 admin/settings.php:1546
 msgid "The listing owner's user name on the site"
 msgstr ""
 
-#: admin/settings.php:1263 admin/settings.php:1289 admin/settings.php:1322
-#: admin/settings.php:1351 admin/settings.php:1387 admin/settings.php:1416
-#: admin/settings.php:1445 admin/settings.php:1474 admin/settings.php:1503
+#: admin/settings.php:1307 admin/settings.php:1333 admin/settings.php:1366
+#: admin/settings.php:1395 admin/settings.php:1431 admin/settings.php:1460
+#: admin/settings.php:1489 admin/settings.php:1518 admin/settings.php:1547
 msgid "Your site name"
 msgstr ""
 
-#: admin/settings.php:1264 admin/settings.php:1290 admin/settings.php:1323
-#: admin/settings.php:1352 admin/settings.php:1388 admin/settings.php:1417
-#: admin/settings.php:1446 admin/settings.php:1475 admin/settings.php:1504
+#: admin/settings.php:1308 admin/settings.php:1334 admin/settings.php:1367
+#: admin/settings.php:1396 admin/settings.php:1432 admin/settings.php:1461
+#: admin/settings.php:1490 admin/settings.php:1519 admin/settings.php:1548
 msgid "Your site name with link"
 msgstr ""
 
-#: admin/settings.php:1265 admin/settings.php:1291 admin/settings.php:1324
-#: admin/settings.php:1353 admin/settings.php:1389 admin/settings.php:1418
-#: admin/settings.php:1447 admin/settings.php:1476 admin/settings.php:1505
+#: admin/settings.php:1309 admin/settings.php:1335 admin/settings.php:1368
+#: admin/settings.php:1397 admin/settings.php:1433 admin/settings.php:1462
+#: admin/settings.php:1491 admin/settings.php:1520 admin/settings.php:1549
 msgid "Your site url with link"
 msgstr ""
 
-#: admin/settings.php:1266 admin/settings.php:1292 admin/settings.php:1328
-#: admin/settings.php:1357 admin/settings.php:1393 admin/settings.php:1419
-#: admin/settings.php:1448 admin/settings.php:1477 admin/settings.php:1506
+#: admin/settings.php:1310 admin/settings.php:1336 admin/settings.php:1372
+#: admin/settings.php:1401 admin/settings.php:1437 admin/settings.php:1463
+#: admin/settings.php:1492 admin/settings.php:1521 admin/settings.php:1550
 msgid "Listing's title"
 msgstr ""
 
-#: admin/settings.php:1267 admin/settings.php:1293 admin/settings.php:1329
-#: admin/settings.php:1358 admin/settings.php:1394 admin/settings.php:1420
-#: admin/settings.php:1449 admin/settings.php:1478 admin/settings.php:1507
+#: admin/settings.php:1311 admin/settings.php:1337 admin/settings.php:1373
+#: admin/settings.php:1402 admin/settings.php:1438 admin/settings.php:1464
+#: admin/settings.php:1493 admin/settings.php:1522 admin/settings.php:1551
 msgid "Listing's title with link"
 msgstr ""
 
-#: admin/settings.php:1268 admin/settings.php:1294 admin/settings.php:1330
-#: admin/settings.php:1359 admin/settings.php:1395 admin/settings.php:1421
-#: admin/settings.php:1450 admin/settings.php:1479 admin/settings.php:1508
+#: admin/settings.php:1312 admin/settings.php:1338 admin/settings.php:1374
+#: admin/settings.php:1403 admin/settings.php:1439 admin/settings.php:1465
+#: admin/settings.php:1494 admin/settings.php:1523 admin/settings.php:1552
 msgid "Listing's url with link"
 msgstr ""
 
-#: admin/settings.php:1269 admin/settings.php:1295 admin/settings.php:1331
-#: admin/settings.php:1360 admin/settings.php:1396 admin/settings.php:1425
-#: admin/settings.php:1454 admin/settings.php:1483 admin/settings.php:1513
+#: admin/settings.php:1313 admin/settings.php:1339 admin/settings.php:1375
+#: admin/settings.php:1404 admin/settings.php:1440 admin/settings.php:1469
+#: admin/settings.php:1498 admin/settings.php:1527 admin/settings.php:1557
 msgid "Current date"
 msgstr ""
 
-#: admin/settings.php:1270 admin/settings.php:1296 admin/settings.php:1332
-#: admin/settings.php:1361 admin/settings.php:1397 admin/settings.php:1426
-#: admin/settings.php:1455 admin/settings.php:1484 admin/settings.php:1514
+#: admin/settings.php:1314 admin/settings.php:1340 admin/settings.php:1376
+#: admin/settings.php:1405 admin/settings.php:1441 admin/settings.php:1470
+#: admin/settings.php:1499 admin/settings.php:1528 admin/settings.php:1558
 msgid "Current time"
 msgstr ""
 
-#: admin/settings.php:1304
+#: admin/settings.php:1348
 msgid "Listing renewal email threshold (in days)"
 msgstr ""
 
-#: admin/settings.php:1305
+#: admin/settings.php:1349
 msgid ""
 "Configure how many days before listing expiration is the renewal email sent."
 msgstr ""
 
-#: admin/settings.php:1325 admin/settings.php:1354 admin/settings.php:1390
+#: admin/settings.php:1369 admin/settings.php:1398 admin/settings.php:1434
 msgid "Expiration date"
 msgstr ""
 
-#: admin/settings.php:1326 admin/settings.php:1355 admin/settings.php:1391
+#: admin/settings.php:1370 admin/settings.php:1399 admin/settings.php:1435
 msgid "Category name that is going to expire"
 msgstr ""
 
-#: admin/settings.php:1327 admin/settings.php:1356 admin/settings.php:1392
+#: admin/settings.php:1371 admin/settings.php:1400 admin/settings.php:1436
 msgid "Link to renewal page"
 msgstr ""
 
-#: admin/settings.php:1369
+#: admin/settings.php:1413
 msgid "Listing renewal reminder email threshold (in days)"
 msgstr ""
 
-#: admin/settings.php:1370
+#: admin/settings.php:1414
 msgid ""
 "Configure how many days after the expiration of a listing an email reminder "
 "should be sent to the owner."
 msgstr ""
 
-#: admin/settings.php:1422 admin/settings.php:1451 admin/settings.php:1480
+#: admin/settings.php:1466 admin/settings.php:1495 admin/settings.php:1524
 msgid "Payment Order ID"
 msgstr ""
 
-#: admin/settings.php:1423 admin/settings.php:1452 admin/settings.php:1481
+#: admin/settings.php:1467 admin/settings.php:1496 admin/settings.php:1525
 msgid "Adds a link so users can view their order directly on your website"
 msgstr ""
 
-#: admin/settings.php:1424 admin/settings.php:1453 admin/settings.php:1482
+#: admin/settings.php:1468 admin/settings.php:1497 admin/settings.php:1526
 msgid "Payment Order details"
 msgstr ""
 
-#: admin/settings.php:1509
+#: admin/settings.php:1553
 msgid "Sender's name"
 msgstr ""
 
-#: admin/settings.php:1510
+#: admin/settings.php:1554
 msgid "Sender's email address"
 msgstr ""
 
-#: admin/settings.php:1511
+#: admin/settings.php:1555
 msgid "Sender's phone number"
 msgstr ""
 
-#: admin/settings.php:1512
+#: admin/settings.php:1556
 msgid "Contact message"
 msgstr ""
 
-#: admin/settings.php:1522
+#: admin/settings.php:1566
 msgid "Force bootstrap CSS"
 msgstr ""
 
-#: admin/settings.php:1523
+#: admin/settings.php:1567
 msgid ""
 "Prior to version 3.0, the plugin used the popular but heavy Bootstrap CSS "
 "library for the front-end design. But, we have introduced our own CSS "
@@ -2121,7 +2174,7 @@ msgid ""
 "versions. So, we no longer use Bootstrap in our upcoming template designs."
 msgstr ""
 
-#: admin/settings.php:1524
+#: admin/settings.php:1568
 msgid ""
 "When enabled, this option forces the OLD Bootstrap-based template. Check "
 "this option only if you have customized our template files using our old "
@@ -2129,13 +2182,13 @@ msgid ""
 "templates to our latest markup as soon as possible."
 msgstr ""
 
-#: admin/settings.php:1525
+#: admin/settings.php:1569
 msgid ""
 "Simply disable this option if you have not customized any of our template "
 "files."
 msgstr ""
 
-#: admin/settings.php:1530 admin/templates/fields/field-details.php:79
+#: admin/settings.php:1574 admin/templates/fields/field-details.php:79
 #: admin/templates/fields/field-details.php:237
 #: admin/templates/fields/field-details.php:290
 #: admin/templates/fields/field-details.php:315
@@ -2144,11 +2197,11 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: admin/settings.php:1531 admin/settings.php:1546
+#: admin/settings.php:1575 admin/settings.php:1590
 msgid "Deprecated"
 msgstr ""
 
-#: admin/settings.php:1535 admin/templates/fields/field-details.php:85
+#: admin/settings.php:1579 admin/templates/fields/field-details.php:85
 #: admin/templates/fields/field-details.php:243
 #: admin/templates/fields/field-details.php:296
 #: admin/templates/fields/field-details.php:321
@@ -2157,189 +2210,189 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: admin/settings.php:1536
+#: admin/settings.php:1580
 msgid "Recommended"
 msgstr ""
 
-#: admin/settings.php:1545
+#: admin/settings.php:1589
 msgid "Bootstrap options"
 msgstr ""
 
-#: admin/settings.php:1548
+#: admin/settings.php:1592
 msgid ""
 "This plugin uses bootstrap 3. Disable these options if your theme already "
 "include them."
 msgstr ""
 
-#: admin/settings.php:1551
+#: admin/settings.php:1595
 msgid "Include bootstrap CSS"
 msgstr ""
 
-#: admin/settings.php:1552
+#: admin/settings.php:1596
 msgid "Include bootstrap javascript libraries"
 msgstr ""
 
-#: admin/settings.php:1558
+#: admin/settings.php:1602
 msgid "Remove data on uninstall?"
 msgstr ""
 
-#: admin/settings.php:1559
+#: admin/settings.php:1603
 msgid ""
 "Check this box to delete all of the plugin data (database stored content) "
 "when uninstalled"
 msgstr ""
 
-#: admin/settings.php:1565
+#: admin/settings.php:1609
 msgid "Delete media files?"
 msgstr ""
 
-#: admin/settings.php:1566
+#: admin/settings.php:1610
 msgid ""
 "Check this box to also delete the associated media files when a listing or "
 "category is deleted"
 msgstr ""
 
-#: admin/settings.php:1574
+#: admin/settings.php:1618
 msgid "Listing detail page"
 msgstr ""
 
-#: admin/settings.php:1575
+#: admin/settings.php:1619
 msgid "Replaces the SLUG value used by custom post type \"acadp_listings\"."
 msgstr ""
 
-#: admin/settings.php:1584
+#: admin/settings.php:1628
 msgid ""
 "This is the page where all the active listings are displayed. The "
 "[acadp_listings] short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:1591
+#: admin/settings.php:1635
 msgid ""
 "This is the page where all the locations are displayed. The "
 "[acadp_locations] short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:1598
+#: admin/settings.php:1642
 msgid ""
 "This is the page where the listings from a particular location is displayed. "
 "The [acadp_location] short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:1605
+#: admin/settings.php:1649
 msgid ""
 "This is the page where all the categories are displayed. The "
 "[acadp_categories] short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:1612
+#: admin/settings.php:1656
 msgid ""
 "This is the page where the listings from a particular category is displayed. "
 "The [acadp_category] short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:1619
+#: admin/settings.php:1663
 msgid ""
 "This is the page where the search results are displayed. The [acadp_search] "
 "short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:1626
+#: admin/settings.php:1670
 msgid ""
 "This is the page where the listings from a particular user is displayed. The "
 "[acadp_user_listings] short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:1633
+#: admin/settings.php:1677
 msgid ""
 "This is the user home page where the current user can add, edit listings, "
 "manage favourite listings, view payment history, etc... The "
 "[acadp_user_dashboard] short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:1640
+#: admin/settings.php:1684
 msgid ""
 "This is the listing form page used to add or edit listing details. The "
 "[acadp_listing_form] short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:1647
+#: admin/settings.php:1691
 msgid ""
 "This is the page where the current user can add a new listing or modify, "
 "delete their existing listings. The [acadp_manage_listings] short code must "
 "be on this page."
 msgstr ""
 
-#: admin/settings.php:1654
+#: admin/settings.php:1698
 msgid ""
 "This is the page where the current user's favourite listings are displayed. "
 "The [acadp_favourite_listings] short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:1661
+#: admin/settings.php:1705
 msgid ""
 "This is the checkout page where users will complete their purchases. The "
 "[acadp_checkout] short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:1668
+#: admin/settings.php:1712
 msgid ""
 "This is the page users are sent to after completing their payments. The "
 "[acadp_payment_receipt] short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:1675
+#: admin/settings.php:1719
 msgid ""
 "This is the page users are sent to if their transaction is cancelled or "
 "fails. The [acadp_payment_errors]...[/acadp_payment_errors] short code must "
 "be on this page."
 msgstr ""
 
-#: admin/settings.php:1682
+#: admin/settings.php:1726
 msgid ""
 "This is the page where the users can view their payment history. The "
 "[acadp_payment_history] short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:1689
+#: admin/settings.php:1733
 msgid ""
 "This is the page where the users can login to the site. The [acadp_login] "
 "short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:1696
+#: admin/settings.php:1740
 msgid ""
 "This is the page where the users can register an account in the site. The "
 "[acadp_register] short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:1703
+#: admin/settings.php:1747
 msgid ""
 "This is the page where the users can view/edit their account info. The "
 "[acadp_user_account] short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:1710
+#: admin/settings.php:1754
 msgid ""
 "This is the page users are sent to when clicking the forgot password link. "
 "The [acadp_forgot_password] short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:1717
+#: admin/settings.php:1761
 msgid ""
 "This is the page users are sent to when clicking the password reset link. "
 "The [acadp_password_reset] short code must be on this page."
 msgstr ""
 
-#: admin/settings.php:2002
+#: admin/settings.php:2046
 msgid "Choose File"
 msgstr ""
 
-#: admin/settings.php:2051
+#: admin/settings.php:2095
 msgid "Select a page"
 msgstr ""
 
-#: admin/settings.php:2073 admin/templates/listings/contact-details.php:39
-#: blocks/blocks.php:82 includes/helpers/functions.php:1748
+#: admin/settings.php:2118 admin/templates/listings/contact-details.php:39
+#: blocks/blocks.php:82 includes/helpers/functions.php:1849
 #: premium/admin/slider.php:43 premium/admin/slider.php:306
 #: premium/widgets/forms/banner-rotator.php:24
 #: premium/widgets/forms/banner-rotator.php:28
@@ -2361,7 +2414,7 @@ msgstr ""
 msgid "Select location"
 msgstr ""
 
-#: admin/settings.php:2187
+#: admin/settings.php:2233
 msgid "Advanced Classifieds and Directory Pro - Settings"
 msgstr ""
 
@@ -2763,7 +2816,7 @@ msgid "Category"
 msgstr ""
 
 #: admin/templates/listings/listing-details.php:26 blocks/blocks.php:84
-#: includes/helpers/functions.php:1756 includes/helpers/html.php:587
+#: includes/helpers/functions.php:1857 includes/helpers/html.php:589
 #: premium/admin/slider.php:58 premium/admin/slider.php:321
 #: premium/widgets/forms/banner-rotator.php:49
 #: premium/widgets/forms/banner-rotator.php:53
@@ -2812,7 +2865,7 @@ msgstr ""
 msgid "Enter your YouTube or Vimeo video URL"
 msgstr ""
 
-#: admin/templates/settings/form-settings.php:37
+#: admin/templates/settings/form-settings.php:36
 msgid "Plugin Settings"
 msgstr ""
 
@@ -2820,88 +2873,88 @@ msgstr ""
 msgid "Listings settings"
 msgstr ""
 
-#: blocks/blocks.php:89 includes/helpers/functions.php:1784
+#: blocks/blocks.php:89 includes/helpers/functions.php:1885
 #: premium/admin/slider.php:83 premium/admin/slider.php:346
 msgid "Filter by"
 msgstr ""
 
-#: blocks/blocks.php:90 includes/helpers/functions.php:1788
+#: blocks/blocks.php:90 includes/helpers/functions.php:1889
 #: premium/admin/slider.php:87 premium/admin/slider.php:350
 msgid "None"
 msgstr ""
 
-#: blocks/blocks.php:101 includes/helpers/functions.php:1820
+#: blocks/blocks.php:101 includes/helpers/functions.php:1921
 msgid "Show featured"
 msgstr ""
 
-#: blocks/blocks.php:102 includes/helpers/functions.php:1821
+#: blocks/blocks.php:102 includes/helpers/functions.php:1922
 msgid "Show or hide featured listings at the top of normal listings."
 msgstr ""
 
-#: blocks/blocks.php:103 includes/helpers/functions.php:1827
+#: blocks/blocks.php:103 includes/helpers/functions.php:1928
 msgid "Show header"
 msgstr ""
 
-#: blocks/blocks.php:104 includes/helpers/functions.php:1828
+#: blocks/blocks.php:104 includes/helpers/functions.php:1929
 msgid ""
 "The header section consist of the \"Listings count\", \"Views switcher\", "
 "and \"Sort by\" options."
 msgstr ""
 
-#: blocks/blocks.php:105 includes/helpers/functions.php:1834
+#: blocks/blocks.php:105 includes/helpers/functions.php:1935
 #: premium/admin/slider.php:119 premium/admin/slider.php:382
 #: premium/widgets/forms/banner-rotator.php:137 widgets/forms/listings.php:197
 msgid "Show excerpt (short description)"
 msgstr ""
 
-#: blocks/blocks.php:106 includes/helpers/functions.php:1848
+#: blocks/blocks.php:106 includes/helpers/functions.php:1949
 #: premium/admin/slider.php:133 premium/admin/slider.php:396
 #: premium/widgets/forms/banner-rotator.php:144
 #: premium/widgets/forms/carousel-slider.php:144 widgets/forms/listings.php:204
 msgid "Show category name"
 msgstr ""
 
-#: blocks/blocks.php:107 includes/helpers/functions.php:1841
+#: blocks/blocks.php:107 includes/helpers/functions.php:1942
 #: premium/admin/slider.php:126 premium/admin/slider.php:389
 #: premium/widgets/forms/banner-rotator.php:152
 #: premium/widgets/forms/carousel-slider.php:152 widgets/forms/listings.php:212
 msgid "Show location name"
 msgstr ""
 
-#: blocks/blocks.php:108 includes/helpers/functions.php:1855
+#: blocks/blocks.php:108 includes/helpers/functions.php:1956
 #: premium/admin/slider.php:140 premium/admin/slider.php:403
 #: premium/widgets/forms/banner-rotator.php:161
 #: premium/widgets/forms/carousel-slider.php:161 widgets/forms/listings.php:221
 msgid "Show price"
 msgstr ""
 
-#: blocks/blocks.php:109 includes/helpers/functions.php:1862
+#: blocks/blocks.php:109 includes/helpers/functions.php:1963
 #: premium/admin/slider.php:147 premium/admin/slider.php:410
 #: premium/widgets/forms/banner-rotator.php:169
 #: premium/widgets/forms/carousel-slider.php:169 widgets/forms/listings.php:229
 msgid "Show date"
 msgstr ""
 
-#: blocks/blocks.php:110 includes/helpers/functions.php:1869
+#: blocks/blocks.php:110 includes/helpers/functions.php:1970
 #: premium/admin/slider.php:154 premium/admin/slider.php:417
 #: premium/widgets/forms/banner-rotator.php:176
 #: premium/widgets/forms/carousel-slider.php:176 widgets/forms/listings.php:236
 msgid "Show user"
 msgstr ""
 
-#: blocks/blocks.php:111 includes/helpers/functions.php:1876
+#: blocks/blocks.php:111 includes/helpers/functions.php:1977
 #: premium/admin/slider.php:161 premium/admin/slider.php:424
 msgid "Show views"
 msgstr ""
 
-#: blocks/blocks.php:112 includes/helpers/functions.php:1883
+#: blocks/blocks.php:112 includes/helpers/functions.php:1984
 #: premium/admin/slider.php:168 premium/admin/slider.php:431
 #: premium/widgets/forms/banner-rotator.php:190
 #: premium/widgets/forms/carousel-slider.php:190 widgets/forms/listings.php:250
 msgid "Show custom fields"
 msgstr ""
 
-#: blocks/blocks.php:113 includes/helpers/functions.php:1890
+#: blocks/blocks.php:113 includes/helpers/functions.php:1991
 msgid "Show pagination"
 msgstr ""
 
@@ -2910,7 +2963,7 @@ msgid "Locations settings"
 msgstr ""
 
 #: blocks/blocks.php:126 blocks/blocks.php:157
-#: includes/helpers/functions.php:1907 includes/helpers/functions.php:1994
+#: includes/helpers/functions.php:2008 includes/helpers/functions.php:2095
 #: widgets/forms/categories.php:47 widgets/forms/categories.php:51
 #: widgets/forms/locations.php:47 widgets/forms/locations.php:51
 msgid "Select parent"
@@ -2924,67 +2977,67 @@ msgstr ""
 msgid "Search form settings"
 msgstr ""
 
-#: blocks/blocks.php:184 includes/helpers/functions.php:2074
+#: blocks/blocks.php:184 includes/helpers/functions.php:2175
 #: widgets/forms/search.php:29
 msgid "Vertical"
 msgstr ""
 
-#: blocks/blocks.php:185 includes/helpers/functions.php:2075
+#: blocks/blocks.php:185 includes/helpers/functions.php:2176
 #: widgets/forms/search.php:30
 msgid "Horizontal"
 msgstr ""
 
-#: blocks/blocks.php:186 includes/helpers/functions.php:2081
+#: blocks/blocks.php:186 includes/helpers/functions.php:2182
 #: widgets/forms/search.php:48
 msgid "Search by keyword"
 msgstr ""
 
-#: blocks/blocks.php:187 includes/helpers/functions.php:2088
+#: blocks/blocks.php:187 includes/helpers/functions.php:2189
 #: widgets/forms/search.php:56
 msgid "Search by location"
 msgstr ""
 
-#: blocks/blocks.php:188 includes/helpers/functions.php:2095
+#: blocks/blocks.php:188 includes/helpers/functions.php:2196
 #: widgets/forms/search.php:64
 msgid "Search by category"
 msgstr ""
 
-#: blocks/blocks.php:189 includes/helpers/functions.php:2102
+#: blocks/blocks.php:189 includes/helpers/functions.php:2203
 #: widgets/forms/search.php:71
 msgid "Search by custom fields"
 msgstr ""
 
-#: blocks/blocks.php:190 includes/helpers/functions.php:2109
+#: blocks/blocks.php:190 includes/helpers/functions.php:2210
 #: widgets/forms/search.php:79
 msgid "Search by price"
 msgstr ""
 
-#: includes/activator.php:77 includes/helpers/html.php:63
+#: includes/activator.php:81 includes/helpers/html.php:63
 #: public/templates/privacy-policy.php:19
 #: public/templates/terms-and-conditions.php:19
 msgid "I have read and agree to the Terms and Conditions"
 msgstr ""
 
-#: includes/activator.php:133
+#: includes/activator.php:137
 msgid "New"
 msgstr ""
 
-#: includes/activator.php:136
+#: includes/activator.php:140
 msgid "Popular"
 msgstr ""
 
-#: includes/activator.php:155
+#: includes/activator.php:159
 msgid "Direct Bank Transfer"
 msgstr ""
 
-#: includes/activator.php:156
+#: includes/activator.php:160
 msgid ""
 "Make your payment directly in our bank account. Please use your Order ID as "
 "payment reference. Your order won't get approved until the funds have "
 "cleared in our account."
 msgstr ""
 
-#: includes/activator.php:157
+#: includes/activator.php:161
 msgid ""
 "Make your payment directly in our bank account. Please use your Order ID as "
 "payment reference. Your order won't get approved until the funds have "
@@ -2999,17 +3052,17 @@ msgid ""
 "If we don't receive your payment within 48 hrs, we will cancel the order."
 msgstr ""
 
-#: includes/activator.php:162
+#: includes/activator.php:166
 msgid ""
 "Upgrade your listing to featured status. Featured listings will always "
 "appear on top of regular listings."
 msgstr ""
 
-#: includes/activator.php:174
+#: includes/activator.php:178
 msgid "[{site_name}] Listing \"{listing_title}\" received"
 msgstr ""
 
-#: includes/activator.php:175
+#: includes/activator.php:179
 msgid ""
 "Dear {name},\n"
 "\n"
@@ -3020,11 +3073,11 @@ msgid ""
 "The Administrator of {site_name}"
 msgstr ""
 
-#: includes/activator.php:178
+#: includes/activator.php:182
 msgid "[{site_name}] Listing \"{listing_title}\" published"
 msgstr ""
 
-#: includes/activator.php:179
+#: includes/activator.php:183
 msgid ""
 "Dear {name},\n"
 "\n"
@@ -3035,11 +3088,11 @@ msgid ""
 "The Administrator of {site_name}"
 msgstr ""
 
-#: includes/activator.php:183 includes/activator.php:187
+#: includes/activator.php:187 includes/activator.php:191
 msgid "[{site_name}] {listing_title} - Expiration notice"
 msgstr ""
 
-#: includes/activator.php:184
+#: includes/activator.php:188
 msgid ""
 "Dear {name},\n"
 "\n"
@@ -3050,7 +3103,7 @@ msgid ""
 "The Administrator of {site_name}"
 msgstr ""
 
-#: includes/activator.php:188
+#: includes/activator.php:192
 msgid ""
 "Dear {name},\n"
 "\n"
@@ -3062,11 +3115,11 @@ msgid ""
 "The Administrator of {site_name}"
 msgstr ""
 
-#: includes/activator.php:192
+#: includes/activator.php:196
 msgid "[{site_name}] {listing_title} - Expiration reminder"
 msgstr ""
 
-#: includes/activator.php:193
+#: includes/activator.php:197
 msgid ""
 "Dear {name},\n"
 "\n"
@@ -3079,11 +3132,11 @@ msgid ""
 "The Administrator of {site_name}"
 msgstr ""
 
-#: includes/activator.php:196 includes/activator.php:200
+#: includes/activator.php:200 includes/activator.php:204
 msgid "[{site_name}] Thank you for your order"
 msgstr ""
 
-#: includes/activator.php:197
+#: includes/activator.php:201
 msgid ""
 "Dear {name},\n"
 "\n"
@@ -3100,7 +3153,7 @@ msgid ""
 "The Administrator of {site_name}"
 msgstr ""
 
-#: includes/activator.php:201
+#: includes/activator.php:205
 msgid ""
 "Dear {name},\n"
 "\n"
@@ -3129,11 +3182,11 @@ msgid ""
 "The Administrator of {site_name}"
 msgstr ""
 
-#: includes/activator.php:204
+#: includes/activator.php:208
 msgid "[{site_name}] Order completed"
 msgstr ""
 
-#: includes/activator.php:205
+#: includes/activator.php:209
 msgid ""
 "Dear {name},\n"
 "\n"
@@ -3149,11 +3202,11 @@ msgid ""
 "The Administrator of {site_name}"
 msgstr ""
 
-#: includes/activator.php:208 includes/helpers/email.php:810
+#: includes/activator.php:212 includes/helpers/email.php:810
 msgid "[{site_name}] Contact via \"{listing_title}\""
 msgstr ""
 
-#: includes/activator.php:209
+#: includes/activator.php:213
 msgid ""
 "Dear {name},\n"
 "\n"
@@ -3468,7 +3521,7 @@ msgstr ""
 msgid "Set to Refunded"
 msgstr ""
 
-#: includes/helpers/functions.php:919 includes/helpers/functions.php:1004
+#: includes/helpers/functions.php:941 includes/helpers/functions.php:1026
 #: public/templates/deprecated/categories/acadp-public-categories-image-grid-display.php:28
 #: public/templates/deprecated/categories/acadp-public-categories-text-list-display.php:31
 #: public/templates/deprecated/locations/acadp-public-locations-display.php:24
@@ -3476,110 +3529,110 @@ msgstr ""
 msgid "View all posts in %s"
 msgstr ""
 
-#: includes/helpers/functions.php:1097
+#: includes/helpers/functions.php:1119
 msgid "A to Z (title)"
 msgstr ""
 
-#: includes/helpers/functions.php:1098
+#: includes/helpers/functions.php:1120
 msgid "Z to A (title)"
 msgstr ""
 
-#: includes/helpers/functions.php:1099
+#: includes/helpers/functions.php:1121
 msgid "Recently added (latest)"
 msgstr ""
 
-#: includes/helpers/functions.php:1100
+#: includes/helpers/functions.php:1122
 msgid "Date added (oldest)"
 msgstr ""
 
-#: includes/helpers/functions.php:1101
+#: includes/helpers/functions.php:1123
 msgid "Most viewed"
 msgstr ""
 
-#: includes/helpers/functions.php:1102
+#: includes/helpers/functions.php:1124
 msgid "Less viewed"
 msgstr ""
 
-#: includes/helpers/functions.php:1106
+#: includes/helpers/functions.php:1128
 msgid "Price (low to high)"
 msgstr ""
 
-#: includes/helpers/functions.php:1107
+#: includes/helpers/functions.php:1129
 msgid "Price (high to low)"
 msgstr ""
 
-#: includes/helpers/functions.php:1321 includes/helpers/functions.php:2331
+#: includes/helpers/functions.php:1439 includes/helpers/functions.php:2460
 #: public/registration.php:1005 public/templates/status-messages.php:73
 msgid "Invalid Captcha: Please try again."
 msgstr ""
 
-#: includes/helpers/functions.php:1334
+#: includes/helpers/functions.php:1452
 msgid "Offline Payment"
 msgstr ""
 
-#: includes/helpers/functions.php:1491
+#: includes/helpers/functions.php:1609
 msgid "Text"
 msgstr ""
 
-#: includes/helpers/functions.php:1493
+#: includes/helpers/functions.php:1611
 msgid "Select"
 msgstr ""
 
-#: includes/helpers/functions.php:1494
+#: includes/helpers/functions.php:1612
 msgid "Checkbox"
 msgstr ""
 
-#: includes/helpers/functions.php:1495
+#: includes/helpers/functions.php:1613
 msgid "Radio Button"
 msgstr ""
 
-#: includes/helpers/functions.php:1496
+#: includes/helpers/functions.php:1614
 msgid "Number"
 msgstr ""
 
-#: includes/helpers/functions.php:1497
+#: includes/helpers/functions.php:1615
 msgid "Range"
 msgstr ""
 
-#: includes/helpers/functions.php:1499
+#: includes/helpers/functions.php:1617
 msgid "DateTime"
 msgstr ""
 
-#: includes/helpers/functions.php:1500
+#: includes/helpers/functions.php:1618
 msgid "URL"
 msgstr ""
 
-#: includes/helpers/functions.php:2063
+#: includes/helpers/functions.php:2164
 msgid "Search Form"
 msgstr ""
 
-#: includes/helpers/functions.php:2289 public/templates/status-messages.php:24
+#: includes/helpers/functions.php:2418 public/templates/status-messages.php:24
 msgid "Listing saved successfully."
 msgstr ""
 
-#: includes/helpers/functions.php:2295 public/templates/status-messages.php:31
+#: includes/helpers/functions.php:2424 public/templates/status-messages.php:31
 msgid "Sorry, you don't have permission to do this action."
 msgstr ""
 
-#: includes/helpers/functions.php:2301 public/templates/status-messages.php:38
+#: includes/helpers/functions.php:2430 public/templates/status-messages.php:38
 msgid "Listing published successfully."
 msgstr ""
 
-#: includes/helpers/functions.php:2307 public/templates/status-messages.php:45
+#: includes/helpers/functions.php:2436 public/templates/status-messages.php:45
 msgid "Listing updated successfully."
 msgstr ""
 
-#: includes/helpers/functions.php:2313 public/templates/status-messages.php:52
+#: includes/helpers/functions.php:2442 public/templates/status-messages.php:52
 msgid ""
 "Listing submitted successfully and it's pending review. This review process "
 "could take up to 48 hours. Please be patient."
 msgstr ""
 
-#: includes/helpers/functions.php:2319 public/templates/status-messages.php:59
+#: includes/helpers/functions.php:2448 public/templates/status-messages.php:59
 msgid "Listing renewed successfully."
 msgstr ""
 
-#: includes/helpers/functions.php:2325 public/templates/status-messages.php:66
+#: includes/helpers/functions.php:2454 public/templates/status-messages.php:66
 msgid "Listing deleted successfully."
 msgstr ""
 
@@ -3587,34 +3640,34 @@ msgstr ""
 msgid "User Account"
 msgstr ""
 
-#: includes/helpers/html.php:225
+#: includes/helpers/html.php:227
 msgid "Pin It"
 msgstr ""
 
-#: includes/helpers/html.php:533 public/templates/pagination.php:60
+#: includes/helpers/html.php:535 public/templates/pagination.php:60
 msgid "&laquo;"
 msgstr ""
 
-#: includes/helpers/html.php:534 public/templates/pagination.php:61
+#: includes/helpers/html.php:536 public/templates/pagination.php:61
 msgid "&raquo;"
 msgstr ""
 
-#: includes/helpers/html.php:546 public/templates/pagination.php:89
+#: includes/helpers/html.php:548 public/templates/pagination.php:89
 #, php-format
 msgid "Page %d of %d"
 msgstr ""
 
-#: includes/helpers/html.php:672
+#: includes/helpers/html.php:674
 #, php-format
 msgid "All %s"
 msgstr ""
 
-#: includes/helpers/html.php:757 includes/helpers/html.php:831
+#: includes/helpers/html.php:759 includes/helpers/html.php:833
 #: public/templates/user/listing-form.php:41
 msgid "Select Category"
 msgstr ""
 
-#: includes/helpers/html.php:907
+#: includes/helpers/html.php:909
 #: public/templates/deprecated/user/acadp-public-manage-listings-display.php:28
 #: public/templates/search-form/search-form-inline.php:80
 #: public/templates/search-form/search-form-inline.php:169
@@ -3623,11 +3676,11 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: includes/helpers/html.php:995 public/payments.php:284
+#: includes/helpers/html.php:997 public/payments.php:292
 msgid "No results found"
 msgstr ""
 
-#: includes/helpers/html.php:1002
+#: includes/helpers/html.php:1004
 #: public/templates/deprecated/listing/acadp-public-listing-display.php:179
 #: public/templates/privacy-policy.php:69
 #: public/templates/terms-and-conditions.php:69
@@ -4358,13 +4411,13 @@ msgstr ""
 msgid "Listings Featured"
 msgstr ""
 
-#: premium/public/antispam.php:224
+#: premium/public/antispam.php:225
 msgid ""
 "Aborted due to spam detection. Sorry, if you are a real user and please try "
 "again. If the issue repeats, kindly write to the site administrator."
 msgstr ""
 
-#: premium/public/antispam.php:227
+#: premium/public/antispam.php:228
 msgid ""
 "The form submission is too fast than we expected. So, our system has aborted "
 "the action considering a spam. Sorry, if you are a real user and please try "
@@ -4412,7 +4465,7 @@ msgid "Network problem, perhaps try again."
 msgstr ""
 
 #: premium/public/stripe.php:114 premium/public/woocommerce-plans.php:180
-#: public/payments.php:90 public/payments.php:236
+#: public/payments.php:98 public/payments.php:244
 msgid "Sorry, something went wrong."
 msgstr ""
 
@@ -4537,7 +4590,7 @@ msgstr ""
 #: premium/public/templates/deprecated/woocommerce-checkout-featured.php:49
 #: premium/public/templates/deprecated/woocommerce-checkout.php:71
 #: premium/public/templates/woocommerce/checkout-featured.php:56
-#: premium/public/templates/woocommerce/checkout.php:80 public/public.php:569
+#: premium/public/templates/woocommerce/checkout.php:80 public/public.php:591
 #: public/templates/deprecated/payments/acadp-public-checkout-display.php:76
 #: public/templates/payments/checkout.php:167
 msgid "Proceed to payment"
@@ -4627,45 +4680,51 @@ msgstr ""
 msgid "Sorry! Please try again."
 msgstr ""
 
-#: public/payments.php:121
+#: public/payments.php:129
 #, php-format
 msgid "[Order] Listing #%d"
 msgstr ""
 
-#: public/payments.php:251 public/user.php:460 public/user.php:1082
+#: public/payments.php:259 public/user.php:462 public/user.php:1091
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: public/public.php:563
+#: public/public.php:584
 msgid "Select at least one option."
 msgstr ""
 
-#: public/public.php:564
+#: public/public.php:585
 msgid "Passwords do not match."
 msgstr ""
 
-#: public/public.php:565
+#: public/public.php:586
 msgid "The CAPTCHA field is required."
 msgstr ""
 
-#: public/public.php:566
+#: public/public.php:587
+msgid ""
+"reCAPTCHA verification could not be completed. Please reload the page and "
+"try again."
+msgstr ""
+
+#: public/public.php:588
 msgid "Sorry, you need to login first."
 msgstr ""
 
-#: public/public.php:567
+#: public/public.php:589
 #, php-format
 msgid "Sorry, you have only %d images pending."
 msgstr ""
 
-#: public/public.php:570
+#: public/public.php:592
 msgid "Finish submission"
 msgstr ""
 
-#: public/public.php:571 public/search.php:303
+#: public/public.php:593 public/search.php:303
 msgid "to"
 msgstr ""
 
-#: public/public.php:1149
+#: public/public.php:896
 #, php-format
 msgid "You have searched for \"%s\"..."
 msgstr ""
@@ -5143,8 +5202,8 @@ msgid "Complete listing"
 msgstr ""
 
 #: public/templates/deprecated/user/acadp-public-edit-listing-display.php:371
-#: public/templates/user/listing-form.php:417 public/user.php:753
-#: public/user.php:926
+#: public/templates/user/listing-form.php:417 public/user.php:762
+#: public/user.php:935
 msgid "Save Draft"
 msgstr ""
 
@@ -5242,15 +5301,15 @@ msgstr ""
 msgid "Enter your YouTube / Vimeo URL"
 msgstr ""
 
-#: public/user.php:643 public/user.php:652 public/user.php:661
+#: public/user.php:652 public/user.php:661 public/user.php:670
 msgid "Error"
 msgstr ""
 
-#: public/user.php:644
+#: public/user.php:653
 msgid "File is not an image"
 msgstr ""
 
-#: public/user.php:653
+#: public/user.php:662
 msgid "Invalid file format"
 msgstr ""
 

@@ -287,7 +287,13 @@ class ACADP_Public {
 		$this->register_scripts();
 
 		wp_enqueue_script( ACADP_PLUGIN_NAME . '-markerclusterer' );
-		wp_enqueue_script( ACADP_PLUGIN_NAME . '-recaptcha' );
+
+		// reCAPTCHA v3 renders nothing in the editor, and its badge would float over the canvas
+		$recaptcha_config = acadp_get_recaptcha_config();
+		if ( 'v3' !== $recaptcha_config['type'] ) {
+			wp_enqueue_script( ACADP_PLUGIN_NAME . '-recaptcha' );
+		}
+
 		wp_enqueue_script( ACADP_PLUGIN_NAME );
 	}
 
@@ -402,7 +408,7 @@ class ACADP_Public {
 	 */
 	public function register_scripts() {	
 		$general_settings        = get_option( 'acadp_general_settings' );
-		$recaptcha_settings      = get_option( 'acadp_recaptcha_settings' );
+		$recaptcha_config        = acadp_get_recaptcha_config();
 		$map_settings            = get_option( 'acadp_map_settings' );
 		$cookie_consent_settings = get_option( 'acadp_cookie_consent' );		
 		$misc_settings           = get_option( 'acadp_misc_settings' );
@@ -475,12 +481,19 @@ class ACADP_Public {
 			);
 		}
 		
-		wp_register_script( 
-			ACADP_PLUGIN_NAME . '-recaptcha', 
-			'https://www.google.com/recaptcha/api.js?onload=acadp_on_recaptcha_load&render=explicit', 
-			array( ACADP_PLUGIN_NAME ), 
-			'', 
-			true 
+		// reCAPTCHA v2 renders explicitly; v3 loads with its site key and runs at submit time
+		$recaptcha_script_url = 'https://www.google.com/recaptcha/api.js?onload=acadp_on_recaptcha_load&render=explicit';
+
+		if ( 'v3' === $recaptcha_config['type'] && '' !== $recaptcha_config['site_key'] ) {
+			$recaptcha_script_url = 'https://www.google.com/recaptcha/api.js?onload=acadp_on_recaptcha_load&render=' . rawurlencode( $recaptcha_config['site_key'] );
+		}
+
+		wp_register_script(
+			ACADP_PLUGIN_NAME . '-recaptcha',
+			$recaptcha_script_url,
+			array( ACADP_PLUGIN_NAME ),
+			'',
+			true
 		);
 		
 		if ( isset( $misc_settings['force_bootstrap'] ) && ! empty( $misc_settings['force_bootstrap'] ) ) {
@@ -532,12 +545,12 @@ class ACADP_Public {
 			$show_cookie_consent = true;
 		}
 		
-		if ( ! empty( $recaptcha_settings['site_key'] ) && ! empty( $recaptcha_settings['forms'] ) ) {
-			$recaptcha_site_key     = $recaptcha_settings['site_key'];
-			$recaptcha_registration = in_array( 'registration', $recaptcha_settings['forms'] ) ? 1 : 0;
-			$recaptcha_listing      = in_array( 'listing', $recaptcha_settings['forms'] ) ? 1 : 0;
-			$recaptcha_contact      = ! empty( $general_settings['has_contact_form'] ) && in_array( 'contact', $recaptcha_settings['forms'] ) ? 1 : 0;
-			$recaptcha_report_abuse = ! empty( $general_settings['has_report_abuse'] ) && in_array( 'report_abuse', $recaptcha_settings['forms'] ) ? 1 : 0;
+		if ( ! empty( $recaptcha_config['site_key'] ) && ! empty( $recaptcha_config['forms'] ) ) {
+			$recaptcha_site_key     = $recaptcha_config['site_key'];
+			$recaptcha_registration = in_array( 'registration', $recaptcha_config['forms'] ) ? 1 : 0;
+			$recaptcha_listing      = in_array( 'listing', $recaptcha_config['forms'] ) ? 1 : 0;
+			$recaptcha_contact      = ! empty( $general_settings['has_contact_form'] ) && in_array( 'contact', $recaptcha_config['forms'] ) ? 1 : 0;
+			$recaptcha_report_abuse = ! empty( $general_settings['has_report_abuse'] ) && in_array( 'report_abuse', $recaptcha_config['forms'] ) ? 1 : 0;
 		} else {
 			$recaptcha_site_key     = '';
 			$recaptcha_registration = 0;
@@ -560,6 +573,7 @@ class ACADP_Public {
 				'map_service'                     => $map_settings['service'],
 				'snap_to_user_location'           => ! empty( $map_settings['snap_to_user_location'] ) ? true : false,
 				'zoom_level'                      => $map_settings['zoom_level'],
+				'recaptcha_type'                  => $recaptcha_config['type'],
 				'recaptcha_registration'          => $recaptcha_registration,
 				'recaptcha_site_key'              => $recaptcha_site_key,				
 				'recaptcha_listing'               => $recaptcha_listing,
@@ -570,6 +584,7 @@ class ACADP_Public {
 					'required_multicheckbox'          => __( 'Select at least one option.', 'advanced-classifieds-and-directory-pro'),
 					'invalid_password'                => __( 'Passwords do not match.', 'advanced-classifieds-and-directory-pro'),
 					'invalid_recaptcha'               => __( 'The CAPTCHA field is required.', 'advanced-classifieds-and-directory-pro' ),
+					'recaptcha_failed'                => __( 'reCAPTCHA verification could not be completed. Please reload the page and try again.', 'advanced-classifieds-and-directory-pro' ),
 					'alert_required_login'            => __( 'Sorry, you need to login first.', 'advanced-classifieds-and-directory-pro' ),	
 					'alert_upload_limit'              => __( 'Sorry, you have only %d images pending.', 'advanced-classifieds-and-directory-pro' ),
 					'button_label_delete'             => __( 'Delete', 'advanced-classifieds-and-directory-pro' ),

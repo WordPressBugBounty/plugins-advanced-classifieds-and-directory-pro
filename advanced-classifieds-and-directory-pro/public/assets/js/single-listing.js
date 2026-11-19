@@ -6,9 +6,11 @@
      * Initialize ReCaptcha.
 	 */
 	const initReCaptcha = () => {
+		// reCAPTCHA v3 has no widget to render. Tokens are fetched on submit.
+
 		// Contact form.
-		if ( document.querySelector( '#acadp-contact-form-control-recaptcha' ) !== null ) {			
-			if ( acadp.recaptcha_contact > 0 ) {
+		if ( document.querySelector( '#acadp-contact-form-control-recaptcha' ) !== null ) {
+			if ( acadp.recaptcha_contact > 0 && acadp.recaptcha_type !== 'v3' ) {
 				acadp.recaptchas['contact'] = grecaptcha.render( 'acadp-contact-form-control-recaptcha', {
 					'sitekey': acadp.recaptcha_site_key
 				});
@@ -18,15 +20,22 @@
 		}
 
 		// Report form.
-		if ( document.querySelector( '#acadp-report-abuse-form-control-recaptcha' ) !== null ) {			
-			if ( acadp.recaptcha_report_abuse > 0 ) {
+		if ( document.querySelector( '#acadp-report-abuse-form-control-recaptcha' ) !== null ) {
+			if ( acadp.recaptcha_report_abuse > 0 && acadp.recaptcha_type !== 'v3' ) {
 				acadp.recaptchas['report_abuse'] = grecaptcha.render( 'acadp-report-abuse-form-control-recaptcha', {
 					'sitekey': acadp.recaptcha_site_key
 				});
-			}		
-		} else {			
-			acadp.recaptcha_report_abuse = 0;			
+			}
+		} else {
+			acadp.recaptcha_report_abuse = 0;
 		}
+	}
+
+	/**
+	 * Is reCAPTCHA v3 protecting this form? form: "contact" or "report_abuse".
+	 */
+	const isReCaptchaV3 = ( form ) => {
+		return acadp[ 'recaptcha_' + form ] > 0 && acadp.recaptcha_type === 'v3';
 	}
 
 	/**
@@ -202,7 +211,7 @@
 					// Fields that cannot be validated with the Constraint Validation API need
 					// to be validated manually.
 					let recaptchaResponse = null;
-					if ( acadp.recaptcha_report_abuse > 0 ) {	
+					if ( acadp.recaptcha_report_abuse > 0 && acadp.recaptcha_type !== 'v3' ) {
 						recaptchaResponse = grecaptcha.getResponse( acadp.recaptchas['report_abuse'] );
 			
 						if ( recaptchaResponse.length == 0 ) {
@@ -244,22 +253,42 @@
 						data[ fieldName ] = $formEl.find( '.acadp-magic-field input' ).val();
 					}
 
-					$.post( acadp.ajax_url, data, function( response ) {
-						if ( 1 == response.error ) {
-							$statusEl.html( '<div class="acadp-text-error">' + response.message + '</div>' );
-						} else {
-							$( '#acadp-report-abuse-form-control-message' ).html( '' );
-							$statusEl.html( '<div class="acadp-text-success">' + response.message + '</div>' );
-						}
-				
-						if ( acadp.recaptcha_report_abuse > 0 ) {
-							grecaptcha.reset( acadp.recaptchas['report_abuse'] );
-						}					
-						
-						$submitButtonEl.find( '.acadp-spinner' ).remove();
-						$submitButtonEl.prop( 'disabled', false );
-					}, 'json' );																			  
-				});	
+					const sendRequest = () => {
+						$.post( acadp.ajax_url, data, function( response ) {
+							if ( 1 == response.error ) {
+								$statusEl.html( '<div class="acadp-text-error">' + response.message + '</div>' );
+							} else {
+								$( '#acadp-report-abuse-form-control-message' ).html( '' );
+								$statusEl.html( '<div class="acadp-text-success">' + response.message + '</div>' );
+							}
+
+							if ( acadp.recaptcha_report_abuse > 0 && acadp.recaptcha_type !== 'v3' ) {
+								grecaptcha.reset( acadp.recaptchas['report_abuse'] );
+							}
+
+							$submitButtonEl.find( '.acadp-spinner' ).remove();
+							$submitButtonEl.prop( 'disabled', false );
+						}, 'json' );
+					}
+
+					if ( isReCaptchaV3( 'report_abuse' ) ) {
+						// reCAPTCHA v3: a fresh token for every send. The button stays disabled meanwhile.
+						const $recaptchaErrorEl = $( '#acadp-report-abuse-form-error-recaptcha' );
+						$recaptchaErrorEl.html( '' ).prop( 'hidden', true );
+
+						ACADPGetReCaptchaToken( 'report_abuse' ).then(( token ) => {
+							data['g-recaptcha-response'] = token;
+							sendRequest();
+						}).catch(() => {
+							$recaptchaErrorEl.html( acadp.i18n.recaptcha_failed ).prop( 'hidden', false );
+
+							$submitButtonEl.find( '.acadp-spinner' ).remove();
+							$submitButtonEl.prop( 'disabled', false );
+						});
+					} else {
+						sendRequest();
+					}
+				});
 			}	
 
 			// Contact form
@@ -285,7 +314,7 @@
 					let isFormValid = ACADPCheckValidity( formEl );
 				
 					let recaptchaResponse = null;
-					if ( acadp.recaptcha_contact > 0 ) {	
+					if ( acadp.recaptcha_contact > 0 && acadp.recaptcha_type !== 'v3' ) {
 						recaptchaResponse = grecaptcha.getResponse( acadp.recaptchas['contact'] );
 			
 						if ( recaptchaResponse.length == 0 ) {
@@ -347,22 +376,42 @@
 						data[ fieldName ] = $formEl.find( '.acadp-magic-field input' ).val();
 					}
 
-					$.post( acadp.ajax_url, data, function( response ) {
-						if ( 1 == response.error ) {
-							$statusEl.html( '<div class="acadp-text-error">' + response.message + '</div>' );
-						} else {
-							$( '#acadp-contact-form-control-message' ).html( '' );
-							$statusEl.html( '<div class="acadp-text-success">' + response.message + '</div>' );
-						}
-				
-						if ( acadp.recaptcha_contact > 0 ) {
-							grecaptcha.reset( acadp.recaptchas['contact'] );
-						}						
-						
-						$submitButtonEl.find( '.acadp-spinner' ).remove();
-						$submitButtonEl.prop( 'disabled', false );
-					}, 'json' );
-				});					
+					const sendRequest = () => {
+						$.post( acadp.ajax_url, data, function( response ) {
+							if ( 1 == response.error ) {
+								$statusEl.html( '<div class="acadp-text-error">' + response.message + '</div>' );
+							} else {
+								$( '#acadp-contact-form-control-message' ).html( '' );
+								$statusEl.html( '<div class="acadp-text-success">' + response.message + '</div>' );
+							}
+
+							if ( acadp.recaptcha_contact > 0 && acadp.recaptcha_type !== 'v3' ) {
+								grecaptcha.reset( acadp.recaptchas['contact'] );
+							}
+
+							$submitButtonEl.find( '.acadp-spinner' ).remove();
+							$submitButtonEl.prop( 'disabled', false );
+						}, 'json' );
+					}
+
+					if ( isReCaptchaV3( 'contact' ) ) {
+						// reCAPTCHA v3: a fresh token for every send. The button stays disabled meanwhile.
+						const $recaptchaErrorEl = $( '#acadp-contact-form-error-recaptcha' );
+						$recaptchaErrorEl.html( '' ).prop( 'hidden', true );
+
+						ACADPGetReCaptchaToken( 'contact' ).then(( token ) => {
+							data['g-recaptcha-response'] = token;
+							sendRequest();
+						}).catch(() => {
+							$recaptchaErrorEl.html( acadp.i18n.recaptcha_failed ).prop( 'hidden', false );
+
+							$submitButtonEl.find( '.acadp-spinner' ).remove();
+							$submitButtonEl.prop( 'disabled', false );
+						});
+					} else {
+						sendRequest();
+					}
+				});				
 			}
 		});		
 		

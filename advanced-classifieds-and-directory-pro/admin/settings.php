@@ -514,23 +514,67 @@ class ACADP_Admin_Settings {
 						'registration' => __( 'User registration form', 'advanced-classifieds-and-directory-pro' ),
 						'listing'      => __( 'New listing form', 'advanced-classifieds-and-directory-pro' ),
 						'contact'      => __( 'Contact form', 'advanced-classifieds-and-directory-pro' ),
-						'report_abuse' => __( 'Report abuse form', 'advanced-classifieds-and-directory-pro' )				
+						'report_abuse' => __( 'Report abuse form', 'advanced-classifieds-and-directory-pro' )
 					),
 					'sanitize_callback' => 'acadp_sanitize_array'
 				),
 				array(
+                    'name'              => 'type',
+                    'label'             => __( 'reCAPTCHA type', 'advanced-classifieds-and-directory-pro' ),
+                    'description'       => __( 'Each reCAPTCHA type needs its own keys, created for that type in the Google reCAPTCHA admin console. If your site uses a page cache, clear it after switching.', 'advanced-classifieds-and-directory-pro' ),
+					'type'              => 'radio',
+					'options'           => array(
+						'v2' => __( 'reCAPTCHA v2 ("I\'m not a robot" checkbox)', 'advanced-classifieds-and-directory-pro' ),
+						'v3' => __( 'reCAPTCHA v3 (invisible, score-based)', 'advanced-classifieds-and-directory-pro' )
+					),
+					'sanitize_callback' => 'sanitize_key'
+				),
+				array(
                     'name'              => 'site_key',
                     'label'             => __( 'Site key', 'advanced-classifieds-and-directory-pro' ),
-                    'description'       => '',
+                    'description'       => sprintf(
+						/* translators: %s: Google reCAPTCHA admin console URL. */
+						__( 'Site key for reCAPTCHA v2 ("I\'m not a robot" checkbox). <a href="%s" target="_blank" rel="noopener noreferrer">Get your keys</a>.', 'advanced-classifieds-and-directory-pro' ),
+						esc_url( 'https://www.google.com/recaptcha/admin' )
+					),
 					'type'              => 'text',
 					'sanitize_callback' => 'sanitize_text_field'
 				),
 				array(
                     'name'              => 'secret_key',
                     'label'             => __( 'Secret key', 'advanced-classifieds-and-directory-pro' ),
-                    'description'       => '',
+                    'description'       => __( 'Secret key for reCAPTCHA v2 ("I\'m not a robot" checkbox).', 'advanced-classifieds-and-directory-pro' ),
 					'type'              => 'text',
 					'sanitize_callback' => 'sanitize_text_field'
+				),
+				array(
+                    'name'              => 'site_key_v3',
+                    'label'             => __( 'Site key', 'advanced-classifieds-and-directory-pro' ),
+                    'description'       => sprintf(
+						/* translators: %s: Google reCAPTCHA admin console URL. */
+						__( 'Site key for reCAPTCHA v3. <a href="%s" target="_blank" rel="noopener noreferrer">Get your keys</a>.', 'advanced-classifieds-and-directory-pro' ),
+						esc_url( 'https://www.google.com/recaptcha/admin' )
+					),
+					'type'              => 'text',
+					'sanitize_callback' => 'sanitize_text_field'
+				),
+				array(
+                    'name'              => 'secret_key_v3',
+                    'label'             => __( 'Secret key', 'advanced-classifieds-and-directory-pro' ),
+                    'description'       => __( 'Secret key for reCAPTCHA v3.', 'advanced-classifieds-and-directory-pro' ),
+					'type'              => 'text',
+					'sanitize_callback' => 'sanitize_text_field'
+				),
+				array(
+                    'name'              => 'score_threshold',
+                    'label'             => __( 'Score threshold', 'advanced-classifieds-and-directory-pro' ),
+                    'description'       => __( 'reCAPTCHA v3 scores every submission from 0.0 (very likely a bot) to 1.0 (very likely a human), and rejects submissions that score below this value. Google recommends starting at 0.5. Lower it if genuine users are being blocked, or raise it if spam still gets through.', 'advanced-classifieds-and-directory-pro' ),
+					'type'              => 'number',
+					'min'               => 0,
+					'max'               => 1,
+					'step'              => 0.1,
+					'size'              => 'small-text',
+					'sanitize_callback' => 'acadp_sanitize_recaptcha_threshold'
 				),
 			),
 			'acadp_currency_settings' => array(

@@ -28,8 +28,11 @@ if ( isset( $general_settings['required_fields'] ) ) {
 <div class="acadp acadp-listing-form acadp-require-js" data-script="listing-form">
 	<form action="<?php echo esc_url( acadp_get_listing_form_page_link() ); ?>" id="acadp-listing-form" method="post" role="form" data-js-enabled="false">
 		<div class="acadp-wrapper acadp-flex acadp-flex-col acadp-gap-6">
-			<?php acadp_status_messages(); ?>
-			
+			<?php
+			// Status messages
+			include apply_filters( 'acadp_load_template', ACADP_PLUGIN_DIR . 'public/templates/status-messages.php' );
+			?>
+
 			<!-- Listing Category -->
 			<div class="acadp-panel">
 				<div class="acadp-panel-header">

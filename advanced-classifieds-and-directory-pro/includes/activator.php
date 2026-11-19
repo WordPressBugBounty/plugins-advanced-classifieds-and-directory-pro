@@ -56,10 +56,14 @@ class ACADP_Activator {
 				'custom_forgot_password' => ''
 			),
 			'acadp_recaptcha_settings' => array(
-				'forms'      => array( 'registration', 'listing', 'contact' ),
-				'site_key'   => '',
-				'secret_key' => ''
-			),	
+				'forms'           => array( 'registration', 'listing', 'contact' ),
+				'type'            => 'v3',
+				'site_key'        => '',
+				'secret_key'      => '',
+				'site_key_v3'     => '',
+				'secret_key_v3'   => '',
+				'score_threshold' => 0.5
+			),
 			'acadp_currency_settings' => array(
 				'currency'            => 'USD',
 				'position'            => 'before',

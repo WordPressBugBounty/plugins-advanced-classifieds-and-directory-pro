@@ -31,7 +31,7 @@ foreach ( $this->sections as $section ) {
 }
 ?>
 
-<div id="acadp-settings" class="acadp acadp-settings wrap">
+<div id="acadp-settings" class="acadp acadp-settings acadp-require-js wrap" data-script="settings">
 	<h1>
 		<?php esc_html_e( 'Plugin Settings', 'advanced-classifieds-and-directory-pro' ); ?>
 	</h1>

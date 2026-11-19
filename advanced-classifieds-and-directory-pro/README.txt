@@ -6,7 +6,7 @@ Tags: business directory, classifieds, directory, listings, real estate
 Requires at least: 6.3
 Tested up to: 7.1
 Requires PHP: 5.6.20
-Stable tag: 3.5.1
+Stable tag: 3.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -126,7 +126,7 @@ NOTE: Admin can customize the Emails sent to users.
 * Comment on listings.
 * Allow Users to Contact Listing Owners.
 * Honeypot anti-spam technique to block spam submissions.
-* Show or Hide Google reCAPTCHA (v2) challenge in ACADP forms.
+* Protect ACADP forms with Google reCAPTCHA v2 ("I'm not a robot" checkbox) or reCAPTCHA v3 (invisible, score-based).
 
 More information at [PluginsWare](https://pluginsware.com/).
 
@@ -169,6 +169,12 @@ See our [FAQ](https://pluginsware.com/faq/) page, which is updated more regularl
 5. Others
 
 == Changelog ==
+
+= 3.5.3 =
+
+* New: Support for Google reCAPTCHA v3 alongside reCAPTCHA v2, selectable under "Settings → General → reCAPTCHA"; existing sites stay on v2, and each type keeps its own keys so you can switch at any time.
+* Tweak: reCAPTCHA verification now sends the secret key in a POST request instead of the URL, and no longer logs a PHP warning when Google cannot be reached.
+* Fix: Messages on the listing form, such as "Invalid Captcha" or a saved draft, were shown without styling when the "Force bootstrap CSS" setting is off.
 
 = 3.5.1 =
 
@@ -618,6 +624,6 @@ This is a major release and the plugin's front-end HTML layouts have been comple
 
 == Upgrade Notice ==
 
-= 3.5.1 =
+= 3.5.3 =
 
-Updated Freemius SDK to version 2.13.5. [See changelog](https://wordpress.org/plugins/advanced-classifieds-and-directory-pro/#developers)
+Adds Google reCAPTCHA v3 support. Existing sites stay on reCAPTCHA v2. [See changelog](https://wordpress.org/plugins/advanced-classifieds-and-directory-pro/#developers)
